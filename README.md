@@ -15,7 +15,7 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 ### 👨‍👩‍👧‍👦 For Families
 - **Smart Caregiver Discovery**: Find verified caregivers by location, expertise, and availability
 - **Secure Booking System**: Schedule one-time or recurring care services
-- **Real-time Communication**: Direct messaging and video calls with caregivers
+- **Real-time Communication**: Direct messaging with caregivers
 - **Safety First**: Access verified background checks and reviews
 
 ### 👩‍⚕️ For Caregivers
