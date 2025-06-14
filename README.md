@@ -124,69 +124,46 @@ Before you begin, ensure you have the following installed:
 
 ## ⚡ Quick Start
 
-### 1. Clone the Repository
+### 1. Project Setup
 ```bash
-git clone https://github.com/your-username/carefinder-platform.git
+# Create your project directory
+mkdir carefinder-platform
 cd carefinder-platform
 ```
 
 ### 2. Install Dependencies
 ```bash
 # Install backend dependencies
-cd backend
-npm install
+npm init -y
+npm install express mongoose jsonwebtoken bcryptjs cors dotenv
 
-# Install frontend dependencies
-cd ../frontend
-npm install
+# Install frontend dependencies (Next.js)
+npx create-next-app@latest frontend --typescript --tailwind --eslint --app
 
-# Install AI service dependencies (if running locally)
-cd ../ai-services
-pip install -r requirements.txt
+# Install AI service dependencies (Python)
+pip install fastapi uvicorn langchain openai pinecone-client
 ```
 
-### 3. Environment Configuration
-```bash
-# Backend environment (.env)
-cp .env.example .env
-
-# Configure your environment variables:
-# - MongoDB connection string
-# - JWT secret key
-# - API keys for external services
-# - Database credentials
-```
-
-### 4. Database Setup
+### 3. Database Setup
 ```bash
 # Start MongoDB (if running locally)
 mongod
 
-# Run database migrations
-cd backend
-npm run db:migrate
+# Create database and collections as needed
 ```
 
-### 5. Start Development Servers
+### 4. Start Development
 ```bash
-# Terminal 1: Start backend server
-cd backend
-npm run dev
-
-# Terminal 2: Start frontend server
-cd frontend
-npm run dev
-
-# Terminal 3: Start AI services (if running locally)
-cd ai-services
-uvicorn main:app --reload
+# Start your development servers
+# Backend: node server.js
+# Frontend: cd frontend && npm run dev
+# AI Services: uvicorn main:app --reload
 ```
 
-### 6. Access the Application
+### 5. Access the Application
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
 - **AI Services**: http://localhost:8001
-- **API Documentation**: http://localhost:5000/api-docs
 
 ## 📁 Project Structure
 
@@ -225,8 +202,6 @@ npm run build        # Build production bundle
 npm run start        # Start production server
 npm run test         # Run test suite
 npm run lint         # Run ESLint
-npm run db:migrate   # Run database migrations
-npm run db:seed      # Seed database with sample data
 ```
 
 ### Frontend Scripts
@@ -236,7 +211,6 @@ npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # Run ESLint
 npm run test         # Run Jest tests
-npm run e2e          # Run Cypress end-to-end tests
 ```
 
 ## 🧪 Testing
@@ -294,41 +268,19 @@ docker-compose up -d
 
 ## 🔐 Environment Variables
 
+You'll need to set up environment variables for various services:
+
 ### Backend Configuration
-```env
-# Database
-MONGODB_URI=mongodb://localhost:27017/carefinder
-DB_NAME=carefinder
-
-# Authentication
-JWT_SECRET=your-jwt-secret-key
-JWT_EXPIRE=7d
-
-# External APIs
-GEMINI_API_KEY=your-gemini-api-key
-PAYHERE_MERCHANT_ID=your-payhere-merchant-id
-PAYHERE_SECRET=your-payhere-secret
-SENDGRID_API_KEY=your-sendgrid-api-key
-
-# File Storage
-CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
-CLOUDINARY_API_KEY=your-cloudinary-api-key
-CLOUDINARY_API_SECRET=your-cloudinary-api-secret
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-```
+- Database connection strings
+- JWT secrets
+- API keys for external services (Gemini, PayHere, SendGrid, Cloudinary)
+- Server configuration
 
 ### Frontend Configuration
-```env
-# API Configuration
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-NEXT_PUBLIC_AI_SERVICE_URL=http://localhost:8001
+- API endpoint URLs
+- External service keys (Google Maps, etc.)
 
-# External Services
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
-```
+*Note: Specific environment variable setup will be documented as features are implemented.*
 
 ## 🤝 Contributing
 
@@ -394,7 +346,7 @@ We welcome contributions from the community! Please read our [Contributing Guide
 - **Chatbot**: `/chat`
 - **Health Check**: `/health`
 
-Full API documentation is available at `/api-docs` when running the development server.
+*Full API documentation will be available at `/api-docs` when running the development server.*
 
 ## 🆘 Support & Help
 
@@ -404,15 +356,13 @@ Full API documentation is available at `/api-docs` when running the development 
 - **Discussions**: Use GitHub Discussions for questions
 - **Email**: contact@carefinder.lk for business inquiries
 
-### FAQ
-**Q: How do I reset my development database?**
-A: Run `npm run db:reset` in the backend directory.
+## 👥 Our Team
 
-**Q: Why are my AI services not working?**
-A: Ensure your API keys are properly configured in the environment variables.
-
-**Q: How do I update dependencies?**
-A: Use `npm update` and check for major version updates manually.
+- **Aditha Buwaneka** - Team Leader
+- **Nethmal Gunawardhana**
+- **Ishan Hansaka**
+- **Pramudi Piyumika**
+- **Sakna Rajapaksha**
 
 ## 📄 License
 
