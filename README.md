@@ -13,7 +13,7 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 ## 🌟 Key Features
 
 ### 👨‍👩‍👧‍👦 For Families
-- **Smart Caregiver Discovery**: Find verified caregivers by location, expertise, and availability
+- **Caregiver Discovery**: Find verified caregivers by location, expertise, and availability
 - **Secure Booking System**: Schedule one-time or recurring care services
 - **Real-time Communication**: Direct messaging with caregivers
 - **Safety First**: Access verified background checks and reviews
@@ -97,7 +97,6 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 - **Database**: MongoDB with Mongoose ODM
 - **Authentication**: JSON Web Tokens (JWT)
 - **File Upload**: Multer middleware
-- **API Documentation**: Swagger/OpenAPI
 
 ### AI & Machine Learning
 - **Document Verification**: Google Gemini Vision API
@@ -111,6 +110,12 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 - **File Storage**: Cloudinary
 - **Hosting**: Railway
 - **Real-time**: WebSocket
+
+### Development Tools
+- **API Testing**: Postman
+- **Version Control**: Git
+- **Package Manager**: npm/yarn
+- **Code Quality**: ESLint, Prettier
 
 ## 📋 Prerequisites
 
