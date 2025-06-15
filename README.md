@@ -8,7 +8,7 @@
 [![AI Powered](https://img.shields.io/badge/AI-Powered-blue?style=flat-square&logo=openai)](https://ai.google.dev/)
 [![Railway](https://img.shields.io/badge/Deploy-Railway-purple?style=flat-square&logo=railway)](https://railway.app/)
 
-CareFinder is a comprehensive web platform that connects families seeking childcare and elderly care services with qualified, verified caregivers in Sri Lanka. The platform ensures safety through AI-powered document verification and provides intelligent matching through advanced algorithms.
+CareFinder is a comprehensive web platform that connects families seeking childcare and elderly care services with qualified, verified caregivers in Sri Lanka. The platform ensures safety through AI-powered document verification and provides streamlined caregiver discovery.
 
 ## 🌟 Key Features
 
@@ -40,8 +40,7 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 
 ### 💬 RAG-Powered Chatbot
 - **Intelligent Assistance**: Context-aware responses using Retrieval-Augmented Generation
-- **Platform Knowledge**: Trained on CareFinder policies, procedures, and FAQ
-- **Multi-language Support**: Sinhala and English language capabilities
+- **Platform Knowledge**: Trained on CareFinder policies and procedures
 - **24/7 Availability**: Round-the-clock customer support and guidance
 
 ## 🏗️ System Architecture
