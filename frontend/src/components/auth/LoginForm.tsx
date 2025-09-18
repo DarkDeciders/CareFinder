@@ -42,23 +42,29 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {[
-              { key: 'family', label: 'Family', color: 'primary' },
-              { key: 'caregiver', label: 'Caregiver', color: 'secondary' },
-              { key: 'admin', label: 'Admin', color: 'warning' }
-            ].map((type) => (
-              <button
-                key={type.key}
-                type="button"
-                onClick={() => onUserTypeChange(type.key)}
-                className={`p-3 text-sm font-medium rounded-lg border transition-all ${
-                  userType === type.key
-                    ? `bg-${type.color}-50 border-${type.color}-200 text-${type.color}-700 dark:bg-${type.color}-900/20 dark:border-${type.color}-700 dark:text-${type.color}-400`
-                    : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50'
-                }`}
-              >
-                {type.label}
-              </button>
-            ))}
+              { key: 'family', label: 'Family' },
+              { key: 'caregiver', label: 'Caregiver' },
+              { key: 'admin', label: 'Admin' }
+            ].map((type) => {
+              const activeClasses: Record<string, string> = {
+                family: 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/20 dark:border-primary-700 dark:text-primary-400',
+                caregiver: 'bg-secondary-50 border-secondary-200 text-secondary-700 dark:bg-secondary-900/20 dark:border-secondary-700 dark:text-secondary-400',
+                admin: 'bg-warning-50 border-warning-200 text-warning-700 dark:bg-warning-900/20 dark:border-warning-700 dark:text-warning-400'
+              };
+
+              const inactive = 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50';
+
+              return (
+                <button
+                  key={type.key}
+                  type="button"
+                  onClick={() => onUserTypeChange(type.key)}
+                  className={`p-3 text-sm font-medium rounded-lg border transition-all ${userType === type.key ? activeClasses[type.key] : inactive}`}
+                >
+                  {type.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 
