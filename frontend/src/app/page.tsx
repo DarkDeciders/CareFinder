@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
@@ -17,6 +18,22 @@ export default function Home() {
       setDarkMode(false);
       document.documentElement.classList.remove('dark');
     }
+
+    // Navbar scroll animation
+    const navbar = document.querySelector('nav');
+    const handleScroll = () => {
+      console.log('Scroll Y:', window.scrollY);
+      if (window.scrollY > 50) {
+        console.log('Adding scrolled class');
+        navbar?.classList.add('scrolled');
+      } else {
+        console.log('Removing scrolled class');
+        navbar?.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleDarkMode = () => {
@@ -88,7 +105,10 @@ export default function Home() {
                   </svg>
                 )}
               </button>
-              <button className="p-2">
+              <button
+                className="p-2"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
                 <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -96,6 +116,20 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
+            <div className="px-4 py-3 space-y-3">
+              <a href="#services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
+              <a href="#how-it-works" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
+              <a href="#safety" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
+              <button className="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm mt-3">
+                Sign In
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
