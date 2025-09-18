@@ -1,7 +1,9 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 import FamilyProfile from '../family/FamilyProfile';
+import FamilyOverview from '../family/FamilyOverview';
+import FamilyBookings from '../family/FamilyBookings';
 
 export default function FamilyDashboard() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -11,7 +13,7 @@ export default function FamilyDashboard() {
       case 'overview':
         return (
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Overview content - stats, recent activity */}
+            <FamilyOverview />
           </div>
         );
       case 'search':
@@ -23,7 +25,7 @@ export default function FamilyDashboard() {
       case 'bookings':
         return (
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* My bookings list */}
+            <FamilyBookings />
           </div>
         );
       case 'messages':
@@ -59,11 +61,13 @@ export default function FamilyDashboard() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-sm text-gray-600 dark:text-gray-300">
-                Welcome, <span className="font-semibold">{
-                  typeof window !== 'undefined' && localStorage.getItem('demoUser')
+                Welcome,{' '}
+                <span className="font-semibold">
+                  {typeof window !== 'undefined' &&
+                  localStorage.getItem('demoUser')
                     ? JSON.parse(localStorage.getItem('demoUser') || '{}').name
-                    : 'Family User'
-                }</span>
+                    : 'Family User'}
+                </span>
               </div>
               <button
                 onClick={() => {
@@ -74,8 +78,18 @@ export default function FamilyDashboard() {
                 className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Logout"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
                 </svg>
               </button>
             </div>
@@ -92,7 +106,7 @@ export default function FamilyDashboard() {
               { key: 'search', label: 'Find Caregivers', icon: '🔍' },
               { key: 'bookings', label: 'My Bookings', icon: '📅' },
               { key: 'messages', label: 'Messages', icon: '💬' },
-              { key: 'profile', label: 'Profile', icon: '👤' }
+              { key: 'profile', label: 'Profile', icon: '👤' },
             ].map((tab) => (
               <button
                 key={tab.key}
