@@ -138,7 +138,7 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
         {/* Register Link */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <a href="/register" className="text-primary-600 hover:text-primary-500 font-medium">
               Sign up here
             </a>

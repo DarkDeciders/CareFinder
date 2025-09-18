@@ -82,7 +82,7 @@ export default function AdminSettings() {
       console.log('Saving settings:', settings);
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
       alert('Settings saved successfully!');
-    } catch (error) {
+    } catch {
       alert('Error saving settings. Please try again.');
     } finally {
       setIsSaving(false);

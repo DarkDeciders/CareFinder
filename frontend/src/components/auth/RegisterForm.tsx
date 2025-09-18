@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 interface RegisterFormProps {
   userType: string;
   onUserTypeChange: (type: string) => void;
-  onRegister: (formData: any) => void;
+  onRegister: (formData: { userType: string; name: string; email: string; password?: string; phone?: string; location?: string; agreeTerms?: boolean }) => void;
 }
 
 export default function RegisterForm({ userType, onUserTypeChange, onRegister }: RegisterFormProps) {
@@ -61,7 +61,7 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
               }`}
             >
               <div className="font-semibold">Find Care</div>
-              <div className="text-sm opacity-75">I'm looking for a caregiver</div>
+              <div className="text-sm opacity-75">I&apos;m looking for a caregiver</div>
             </button>
             <button
               type="button"
@@ -73,7 +73,7 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
               }`}
             >
               <div className="font-semibold">Provide Care</div>
-              <div className="text-sm opacity-75">I'm a professional caregiver</div>
+              <div className="text-sm opacity-75">I&apos;m a professional caregiver</div>
             </button>
           </div>
         </div>

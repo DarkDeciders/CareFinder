@@ -264,7 +264,7 @@ export default function Home() {
               Comprehensive Care Services
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Professional care solutions tailored to your family's unique needs
+              Professional care solutions tailored to your family&apos;s unique needs
             </p>
           </div>
 

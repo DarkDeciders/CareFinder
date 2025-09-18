@@ -6,7 +6,7 @@ import RegisterForm from '@/components/auth/RegisterForm';
 export default function Register() {
   const [userType, setUserType] = useState('family');
 
-  const handleRegister = (formData: any) => {
+  const handleRegister = (formData: { userType: string; name: string; email: string; password?: string; phone?: string; location?: string; agreeTerms?: boolean }) => {
     // Registration logic will be handled by backend team
     console.log('Registration attempt:', formData);
 
