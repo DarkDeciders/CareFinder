@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import AdminSettings from '../admin/AdminSettings';
 
 export default function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('overview');
@@ -63,14 +64,7 @@ export default function AdminDashboard() {
           </div>
         );
       case 'settings':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">System Settings</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* Platform settings, configurations */}
-            </div>
-          </div>
-        );
+        return <AdminSettings />;
       default:
         return (
           <div className="space-y-6">

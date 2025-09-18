@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import FamilyProfile from '../family/FamilyProfile';
 
 export default function FamilyDashboard() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -32,11 +33,7 @@ export default function FamilyDashboard() {
           </div>
         );
       case 'profile':
-        return (
-          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Profile settings */}
-          </div>
-        );
+        return <FamilyProfile />;
       default:
         return (
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
