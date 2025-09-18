@@ -45,8 +45,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        {children}
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased text-gray-900 dark:text-white transition-colors duration-300 relative`}>
+        <div className="relative min-h-screen">
+          {/* Global Background Image Layer */}
+          <div className="fixed inset-0 w-full h-full global-bg opacity-80 dark:opacity-60 z-0"></div>
+          {/* Background Color Overlay */}
+          <div className="fixed inset-0 w-full h-full bg-white/30 dark:bg-gray-950/40 z-0"></div>
+          <div className="relative z-10">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

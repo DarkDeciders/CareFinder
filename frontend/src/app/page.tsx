@@ -31,7 +31,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
+    <div className="min-h-screen transition-colors duration-300">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,27 +100,27 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900"></div>
+        {/* Background overlay for hero */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/60 via-white/70 to-secondary-50/60 dark:from-gray-900/70 dark:via-gray-950/80 dark:to-gray-900/70"></div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary-200 dark:bg-primary-900/20 rounded-full blur-3xl opacity-20"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-200 dark:bg-secondary-900/20 rounded-full blur-3xl opacity-20"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
-            <div className="lg:col-span-7 animate-fade-in">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-gray-900 dark:text-white leading-tight">
-                Find Trusted
-                <span className="block text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+          <div className="text-center animate-fade-in">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-gray-900 dark:text-white leading-relaxed">
+                <div className="block mb-2">Find Trusted</div>
+                <div className="block text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text mb-2">
                   Caregivers
-                </span>
-                for Your Family
+                </div>
+                <div className="block">for Your Family</div>
               </h1>
-              <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+              <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-2xl leading-relaxed">
                 Connect with verified, professional caregivers for childcare and elderly care services across Sri Lanka.
                 Safe, reliable, and convenient care solutions with 24/7 support.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                   Find a Caregiver
                   <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,74 +133,83 @@ export default function Home() {
               </div>
 
               {/* Trust indicators */}
-              <div className="mt-12 grid grid-cols-3 gap-8 text-center sm:text-left">
-                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                  <div className="w-12 h-12 bg-success-100 dark:bg-success-900/20 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-success-600 dark:text-success-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+              <div className="mt-12 max-w-3xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                  <div className="flex flex-col items-center space-y-3">
+                    <div className="w-12 h-12 bg-success-100 dark:bg-success-900/20 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-success-600 dark:text-success-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">Verified</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">Background Checked</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-white">Verified</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">Background Checked</div>
-                  </div>
-                </div>
 
-                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
+                  <div className="flex flex-col items-center space-y-3">
+                    <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">Secure</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">Protected Payments</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-white">Secure</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">Protected Payments</div>
-                  </div>
-                </div>
 
-                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                  <div className="w-12 h-12 bg-warning-100 dark:bg-warning-900/20 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-warning-600 dark:text-warning-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-white">24/7</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">Support Available</div>
+                  <div className="flex flex-col items-center space-y-3">
+                    <div className="w-12 h-12 bg-warning-100 dark:bg-warning-900/20 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-warning-600 dark:text-warning-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">24/7</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">Support Available</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 mt-16 lg:mt-0">
-              <div className="relative animate-slide-up">
-                <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-soft-lg dark:shadow-2xl p-8 border border-gray-100 dark:border-gray-700">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Quick Start</h3>
+          </div>
+        </div>
+      </section>
 
-                    <div className="space-y-4">
-                      <div className="flex items-center p-4 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-xl border border-primary-200 dark:border-primary-700/30">
-                        <div className="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 shadow-md">1</div>
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">Search caregivers near you</span>
-                      </div>
+      {/* Quick Start Section */}
+      <section className="py-20 bg-white/20 dark:bg-gray-950/20 border-t border-gray-200/50 dark:border-gray-800/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">How to Get Started</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">Simple steps to find your perfect caregiver</p>
+          </div>
 
-                      <div className="flex items-center p-4 bg-gradient-to-r from-secondary-50 to-secondary-100 dark:from-secondary-900/20 dark:to-secondary-800/20 rounded-xl border border-secondary-200 dark:border-secondary-700/30">
-                        <div className="w-10 h-10 bg-secondary-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 shadow-md">2</div>
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">Review profiles & ratings</span>
-                      </div>
-
-                      <div className="flex items-center p-4 bg-gradient-to-r from-success-50 to-success-100 dark:from-success-900/20 dark:to-success-800/20 rounded-xl border border-success-200 dark:border-success-700/30">
-                        <div className="w-10 h-10 bg-success-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 shadow-md">3</div>
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">Book & enjoy peace of mind</span>
-                      </div>
-                    </div>
-                  </div>
+          <div className="bg-white/80 dark:bg-gray-800/80 rounded-3xl shadow-soft-lg dark:shadow-2xl p-8 border border-gray-100/50 dark:border-gray-700/50">
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                  1
                 </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Search Caregivers</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Find verified caregivers near you</p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                  2
+                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Review Profiles</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Check ratings and reviews</p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-success-500 to-success-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                  3
+                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Book & Enjoy</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Secure booking with peace of mind</p>
               </div>
             </div>
           </div>
@@ -208,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900/50">
+      <section id="services" className="py-20 bg-white/10 dark:bg-gray-950/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">
@@ -221,7 +230,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Childcare */}
-            <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg dark:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-primary-200 dark:hover:border-primary-700">
+            <div className="group bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg dark:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-gray-100/50 dark:border-gray-700/50 hover:border-primary-200 dark:hover:border-primary-700">
               <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1a3 3 0 000-6h-1m4 6V4a3 3 0 013 3v2.5M15 11V9a3 3 0 00-3-3h-2m8 8v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2" />
@@ -248,7 +257,7 @@ export default function Home() {
             </div>
 
             {/* Elderly Care */}
-            <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg dark:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-secondary-200 dark:hover:border-secondary-700">
+            <div className="group bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg dark:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-gray-100/50 dark:border-gray-700/50 hover:border-secondary-200 dark:hover:border-secondary-700">
               <div className="w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -275,7 +284,7 @@ export default function Home() {
             </div>
 
             {/* Special Needs */}
-            <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg dark:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-success-200 dark:hover:border-success-700">
+            <div className="group bg-white/70 dark:bg-gray-800/70 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg dark:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-gray-100/50 dark:border-gray-700/50 hover:border-success-200 dark:hover:border-success-700">
               <div className="w-16 h-16 bg-gradient-to-br from-success-500 to-success-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -305,7 +314,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-white dark:bg-gray-950">
+      <section id="how-it-works" className="py-20 bg-white/20 dark:bg-gray-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">
@@ -349,7 +358,7 @@ export default function Home() {
       </section>
 
       {/* Safety Section */}
-      <section id="safety" className="py-20 bg-gradient-to-br from-gray-50 to-primary-50 dark:from-gray-900 dark:to-gray-800">
+      <section id="safety" className="py-20 bg-gradient-to-br from-white/15 to-primary-50/15 dark:from-gray-950/15 dark:to-gray-800/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div>
@@ -400,7 +409,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 lg:mt-0">
-              <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-3xl p-8 text-white shadow-2xl">
+              <div className="bg-gradient-to-br from-primary-600/80 to-secondary-600/80 rounded-3xl p-8 text-white shadow-2xl backdrop-blur-sm">
                 <h3 className="text-2xl font-bold mb-8">Platform Statistics</h3>
                 <div className="grid grid-cols-2 gap-8">
                   <div className="text-center">
@@ -427,7 +436,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 via-primary-700 to-secondary-600">
+      <section className="py-20 bg-gradient-to-r from-primary-600/70 via-primary-700/70 to-secondary-600/70 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
             Ready to Find Your Perfect Caregiver?

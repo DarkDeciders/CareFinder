@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global background image for entire application */
+.global-bg {
+  background-image: url('/carefinder.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Background layer that covers entire viewport and scrolls with content */
+.bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+/* Ensure body and html cover full height */
+html, body {
+  min-height: 100vh;
+}
