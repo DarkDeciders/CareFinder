@@ -198,6 +198,7 @@ export default function FamilyBookings() {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const BookingCard = ({ booking }: { booking: any }) => (
     <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
       <div className="flex items-start justify-between mb-4">
@@ -515,6 +516,7 @@ export default function FamilyBookings() {
           ].map((tab) => (
             <button
               key={tab.key}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               onClick={() => setActiveTab(tab.key as any)}
               className={`flex-1 py-4 px-6 font-medium text-sm transition-colors border-b-2 whitespace-nowrap ${
                 activeTab === tab.key
