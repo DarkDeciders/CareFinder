@@ -84,6 +84,7 @@ export default function Home() {
                 )}
               </button>
 
+              <a href="/register" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Sign Up</a>
               <a href="/login" className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm">
                 Sign In
               </a>
@@ -124,9 +125,14 @@ export default function Home() {
               <a href="#services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
               <a href="#how-it-works" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
               <a href="#safety" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
-              <button className="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm mt-3">
-                Sign In
-              </button>
+              <div className="flex space-x-3 mt-3">
+                <a href="/register" className="flex-1 text-center border border-primary-600 text-primary-600 px-6 py-2 rounded-lg font-medium transition-colors">
+                  Sign Up
+                </a>
+                <a href="/login" className="flex-1 text-center bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm">
+                  Sign In
+                </a>
+              </div>
             </div>
           </div>
         )}
