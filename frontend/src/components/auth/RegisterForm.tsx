@@ -29,8 +29,8 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-soft-lg dark:shadow-2xl p-8 border border-gray-100/50 dark:border-gray-700/50">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6">
+      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-soft-lg dark:shadow-2xl p-6 sm:p-8 border border-gray-100/50 dark:border-gray-700/50">
         {/* Logo & Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
@@ -50,7 +50,7 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
             I want to...
           </label>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <button
               type="button"
               onClick={() => onUserTypeChange('family')}

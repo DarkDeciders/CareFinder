@@ -47,13 +47,13 @@ export default function CaregiverDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
       {/* Header */}
       <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-secondary-500 to-primary-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
                 <div className="w-4 h-4 bg-white rounded-sm"></div>
               </div>
               <div className="text-xl font-display font-bold text-gray-900 dark:text-white">
@@ -72,7 +72,7 @@ export default function CaregiverDashboard() {
                 onClick={() => {
                   localStorage.removeItem('demoUserType');
                   localStorage.removeItem('demoUser');
-                  window.location.href = '/';
+                  window.location.href = '/login';
                 }}
                 className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Logout"
@@ -89,7 +89,7 @@ export default function CaregiverDashboard() {
       {/* Navigation Tabs */}
       <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-8">
+          <nav className="flex overflow-x-auto space-x-8 scrollbar-hide">
             {[
               { key: 'overview', label: 'Overview', icon: '📊' },
               { key: 'jobs', label: 'Available Jobs', icon: '💼' },
@@ -100,14 +100,15 @@ export default function CaregiverDashboard() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors whitespace-nowrap ${
                   activeTab === tab.key
-                    ? 'border-secondary-500 text-secondary-600 dark:text-secondary-400'
+                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
                     : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
-                {tab.label}
+                <span className="mr-2 sm:inline hidden">{tab.icon}</span>
+                <span className="sm:hidden">{tab.icon}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
               </button>
             ))}
           </nav>

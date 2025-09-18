@@ -72,7 +72,7 @@ export default function FamilyDashboard() {
                 onClick={() => {
                   localStorage.removeItem('demoUserType');
                   localStorage.removeItem('demoUser');
-                  window.location.href = '/';
+                  window.location.href = '/login';
                 }}
                 className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Logout"
@@ -89,7 +89,7 @@ export default function FamilyDashboard() {
       {/* Navigation Tabs */}
       <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-8">
+          <nav className="flex overflow-x-auto space-x-8 scrollbar-hide">
             {[
               { key: 'overview', label: 'Overview', icon: '📊' },
               { key: 'search', label: 'Find Caregivers', icon: '🔍' },
@@ -100,14 +100,15 @@ export default function FamilyDashboard() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors whitespace-nowrap ${
                   activeTab === tab.key
                     ? 'border-primary-500 text-primary-600 dark:text-primary-400'
                     : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
-                {tab.label}
+                <span className="mr-2 sm:inline hidden">{tab.icon}</span>
+                <span className="sm:hidden">{tab.icon}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
               </button>
             ))}
           </nav>

@@ -19,8 +19,8 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
   };
 
   return (
-    <div className="w-full max-w-md">
-      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-soft-lg dark:shadow-2xl p-8 border border-gray-100/50 dark:border-gray-700/50">
+    <div className="w-full max-w-md mx-auto px-4 sm:px-0">
+      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-soft-lg dark:shadow-2xl p-6 sm:p-8 border border-gray-100/50 dark:border-gray-700/50">
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
@@ -40,7 +40,7 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
             I am a...
           </label>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {[
               { key: 'family', label: 'Family', color: 'primary' },
               { key: 'caregiver', label: 'Caregiver', color: 'secondary' },
