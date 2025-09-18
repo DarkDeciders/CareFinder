@@ -1,7 +1,8 @@
-'use client'
+"use client"
 
 import React, { useState } from 'react';
 import LoginForm from '@/components/auth/LoginForm';
+import ThemeToggle from '@/components/common/ThemeToggle';
 
 export default function Login() {
   const [userType, setUserType] = useState('family');
@@ -34,6 +35,10 @@ export default function Login() {
       {/* Background effects */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary-200 dark:bg-primary-900/20 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-200 dark:bg-secondary-900/20 rounded-full blur-3xl opacity-20"></div>
+
+      <div className="absolute top-4 right-4 z-20">
+        <ThemeToggle />
+      </div>
 
       <div className="relative z-10">
         <LoginForm

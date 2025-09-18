@@ -3,15 +3,26 @@
 import React, { useEffect, useState } from 'react';
 
 export default function ThemeToggle({ className = '' }: { className?: string }) {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window === 'undefined') return 'light';
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') return saved;
-    // default to prefers-color-scheme
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
-  });
+  // Initialize to a deterministic value to avoid SSR/CSR hydration mismatch.
+  // We'll read the real preference on mount (inside useEffect).
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
+  // On mount, read saved preference or prefers-color-scheme and update state.
+  useEffect(() => {
+    try {
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
+      if (saved === 'dark' || saved === 'light') {
+        setTheme(saved);
+        return;
+      }
+      const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark ? 'dark' : 'light');
+    } catch {
+      // ignore storage access errors
+    }
+  }, []);
+
+  // Apply theme class to root and persist preference whenever `theme` changes.
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {

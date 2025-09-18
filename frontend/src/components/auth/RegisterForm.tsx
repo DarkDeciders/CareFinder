@@ -51,30 +51,29 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
             I want to...
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button
-              type="button"
-              onClick={() => onUserTypeChange('family')}
-              className={`p-4 text-left rounded-lg border transition-all ${
-                userType === 'family'
-                  ? 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/20 dark:border-primary-700 dark:text-primary-400'
-                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50'
-              }`}
-            >
-              <div className="font-semibold">Find Care</div>
-              <div className="text-sm opacity-75">I&apos;m looking for a caregiver</div>
-            </button>
-            <button
-              type="button"
-              onClick={() => onUserTypeChange('caregiver')}
-              className={`p-4 text-left rounded-lg border transition-all ${
-                userType === 'caregiver'
-                  ? 'bg-secondary-50 border-secondary-200 text-secondary-700 dark:bg-secondary-900/20 dark:border-secondary-700 dark:text-secondary-400'
-                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50'
-              }`}
-            >
-              <div className="font-semibold">Provide Care</div>
-              <div className="text-sm opacity-75">I&apos;m a professional caregiver</div>
-            </button>
+            {[
+              { key: 'family', title: 'Find Care', subtitle: "I'm looking for a caregiver" },
+              { key: 'caregiver', title: 'Provide Care', subtitle: "I'm a professional caregiver" }
+            ].map((opt) => {
+              const activeMap: Record<string, string> = {
+                family: 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/20 dark:border-primary-700 dark:text-primary-400',
+                caregiver: 'bg-secondary-50 border-secondary-200 text-secondary-700 dark:bg-secondary-900/20 dark:border-secondary-700 dark:text-secondary-400'
+              };
+
+              const inactive = 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50';
+
+              return (
+                <button
+                  key={opt.key}
+                  type="button"
+                  onClick={() => onUserTypeChange(opt.key)}
+                  className={`p-4 text-left rounded-lg border transition-all ${userType === opt.key ? activeMap[opt.key] : inactive}`}
+                >
+                  <div className="font-semibold">{opt.title}</div>
+                  <div className="text-sm opacity-75">{opt.subtitle}</div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
