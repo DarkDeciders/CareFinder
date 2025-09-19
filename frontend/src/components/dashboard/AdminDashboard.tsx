@@ -1,7 +1,16 @@
 'use client'
 
 import React, { useState } from 'react';
+
+import AdminOverview from '../admin/AdminOverview';
 import AdminSettings from '../admin/AdminSettings';
+import UserManagement from '../admin/UserManagement';
+import Verifications from '../admin/Verifications';
+import TrainerManagement from '../admin/TrainerManagement';
+import AgentControl from '../admin/AgentControl';
+import Bookings from '../admin/Bookings';
+import Reports from '../admin/Reports';
+import ThemeToggle from '../common/ThemeToggle';
 
 export default function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('overview');
@@ -11,6 +20,8 @@ export default function AdminDashboard() {
     { key: 'overview', label: 'Overview', icon: '📊' },
     { key: 'users', label: 'User Management', icon: '👥' },
     { key: 'verifications', label: 'Verifications', icon: '✅' },
+    { key: 'trainers', label: 'Trainer Management', icon: '🎓' },
+    { key: 'agents', label: 'Agent Control', icon: '🚗' },
     { key: 'bookings', label: 'Bookings', icon: '📅' },
     { key: 'reports', label: 'Reports', icon: '📈' },
     { key: 'settings', label: 'Settings', icon: '⚙️' }
@@ -19,50 +30,19 @@ export default function AdminDashboard() {
   const renderContent = () => {
     switch (activeSection) {
       case 'overview':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Admin Overview</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* Dashboard stats, system overview */}
-            </div>
-          </div>
-        );
+        return <AdminOverview />;
       case 'users':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">User Management</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* User list, approve/suspend users */}
-            </div>
-          </div>
-        );
+          return <UserManagement />;
       case 'verifications':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Pending Verifications</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* Document verification, background checks */}
-            </div>
-          </div>
-        );
+          return <Verifications />;
+      case 'trainers':
+          return <TrainerManagement />;
+      case 'agents':
+          return <AgentControl />;
       case 'bookings':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Booking Management</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* All bookings, disputes, refunds */}
-            </div>
-          </div>
-        );
+          return <Bookings />;
       case 'reports':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Reports & Analytics</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* Analytics, revenue reports, user activity */}
-            </div>
-          </div>
-        );
+          return <Reports />;
       case 'settings':
         return <AdminSettings />;
       default:
@@ -78,11 +58,19 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 flex">
+    <div className="h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 flex overflow-hidden">
+      {/* Mobile Sidebar Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={() => setMobileMenuOpen(false)}></div>
+      )}
+
       {/* Sidebar */}
-      <div className="hidden lg:block w-64 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-r border-gray-200 dark:border-gray-700">
+      <div className={`
+        ${mobileMenuOpen ? 'fixed inset-y-0 left-0 z-50' : 'hidden'}
+        lg:block lg:relative w-64 flex-shrink-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-r border-gray-200 dark:border-gray-700 flex flex-col h-full
+      `}>
         {/* Logo */}
-        <div className="p-6">
+        <div className="p-6 flex-shrink-0">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm"></div>
@@ -93,13 +81,16 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className="px-4 pb-4">
+        {/* Navigation - Scrollable */}
+        <nav className="flex-1 px-4 pb-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
           <ul className="space-y-2">
             {sidebarItems.map((item) => (
               <li key={item.key}>
                 <button
-                  onClick={() => setActiveSection(item.key)}
+                  onClick={() => {
+                    setActiveSection(item.key);
+                    setMobileMenuOpen(false);
+                  }}
                   className={`w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                     activeSection === item.key
                       ? 'bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 border border-primary-200 dark:border-primary-700'
@@ -114,8 +105,8 @@ export default function AdminDashboard() {
           </ul>
         </nav>
 
-        {/* User Info */}
-        <div className="absolute bottom-0 w-64 p-4 border-t border-gray-200 dark:border-gray-700">
+        {/* User Info - Fixed at bottom */}
+        <div className="flex-shrink-0 p-4 border-t border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
               <span className="text-primary-600 dark:text-primary-400 text-sm font-bold">A</span>
@@ -133,9 +124,9 @@ export default function AdminDashboard() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1">
+      <div className="flex-1 min-w-0 flex flex-col h-full">
         {/* Header */}
-        <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
+        <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
           <div className="px-4 sm:px-6 py-4">
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-4">
@@ -160,6 +151,7 @@ export default function AdminDashboard() {
                       : 'Admin'
                   }</span>
                 </div>
+                <ThemeToggle />
                 <button
                   onClick={() => {
                     localStorage.removeItem('demoUserType');
@@ -203,9 +195,11 @@ export default function AdminDashboard() {
           </div>
         </header>
 
-        {/* Content */}
-        <main className="p-4 sm:p-6">
-          {renderContent()}
+        {/* Content - Scrollable */}
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto">
+          <div className="max-w-none">
+            {renderContent()}
+          </div>
         </main>
       </div>
     </div>

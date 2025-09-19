@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface RegisterFormProps {
   userType: string;
@@ -29,11 +30,24 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6">
-      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-soft-lg dark:shadow-2xl p-6 sm:p-8 border border-gray-100/50 dark:border-gray-700/50">
+    <div className="w-full max-w-5xl mx-auto">
+      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-soft-lg dark:shadow-2xl overflow-hidden border border-gray-100/50 dark:border-gray-700/50 flex max-h-[90vh]">
+        {/* Left side - Image */}
+        <div className="hidden lg:block lg:w-1/2 relative">
+          <Image
+            src="/auth.png"
+            alt="CareFinder Authentication"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Right side - Form Content */}
+        <div className="w-full lg:w-1/2 p-3 sm:p-4">
         {/* Logo & Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
+        <div className="text-center mb-3">
+          <div className="flex items-center justify-center space-x-2 mb-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
               <div className="w-5 h-5 bg-white rounded-sm"></div>
             </div>
@@ -41,68 +55,67 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
               CareFinder
             </div>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Create Account</h1>
+          <h1 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Create Account</h1>
           <p className="text-gray-600 dark:text-gray-300">Join our trusted care community</p>
         </div>
 
         {/* User Type Selection */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+        <div className="mb-3">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             I want to...
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button
-              type="button"
-              onClick={() => onUserTypeChange('family')}
-              className={`p-4 text-left rounded-lg border transition-all ${
-                userType === 'family'
-                  ? 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/20 dark:border-primary-700 dark:text-primary-400'
-                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50'
-              }`}
-            >
-              <div className="font-semibold">Find Care</div>
-              <div className="text-sm opacity-75">I&apos;m looking for a caregiver</div>
-            </button>
-            <button
-              type="button"
-              onClick={() => onUserTypeChange('caregiver')}
-              className={`p-4 text-left rounded-lg border transition-all ${
-                userType === 'caregiver'
-                  ? 'bg-secondary-50 border-secondary-200 text-secondary-700 dark:bg-secondary-900/20 dark:border-secondary-700 dark:text-secondary-400'
-                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50'
-              }`}
-            >
-              <div className="font-semibold">Provide Care</div>
-              <div className="text-sm opacity-75">I&apos;m a professional caregiver</div>
-            </button>
+            {[
+              { key: 'family', title: 'Find Care', subtitle: "I'm looking for a caregiver" },
+              { key: 'caregiver', title: 'Provide Care', subtitle: "I'm a professional caregiver" }
+            ].map((opt) => {
+              const activeMap: Record<string, string> = {
+                family: 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/20 dark:border-primary-700 dark:text-primary-400',
+                caregiver: 'bg-secondary-50 border-secondary-200 text-secondary-700 dark:bg-secondary-900/20 dark:border-secondary-700 dark:text-secondary-400'
+              };
+
+              const inactive = 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50';
+
+              return (
+                <button
+                  key={opt.key}
+                  type="button"
+                  onClick={() => onUserTypeChange(opt.key)}
+                  className={`p-3 text-left rounded-md border transition-all ${userType === opt.key ? activeMap[opt.key] : inactive}`}
+                >
+                  <div className="text-sm font-semibold">{opt.title}</div>
+                  <div className="text-xs opacity-75">{opt.subtitle}</div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Registration Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-2">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Full Name
               </label>
               <input
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 placeholder="Enter your full name"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Phone Number
               </label>
               <input
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 placeholder="+94 77 123 4567"
                 required
               />
@@ -110,27 +123,27 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Email Address
             </label>
             <input
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               placeholder="Enter your email"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Location (District)
             </label>
             <select
               value={formData.location}
               onChange={(e) => handleInputChange('location', e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               required
             >
               <option value="">Select your district</option>
@@ -143,27 +156,27 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
 
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Password
               </label>
               <input
                 type="password"
                 value={formData.password}
                 onChange={(e) => handleInputChange('password', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 placeholder="Create password"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Confirm Password
               </label>
               <input
                 type="password"
                 value={formData.confirmPassword}
                 onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 placeholder="Confirm password"
                 required
               />
@@ -176,7 +189,7 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
               type="checkbox"
               checked={formData.agreeTerms}
               onChange={(e) => handleInputChange('agreeTerms', e.target.checked)}
-              className="w-5 h-5 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500 mt-0.5"
+              className="w-5 h-5 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500 mt-0.5"
               required
             />
             <label className="text-sm text-gray-600 dark:text-gray-300">
@@ -197,7 +210,7 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
 
         {/* Additional Info for Caregivers */}
         {userType === 'caregiver' && (
-          <div className="mt-6 p-4 bg-secondary-50 dark:bg-secondary-900/20 border border-secondary-200 dark:border-secondary-700/50 rounded-lg">
+          <div className="mt-3 p-3 bg-secondary-50 dark:bg-secondary-900/20 border border-secondary-200 dark:border-secondary-700/50 rounded-lg">
             <h4 className="font-semibold text-secondary-700 dark:text-secondary-400 mb-2">Next Steps for Caregivers:</h4>
             <ul className="text-sm text-secondary-600 dark:text-secondary-300 space-y-1">
               <li>• Document verification required</li>
@@ -208,13 +221,14 @@ export default function RegisterForm({ userType, onUserTypeChange, onRegister }:
         )}
 
         {/* Login Link */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-3 text-center">
+          <p className="text-xs text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
             <a href="/login" className="text-primary-600 hover:text-primary-500 font-medium">
               Sign in here
             </a>
           </p>
+        </div>
         </div>
       </div>
     </div>
