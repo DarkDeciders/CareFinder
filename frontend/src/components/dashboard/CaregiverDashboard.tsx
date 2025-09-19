@@ -1,52 +1,79 @@
+/**
+ * CaregiverDashboard
+ *
+ * This module exports the CaregiverDashboard React component which provides the
+ * top-level UI for a caregiver user. It contains a header with a logout action,
+ * a tabbed navigation bar, and switches between subcomponents that implement
+ * the dashboard sections (overview, jobs, calendar, messages, profile).
+ *
+ * The component is a client-side component ("use client") and uses local
+ * storage to display a demo user's name when available.
+ */
 'use client'
 
 import React, { useState } from 'react';
 import CaregiverProfile from '../caregiver/CaregiverProfile';
+import CaregiverOverview from '../caregiver/CaregiverOverview';
+import CaregiverJobs from '../caregiver/CaregiverJobs';
+import CaregiverSchedule from '../caregiver/CaregiverSchedule';
+import CaregiverMessages from '../caregiver/CaregiverMessages';
+import ThemeToggle from '../common/ThemeToggle';
 
+/**
+ * CaregiverDashboard component
+ *
+ * Renders the main dashboard layout for caregivers. The dashboard maintains a
+ * single piece of state, `activeTab`, which controls which child section is
+ * shown. Tabs are: 'overview', 'jobs', 'calendar', 'messages', 'profile'.
+ *
+ * Behaviour/Side effects:
+ * - Reads `demoUser` from window.localStorage (only when window is defined) to
+ *   display a welcome name in the header.
+ * - On logout button click it removes demo user entries from localStorage and
+ *   navigates to the `/login` page.
+ *
+ * Returns:
+ * - JSX.Element: the dashboard UI.
+ */
 export default function CaregiverDashboard() {
+  /**
+   * activeTab: string
+   * - current active tab key. Used to determine which dashboard section to
+   *   render. Default is 'overview'.
+   */
   const [activeTab, setActiveTab] = useState('overview');
 
+  /**
+   * renderContent
+   *
+   * Returns the JSX element for the currently active tab. Keeps the switch
+   * logic centralised so the main render is concise.
+   *
+   * Edge cases:
+   * - If an unknown tab key is set, it falls back to showing the Overview.
+   */
   const renderContent = () => {
     switch (activeTab) {
       case 'overview':
-        return (
-          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Overview content - earnings, recent jobs */}
-          </div>
-        );
+        return <CaregiverOverview />;
       case 'jobs':
-        return (
-          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Available jobs list */}
-          </div>
-        );
+        return <CaregiverJobs />;
       case 'calendar':
-        return (
-          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Calendar/schedule view */}
-          </div>
-        );
+        return <CaregiverSchedule />;
       case 'messages':
-        return (
-          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Messages interface */}
-          </div>
-        );
+        return <CaregiverMessages />;
       case 'profile':
         return <CaregiverProfile />;
       default:
-        return (
-          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-            {/* Default overview content */}
-          </div>
-        );
+        // Unknown tab -> fallback to overview
+        return <CaregiverOverview />;
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
       {/* Header */}
-      <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
+      <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
@@ -65,11 +92,15 @@ export default function CaregiverDashboard() {
                     : 'Caregiver'
                 }</span>
               </div>
+              <ThemeToggle />
               <button
                 onClick={() => {
-                  localStorage.removeItem('demoUserType');
-                  localStorage.removeItem('demoUser');
-                  window.location.href = '/login';
+                  if (typeof window !== 'undefined') {
+                    // Remove demo user markers and redirect to login
+                    localStorage.removeItem('demoUserType');
+                    localStorage.removeItem('demoUser');
+                    window.location.href = '/login';
+                  }
                 }}
                 className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Logout"
@@ -86,13 +117,13 @@ export default function CaregiverDashboard() {
       {/* Navigation Tabs */}
       <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex overflow-x-auto space-x-8 scrollbar-hide">
+          <nav className="flex overflow-x-auto space-x-8 -mb-px">
             {[
-              { key: 'overview', label: 'Overview', icon: '📊' },
-              { key: 'jobs', label: 'Available Jobs', icon: '💼' },
-              { key: 'calendar', label: 'My Schedule', icon: '📅' },
-              { key: 'messages', label: 'Messages', icon: '💬' },
-              { key: 'profile', label: 'Profile', icon: '👤' }
+              { key: 'overview', label: 'Overview' },
+              { key: 'jobs', label: 'Available Jobs' },
+              { key: 'calendar', label: 'My Schedule' },
+              { key: 'messages', label: 'Messages' },
+              { key: 'profile', label: 'Profile' }
             ].map((tab) => (
               <button
                 key={tab.key}
@@ -100,12 +131,10 @@ export default function CaregiverDashboard() {
                 className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors whitespace-nowrap ${
                   activeTab === tab.key
                     ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-500'
                 }`}
               >
-                <span className="mr-2 sm:inline hidden">{tab.icon}</span>
-                <span className="sm:hidden">{tab.icon}</span>
-                <span className="hidden sm:inline">{tab.label}</span>
+                {tab.label}
               </button>
             ))}
           </nav>
