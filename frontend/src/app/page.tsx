@@ -156,8 +156,8 @@ export default function Home() {
                 <div className="block">for Your Family</div>
               </h1>
               <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-2xl leading-relaxed">
-                Connect with verified, professional caregivers for childcare and elderly care services across Sri Lanka.
-                Safe, reliable, and convenient care solutions with 24/7 support.
+                Connect with verified, professionally trained caregivers for comprehensive care services across Sri Lanka.
+                Quality-assured care through our 3-tier verification system with 24/7 support.
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -278,7 +278,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Childcare Services</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Professional babysitters, nannies, and child companions for all ages with verified backgrounds and childcare training.
+                Professional babysitters, nannies, and child companions with comprehensive 3-month training and agent-verified service quality.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
@@ -305,7 +305,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Elderly Care</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Compassionate care for seniors including companionship, assistance with daily activities, and medical support.
+                Compassionate care for seniors with trained specialists who undergo skills verification and regular quality assessments.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
@@ -332,7 +332,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Special Needs Care</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Specialized care for individuals with special needs, provided by trained and experienced caregivers.
+                Specialized care for individuals with special needs, provided by certified caregivers with intensive training and ongoing supervision.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
@@ -406,7 +406,7 @@ export default function Home() {
                 Your Safety is Our <span className="text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">Priority</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                Every caregiver on our platform goes through a comprehensive verification process to ensure the highest standards of safety and professionalism.
+                Every caregiver goes through our comprehensive 3-tier verification system: document verification, skills training, and ongoing service quality monitoring.
               </p>
 
               <div className="space-y-6">
@@ -417,8 +417,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Background Checks</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Police clearance certificates and comprehensive background verification for all caregivers.</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Document Verification</h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Police clearance certificates, educational credentials, and comprehensive identity verification for all caregivers.</p>
                   </div>
                 </div>
 
@@ -441,8 +441,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Professional References</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Verified work history and professional references from previous employers and families.</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Quality Assurance</h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Regular on-site visits by quality agents to ensure service standards and continuous improvement.</p>
                   </div>
                 </div>
               </div>
