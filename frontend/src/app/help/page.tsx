@@ -343,7 +343,7 @@ export default function HelpCenter() {
             Still Need Help?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-            Can't find the answer you're looking for? Our support team is here to help you 24/7.
+            Can&apos;t find the answer you&apos;re looking for? Our support team is here to help you 24/7.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white/70 dark:bg-gray-800/70 rounded-2xl p-6 shadow-soft dark:shadow-lg border border-gray-100/50 dark:border-gray-700/50">

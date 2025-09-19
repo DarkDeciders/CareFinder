@@ -114,7 +114,7 @@ export default function ElderlyCarePage() {
     },
     {
       title: "Memory Care & Dementia Support",
-      description: "Specialized care for individuals with Alzheimer's, dementia, or cognitive impairments.",
+      description: "Specialized care for individuals with Alzheimer&apos;s, dementia, or cognitive impairments.",
       features: [
         "Cognitive stimulation activities and memory exercises",
         "Behavioral management and redirection techniques",
@@ -337,7 +337,7 @@ export default function ElderlyCarePage() {
                   </div>
 
                   <div className="lg:col-span-2 mt-8 lg:mt-0">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">What's Included:</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">What&apos;s Included:</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       {type.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start">
@@ -377,7 +377,7 @@ export default function ElderlyCarePage() {
                   ))}
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-semibold mr-4">

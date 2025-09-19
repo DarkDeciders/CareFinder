@@ -237,7 +237,7 @@ export default function Careers() {
             </h1>
             <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-3xl leading-relaxed">
               Help us transform elderly care in Sri Lanka. Build meaningful healthcare solutions, 
-              create lasting impact in seniors' lives, and be part of a team that's revolutionizing 
+              create lasting impact in seniors&apos; lives, and be part of a team that&apos;s revolutionizing 
               how families provide compassionate care for their aging loved ones.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -263,7 +263,7 @@ export default function Careers() {
               Why Work at CareFinder?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Join a purpose-driven team that's making a real difference in people's lives
+              Join a purpose-driven team that&apos;s making a real difference in people&apos;s lives
             </p>
           </div>
 
@@ -275,13 +275,13 @@ export default function Careers() {
               <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
                   Every assessment you conduct, every training program you develop, and every family you support 
-                  directly impacts the quality of life for elderly individuals across Sri Lanka. You're not just 
-                  building a business—you're creating a compassionate care ecosystem that honors our elders.
+                  directly impacts the quality of life for elderly individuals across Sri Lanka. You&apos;re not just 
+                  building a business—you&apos;re creating a compassionate care ecosystem that honors our elders.
                 </p>
                 <p>
                   Our platform has already connected over 5,000 families with qualified elderly care specialists, 
                   ensuring dignity, comfort, and professional care for seniors in their own homes. Be part of a team 
-                  that's transforming how Sri Lankan society cares for its aging population.
+                  that&apos;s transforming how Sri Lankan society cares for its aging population.
                 </p>
               </div>
             </div>
@@ -318,7 +318,7 @@ export default function Careers() {
               Benefits & Perks
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We invest in our team's growth, well-being, and success
+              We invest in our team&apos;s growth, well-being, and success
             </p>
           </div>
 
@@ -408,11 +408,11 @@ export default function Careers() {
       <section className="py-20 bg-gradient-to-r from-primary-600/70 via-primary-700/70 to-secondary-600/70 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
-            Don't See the Perfect Role?
+            Don&apos;t See the Perfect Role?
           </h2>
           <p className="text-xl text-primary-100 mb-10 leading-relaxed">
-            We're always looking for passionate individuals who want to make a difference. 
-            Send us your resume and let's explore how you can contribute to our mission.
+            We&apos;re always looking for passionate individuals who want to make a difference. 
+            Send us your resume and let&apos;s explore how you can contribute to our mission.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="group bg-white text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center">

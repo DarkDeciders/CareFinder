@@ -244,7 +244,7 @@ export default function PrivacyPolicy() {
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Our Commitment to Your Privacy</h2>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  CareFinder ("we," "our," or "us") operates a care services platform that connects families with verified caregivers 
+                  CareFinder (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) operates a care services platform that connects families with verified caregivers 
                   across Sri Lanka. We are committed to protecting your privacy and being transparent about how we collect, use, 
                   and share your personal information. This Privacy Policy applies to all users of our website, mobile application, 
                   and related services.

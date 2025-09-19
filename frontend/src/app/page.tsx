@@ -562,10 +562,10 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4 text-lg">Support</h3>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="/help" className="hover:text-white transition-colors">Help Center</a></li>
                 <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>

@@ -317,7 +317,7 @@ export default function TermsOfService() {
             </span>
           </h1>
           <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-            Please read these terms carefully before using CareFinder's care services platform. 
+            Please read these terms carefully before using CareFinder&apos;s care services platform. 
             By using our services, you agree to be bound by these terms and conditions.
           </p>
           <div className="inline-flex items-center space-x-2 bg-white/70 dark:bg-gray-800/70 rounded-full px-6 py-3 shadow-soft">
@@ -341,7 +341,7 @@ export default function TermsOfService() {
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Legal Agreement</h2>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  These Terms of Service ("Terms") constitute a legally binding agreement between you and CareFinder (Pvt) Ltd, 
+                  These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and CareFinder (Pvt) Ltd, 
                   a company registered in Sri Lanka. These Terms govern your access to and use of our care services platform, 
                   including our website, mobile applications, and related services. Please read these Terms carefully and contact 
                   us if you have any questions before using our platform.

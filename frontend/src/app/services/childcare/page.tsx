@@ -258,7 +258,7 @@ export default function ChildcareService() {
               Comprehensive Childcare Services
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              From after-school supervision to weekend care, we provide flexible solutions for every family's needs
+              From after-school supervision to weekend care, we provide flexible solutions for every family&apos;s needs
             </p>
           </div>
 
@@ -328,7 +328,7 @@ export default function ChildcareService() {
               Why Parents Choose CareFinder
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We understand that choosing childcare is one of the most important decisions you'll make
+              We understand that choosing childcare is one of the most important decisions you&apos;ll make
             </p>
           </div>
 
@@ -408,7 +408,7 @@ export default function ChildcareService() {
             Ready to Find Trusted Childcare?
           </h2>
           <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-            Join hundreds of Sri Lankan families who've found peace of mind with our verified childcare providers. 
+            Join hundreds of Sri Lankan families who&apos;ve found peace of mind with our verified childcare providers. 
             Quality care for your children is just a few clicks away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

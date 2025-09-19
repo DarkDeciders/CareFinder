@@ -35,7 +35,7 @@ export default function About() {
     {
       name: "Aditha Buwaneka",
       role: "Team Leader",
-      description: "Visionary leader driving CareFinder's mission to connect families with trusted caregivers.",
+      description: "Visionary leader driving CareFinder&apos;s mission to connect families with trusted caregivers.",
       image: "/team/aditha.jpg" // Placeholder - replace with actual image
     },
     {
@@ -170,7 +170,7 @@ export default function About() {
               </span>
             </h1>
             <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-3xl leading-relaxed">
-              We're on a mission to revolutionize care services in Sri Lanka by connecting families 
+              We&apos;re on a mission to revolutionize care services in Sri Lanka by connecting families 
               with verified, compassionate caregivers through cutting-edge technology and unwavering 
               commitment to safety.
             </p>
@@ -189,7 +189,7 @@ export default function About() {
               <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
                   CareFinder was born from a simple yet powerful observation: finding trustworthy, 
-                  qualified caregivers shouldn't be a stressful, uncertain process for families 
+                  qualified caregivers shouldn&apos;t be a stressful, uncertain process for families 
                   who need care the most.
                 </p>
                 <p>
@@ -198,7 +198,7 @@ export default function About() {
                   for meaningful work opportunities in Sri Lanka.
                 </p>
                 <p>
-                  Today, we're proud to bridge this gap with a platform that prioritizes safety, 
+                  Today, we&apos;re proud to bridge this gap with a platform that prioritizes safety, 
                   transparency, and genuine connections, making quality care accessible to families 
                   across the island while providing caregivers with opportunities to build 
                   rewarding careers.
@@ -308,7 +308,7 @@ export default function About() {
               Meet Our Team
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              The passionate individuals behind CareFinder's success
+              The passionate individuals behind CareFinder&apos;s success
             </p>
           </div>
 

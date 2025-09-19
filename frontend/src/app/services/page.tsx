@@ -156,7 +156,7 @@ export default function Services() {
             </h1>
             <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-3xl leading-relaxed">
               Comprehensive care solutions tailored to meet the unique needs of every family member. 
-              From childcare to elderly care and specialized support, we're here to help.
+              From childcare to elderly care and specialized support, we&apos;re here to help.
             </p>
           </div>
         </div>
@@ -291,7 +291,7 @@ export default function Services() {
             Ready to Find the Perfect Care?
           </h2>
           <p className="text-xl text-primary-100 mb-10 leading-relaxed">
-            Browse our verified caregivers and find the perfect match for your family's unique needs. 
+            Browse our verified caregivers and find the perfect match for your family&apos;s unique needs. 
             Quality care is just a click away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

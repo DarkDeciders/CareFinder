@@ -190,7 +190,7 @@ export default function Contact() {
             </h1>
             <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-3xl leading-relaxed">
               Have questions about CareFinder? Need support with your account? Want to partner with us? 
-              We're here to help and would love to hear from you.
+              We&apos;re here to help and would love to hear from you.
             </p>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function Contact() {
               Send Us a Message
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Fill out the form below and we'll get back to you within 24 hours
+              Fill out the form below and we&apos;ll get back to you within 24 hours
             </p>
           </div>
 
@@ -364,7 +364,7 @@ export default function Contact() {
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Message Sent Successfully!</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Thank you for reaching out. We've received your message and will get back to you within 24 hours.
+                  Thank you for reaching out. We&apos;ve received your message and will get back to you within 24 hours.
                 </p>
               </div>
             )}
