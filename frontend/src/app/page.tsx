@@ -63,7 +63,7 @@ export default function Home() {
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
+              <a href="/services" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
               <a href="#how-it-works" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
               <a href="#safety" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
               <a href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About Us</a>
@@ -123,7 +123,7 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
             <div className="px-4 py-3 space-y-3">
-              <a href="#services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
+              <a href="/services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
               <a href="#how-it-works" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
               <a href="#safety" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
               <a href="/about" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About Us</a>
@@ -542,10 +542,10 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4 text-lg">Services</h3>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Childcare</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Elderly Care</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Special Needs</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Emergency Care</a></li>
+                <li><a href="/services/childcare" className="hover:text-white transition-colors">Childcare</a></li>
+                <li><a href="/services/elderly-care" className="hover:text-white transition-colors">Elderly Care</a></li>
+                <li><a href="/services/special-needs" className="hover:text-white transition-colors">Special Needs</a></li>
+                <li><a href="/services" className="hover:text-white transition-colors">All Services</a></li>
               </ul>
             </div>
 
