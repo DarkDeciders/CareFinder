@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import FloatingChatbot from "@/components/chatbot/FloatingChatbot";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -57,10 +58,12 @@ export default function RootLayout({
           {/* Background Color Overlay */}
           <div className="fixed inset-0 w-full h-full bg-white/30 dark:bg-gray-950/40 z-0"></div>
           <div className="relative z-10">
-            {children}
+            <LanguageProvider>
+              {children}
+              {/* Global Floating Chatbot */}
+              <FloatingChatbot />
+            </LanguageProvider>
           </div>
-          {/* Global Floating Chatbot */}
-          <FloatingChatbot />
         </div>
       </body>
     </html>
