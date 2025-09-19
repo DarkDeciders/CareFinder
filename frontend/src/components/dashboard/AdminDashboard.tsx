@@ -1,7 +1,12 @@
 'use client'
 
 import React, { useState } from 'react';
+
 import AdminSettings from '../admin/AdminSettings';
+import UserManagement from '../admin/UserManagement';
+import Verifications from '../admin/Verifications';
+import Bookings from '../admin/Bookings';
+import Reports from '../admin/Reports';
 
 export default function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('overview');
@@ -28,41 +33,13 @@ export default function AdminDashboard() {
           </div>
         );
       case 'users':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">User Management</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* User list, approve/suspend users */}
-            </div>
-          </div>
-        );
+          return <UserManagement />;
       case 'verifications':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Pending Verifications</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* Document verification, background checks */}
-            </div>
-          </div>
-        );
+          return <Verifications />;
       case 'bookings':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Booking Management</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* All bookings, disputes, refunds */}
-            </div>
-          </div>
-        );
+          return <Bookings />;
       case 'reports':
-        return (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Reports & Analytics</h1>
-            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
-              {/* Analytics, revenue reports, user activity */}
-            </div>
-          </div>
-        );
+          return <Reports />;
       case 'settings':
         return <AdminSettings />;
       default:
