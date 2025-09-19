@@ -1,10 +1,13 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from '@/components/common/LanguageSwitcher';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
@@ -62,11 +65,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="/services" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
-              <a href="#how-it-works" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
-              <a href="#safety" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
-              <a href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About Us</a>
+            <div className="hidden md:flex items-center space-x-6">
+              <a href="/services" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.services')}</a>
+              <a href="#how-it-works" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.how-it-works')}</a>
+              <a href="#safety" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.safety')}</a>
+              <a href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.about')}</a>
+
+              {/* Language Switcher */}
+              <LanguageSwitcher variant="compact" />
 
               {/* Dark Mode Toggle */}
               <button
@@ -85,14 +91,15 @@ export default function Home() {
                 )}
               </button>
 
-              <a href="/register" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Sign Up</a>
+              <a href="/register" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.register')}</a>
               <a href="/login" className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm">
-                Sign In
+                {t('nav.login')}
               </a>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-3">
+            <div className="md:hidden flex items-center space-x-2">
+              <LanguageSwitcher variant="compact" />
               <button
                 onClick={toggleDarkMode}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -123,16 +130,16 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
             <div className="px-4 py-3 space-y-3">
-              <a href="/services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
-              <a href="#how-it-works" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
-              <a href="#safety" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
-              <a href="/about" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About Us</a>
+              <a href="/services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.services')}</a>
+              <a href="#how-it-works" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.how-it-works')}</a>
+              <a href="#safety" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.safety')}</a>
+              <a href="/about" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">{t('nav.about')}</a>
               <div className="flex space-x-3 mt-3">
                 <a href="/register" className="flex-1 text-center border border-primary-600 text-primary-600 px-6 py-2 rounded-lg font-medium transition-colors">
-                  Sign Up
+                  {t('nav.register')}
                 </a>
                 <a href="/login" className="flex-1 text-center bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm">
-                  Sign In
+                  {t('nav.login')}
                 </a>
               </div>
             </div>
@@ -151,29 +158,24 @@ export default function Home() {
           <div className="text-center animate-fade-in">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-gray-900 dark:text-white leading-relaxed">
-                <div className="block mb-2">Find Trusted</div>
-                <div className="block text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text mb-2">
-                  Caregivers
-                </div>
-                <div className="block">for Your Family</div>
+                {t('hero.title')}
               </h1>
               <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-2xl leading-relaxed">
-                Connect with verified, professionally trained caregivers for comprehensive care services across Sri Lanka.
-                Quality-assured care through our 3-tier verification system with 24/7 support.
+                {t('hero.subtitle')}
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/register" className="group bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center">
-                  Find a Caregiver
+                  {t('hero.cta.primary')}
                   <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
                 <a href="/register" className="border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 text-center">
-                  Become a Caregiver
+                  {t('hero.cta.secondary')}
                 </a>
                 <a href="/about" className="group border-2 border-secondary-600 dark:border-secondary-400 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-50 dark:hover:bg-secondary-900/20 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 text-center">
-                  About Us
+                  {t('nav.about')}
                   <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16l4-4m0 0l-4-4m4 4H3" />
                   </svg>
@@ -190,8 +192,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-gray-900 dark:text-white">Verified</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">Background Checked</div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">{t('trust.verified')}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{t('trust.verified.desc')}</div>
                     </div>
                   </div>
 
@@ -202,8 +204,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-gray-900 dark:text-white">Secure</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">Protected Payments</div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">{t('trust.secure')}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{t('trust.secure.desc')}</div>
                     </div>
                   </div>
 
@@ -214,8 +216,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-gray-900 dark:text-white">24/7</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">Support Available</div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">{t('trust.support')}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{t('trust.support.desc')}</div>
                     </div>
                   </div>
                 </div>
@@ -230,8 +232,8 @@ export default function Home() {
       <section className="py-20 bg-white/20 dark:bg-gray-950/20 border-t border-gray-200/50 dark:border-gray-800/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">How to Get Started</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">Simple steps to find your perfect caregiver</p>
+            <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">{t('started.title')}</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">{t('started.subtitle')}</p>
           </div>
 
           <div className="bg-white/80 dark:bg-gray-800/80 rounded-3xl shadow-soft-lg dark:shadow-2xl p-8 border border-gray-100/50 dark:border-gray-700/50">
@@ -240,24 +242,24 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   1
                 </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Search Caregivers</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Find verified caregivers near you</p>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{t('started.step1')}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('started.step1.desc')}</p>
               </div>
 
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   2
                 </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Review Profiles</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Check ratings and reviews</p>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{t('started.step2')}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('started.step2.desc')}</p>
               </div>
 
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-success-500 to-success-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   3
                 </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Book & Enjoy</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Secure booking with peace of mind</p>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{t('started.step3')}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('started.step3.desc')}</p>
               </div>
             </div>
           </div>
@@ -269,10 +271,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">
-              Comprehensive Care Services
+              {t('services.comprehensive.title')}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Professional care solutions tailored to your family&apos;s unique needs
+              {t('services.comprehensive.subtitle')}
             </p>
           </div>
 
@@ -284,22 +286,22 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1a3 3 0 000-6h-1m4 6V4a3 3 0 013 3v2.5M15 11V9a3 3 0 00-3-3h-2m8 8v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Childcare Services</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t('services.childcare.title')}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Professional babysitters, nannies, and child companions with comprehensive 3-month training and agent-verified service quality.
+                {t('services.childcare.desc')}
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  After-school care
+                  {t('services.childcare.feature1')}
                 </li>
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Weekend babysitting
+                  {t('services.childcare.feature2')}
                 </li>
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Full-time nanny services
+                  {t('services.childcare.feature3')}
                 </li>
               </ul>
             </div>
@@ -311,22 +313,22 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Elderly Care</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t('services.elderly.title')}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Compassionate care for seniors with trained specialists who undergo skills verification and regular quality assessments.
+                {t('services.elderly.desc')}
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Personal care assistance
+                  {t('services.elderly.feature1')}
                 </li>
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Medication reminders
+                  {t('services.elderly.feature2')}
                 </li>
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Companionship services
+                  {t('services.elderly.feature3')}
                 </li>
               </ul>
             </div>
@@ -338,22 +340,22 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Special Needs Care</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t('services.special.title')}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Specialized care for individuals with special needs, provided by certified caregivers with intensive training and ongoing supervision.
+                {t('services.special.desc')}
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Trained professionals
+                  {t('services.special.feature1')}
                 </li>
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  Customized care plans
+                  {t('services.special.feature2')}
                 </li>
                 <li className="flex items-center text-sm text-gray-700 dark:text-gray-300">
                   <div className="w-2 h-2 bg-success-500 rounded-full mr-3"></div>
-                  24/7 availability
+                  {t('services.special.feature3')}
                 </li>
               </ul>
             </div>
@@ -366,9 +368,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">
-              How CareFinder Works
+              {t('works.title')}
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">Simple steps to find the perfect caregiver</p>
+            <p className="text-xl text-gray-600 dark:text-gray-300">{t('works.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
@@ -376,9 +378,9 @@ export default function Home() {
               <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                 1
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Search & Filter</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t('works.step1')}</h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Browse verified caregivers in your area. Filter by services, experience, ratings, and availability to find the perfect match.
+                {t('works.step1.desc')}
               </p>
             </div>
 
@@ -386,9 +388,9 @@ export default function Home() {
               <div className="w-20 h-20 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                 2
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Connect & Book</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t('works.step2')}</h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Message caregivers directly, review their profiles and references, then book services that fit your schedule and budget.
+                {t('works.step2.desc')}
               </p>
             </div>
 
@@ -396,9 +398,9 @@ export default function Home() {
               <div className="w-20 h-20 bg-gradient-to-br from-success-500 to-success-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                 3
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Enjoy Peace of Mind</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t('works.step3')}</h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Receive quality care with secure payments, real-time updates, and 24/7 support. Rate your experience to help our community.
+                {t('works.step3.desc')}
               </p>
             </div>
           </div>
@@ -411,10 +413,10 @@ export default function Home() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">
-                Your Safety is Our <span className="text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">Priority</span>
+                {t('safety.title').split(' ').slice(0, -2).join(' ')} <span className="text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">{t('safety.title').split(' ').slice(-2).join(' ')}</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                Every caregiver goes through our comprehensive 3-tier verification system: document verification, skills training, and ongoing service quality monitoring.
+                {t('safety.subtitle')}
               </p>
 
               <div className="space-y-6">
@@ -425,8 +427,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Document Verification</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Police clearance certificates, educational credentials, and comprehensive identity verification for all caregivers.</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">{t('safety.doc.title')}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('safety.doc.desc')}</p>
                   </div>
                 </div>
 
@@ -437,8 +439,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Secure Payments</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Protected payments with escrow services and secure transaction processing through PayHere.</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">{t('safety.payment.title')}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('safety.payment.desc')}</p>
                   </div>
                 </div>
 
@@ -449,8 +451,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">Quality Assurance</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Regular on-site visits by quality agents to ensure service standards and continuous improvement.</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-lg">{t('safety.quality.title')}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('safety.quality.desc')}</p>
                   </div>
                 </div>
               </div>
@@ -462,19 +464,19 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-8">
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2 animate-pulse-soft">1000+</div>
-                    <div className="text-primary-100">Verified Caregivers</div>
+                    <div className="text-primary-100">{t('stats.caregivers')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2 animate-pulse-soft">5000+</div>
-                    <div className="text-primary-100">Happy Families</div>
+                    <div className="text-primary-100">{t('stats.families')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2 animate-pulse-soft">4.9/5</div>
-                    <div className="text-primary-100">Average Rating</div>
+                    <div className="text-primary-100">{t('stats.rating')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2 animate-pulse-soft">24/7</div>
-                    <div className="text-primary-100">Support Available</div>
+                    <div className="text-primary-100">{t('stats.support')}</div>
                   </div>
                 </div>
               </div>
@@ -487,20 +489,20 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-primary-600/70 via-primary-700/70 to-secondary-600/70 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
-            Ready to Find Your Perfect Caregiver?
+            {t('cta.title')}
           </h2>
           <p className="text-xl text-primary-100 mb-10 leading-relaxed">
-            Join thousands of families who trust CareFinder for their care needs. Get started today and experience the peace of mind you deserve.
+            {t('cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/register" className="group bg-white text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center">
-              Get Started Now
+              {t('cta.primary')}
               <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
             <a href="#how-it-works" className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-all duration-300 text-center">
-              Learn More
+              {t('cta.secondary')}
             </a>
           </div>
         </div>
@@ -540,7 +542,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 text-lg">Services</h3>
+              <h3 className="font-semibold mb-4 text-lg">{t('footer.services')}</h3>
               <ul className="space-y-3 text-gray-400">
                 <li><a href="/services/childcare" className="hover:text-white transition-colors">Childcare</a></li>
                 <li><a href="/services/elderly-care" className="hover:text-white transition-colors">Elderly Care</a></li>
@@ -550,7 +552,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 text-lg">Company</h3>
+              <h3 className="font-semibold mb-4 text-lg">{t('footer.company')}</h3>
               <ul className="space-y-3 text-gray-400">
                 <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">How it Works</a></li>
@@ -560,7 +562,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 text-lg">Support</h3>
+              <h3 className="font-semibold mb-4 text-lg">{t('footer.support')}</h3>
               <ul className="space-y-3 text-gray-400">
                 <li><a href="/help" className="hover:text-white transition-colors">Help Center</a></li>
                 <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
@@ -572,7 +574,7 @@ export default function Home() {
 
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              &copy; 2024 CareFinder. All rights reserved. | Built with care for Sri Lankan families.
+              {t('footer.copyright')} | Built with care for Sri Lankan families.
             </p>
           </div>
         </div>
