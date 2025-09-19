@@ -63,9 +63,10 @@ export default function Home() {
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
+              <a href="/services" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
               <a href="#how-it-works" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
               <a href="#safety" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
+              <a href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About Us</a>
 
               {/* Dark Mode Toggle */}
               <button
@@ -122,9 +123,10 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
             <div className="px-4 py-3 space-y-3">
-              <a href="#services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
+              <a href="/services" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
               <a href="#how-it-works" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">How it Works</a>
               <a href="#safety" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Safety</a>
+              <a href="/about" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About Us</a>
               <div className="flex space-x-3 mt-3">
                 <a href="/register" className="flex-1 text-center border border-primary-600 text-primary-600 px-6 py-2 rounded-lg font-medium transition-colors">
                   Sign Up
@@ -169,6 +171,12 @@ export default function Home() {
                 </a>
                 <a href="/register" className="border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 text-center">
                   Become a Caregiver
+                </a>
+                <a href="/about" className="group border-2 border-secondary-600 dark:border-secondary-400 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-50 dark:hover:bg-secondary-900/20 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 text-center">
+                  About Us
+                  <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16l4-4m0 0l-4-4m4 4H3" />
+                  </svg>
                 </a>
               </div>
 
@@ -534,30 +542,30 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4 text-lg">Services</h3>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Childcare</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Elderly Care</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Special Needs</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Emergency Care</a></li>
+                <li><a href="/services/childcare" className="hover:text-white transition-colors">Childcare</a></li>
+                <li><a href="/services/elderly-care" className="hover:text-white transition-colors">Elderly Care</a></li>
+                <li><a href="/services/special-needs" className="hover:text-white transition-colors">Special Needs</a></li>
+                <li><a href="/services" className="hover:text-white transition-colors">All Services</a></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4 text-lg">Company</h3>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">How it Works</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Safety</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                <li><a href="/careers" className="hover:text-white transition-colors">Careers</a></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4 text-lg">Support</h3>
               <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="/help" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
