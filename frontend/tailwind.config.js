@@ -118,8 +118,47 @@ module.exports = {
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'soft-lg': '0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.04)',
+      },
+      screens: {
+        'xs': '475px',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          }
+        },
+        '.scrollbar-thin': {
+          'scrollbar-width': 'thin'
+        },
+        '.scrollbar-thumb-gray-300': {
+          '&::-webkit-scrollbar-thumb': {
+            'background-color': '#d1d5db'
+          }
+        },
+        '.scrollbar-thumb-gray-600': {
+          '&::-webkit-scrollbar-thumb': {
+            'background-color': '#4b5563'
+          }
+        },
+        '.scrollbar-track-transparent': {
+          '&::-webkit-scrollbar-track': {
+            'background-color': 'transparent'
+          }
+        }
+      }
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    }
+  ],
 }
