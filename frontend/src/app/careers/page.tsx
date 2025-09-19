@@ -33,81 +33,81 @@ export default function Careers() {
 
   const openPositions = [
     {
-      title: "Senior Full-Stack Developer",
-      department: "Engineering",
+      title: "Caregiver Quality Assurance Specialist",
+      department: "Care Operations",
       location: "Colombo, Sri Lanka",
       type: "Full-time",
-      description: "Join our engineering team to build scalable, secure solutions that connect families with trusted caregivers across Sri Lanka.",
+      description: "Ensure the highest standards of elderly care by conducting caregiver assessments, training programs, and quality monitoring across our platform.",
       requirements: [
-        "5+ years experience with React, Node.js, and MongoDB",
-        "Experience with AI/ML integration",
-        "Strong background in security and data protection",
-        "Excellent communication skills in English and Sinhala"
+        "Bachelor's degree in Nursing, Social Work, or Healthcare Management",
+        "5+ years experience in elderly care or healthcare quality assurance",
+        "Understanding of Sri Lankan healthcare regulations",
+        "Fluent in English, Sinhala, and Tamil"
       ]
     },
     {
-      title: "UI/UX Designer",
-      department: "Design",
+      title: "Registered Nurse - Care Coordinator",
+      department: "Clinical Operations",
       location: "Colombo, Sri Lanka",
       type: "Full-time",
-      description: "Create intuitive, accessible designs that make finding and providing care services seamless for all users.",
+      description: "Coordinate care plans, conduct health assessments, and provide clinical guidance to families and caregivers for optimal elderly care outcomes.",
       requirements: [
-        "3+ years experience in UI/UX design",
-        "Proficiency in Figma, Adobe Creative Suite",
-        "Experience with responsive and accessible design",
-        "Understanding of user research and testing methods"
+        "Valid nursing license in Sri Lanka",
+        "3+ years experience in geriatric or community nursing",
+        "Knowledge of chronic disease management",
+        "Strong assessment and communication skills"
       ]
     },
     {
-      title: "Customer Success Manager",
-      department: "Operations",
+      title: "Elderly Care Training Manager",
+      department: "Training & Development",
       location: "Colombo, Sri Lanka",
       type: "Full-time",
-      description: "Ensure exceptional experiences for families and caregivers, managing relationships and resolving issues with empathy and efficiency.",
+      description: "Develop and deliver comprehensive training programs for caregivers specializing in elderly care, dementia care, and mobility assistance.",
       requirements: [
-        "3+ years in customer success or support",
-        "Excellent communication in English, Sinhala, and Tamil",
-        "Experience with CRM systems",
-        "Strong problem-solving and interpersonal skills"
+        "Certification in elderly care or gerontology",
+        "Experience in training and curriculum development",
+        "Knowledge of dementia care and age-related conditions",
+        "Excellent presentation and teaching skills"
       ]
     },
     {
-      title: "AI/ML Engineer",
-      department: "Engineering",
-      location: "Colombo, Sri Lanka",
+      title: "Social Worker - Family Support",
+      department: "Family Services",
+      location: "Galle, Sri Lanka",
       type: "Full-time",
-      description: "Develop and optimize our AI-powered document verification and matching systems to enhance platform safety and efficiency.",
+      description: "Provide emotional support and guidance to families navigating elderly care decisions, connecting them with appropriate resources and services.",
       requirements: [
-        "4+ years experience in machine learning",
-        "Expertise in Python, TensorFlow/PyTorch",
-        "Experience with computer vision and NLP",
-        "Knowledge of cloud AI services (Google Cloud, AWS)"
+        "Bachelor's degree in Social Work or Psychology",
+        "Registration with Sri Lanka Association of Professional Social Workers",
+        "Experience in family counseling and elderly care advocacy",
+        "Cultural sensitivity and multilingual communication"
       ]
     },
     {
-      title: "Business Development Executive",
+      title: "Healthcare Partnership Manager",
       department: "Business Development",
       location: "Kandy, Sri Lanka",
       type: "Full-time",
-      description: "Expand our presence across Sri Lanka by building partnerships with healthcare institutions, training centers, and community organizations.",
+      description: "Build partnerships with hospitals, clinics, and healthcare providers to expand our elderly care network across Sri Lanka.",
       requirements: [
-        "2+ years in business development or sales",
-        "Strong network in healthcare or social services",
-        "Excellent presentation and negotiation skills",
-        "Willingness to travel across Sri Lanka"
+        "Background in healthcare administration or business development",
+        "Strong network in Sri Lankan healthcare sector",
+        "Understanding of elderly care services and regulations",
+        "Willingness to travel across all provinces"
       ]
     },
     {
-      title: "Marketing Specialist",
-      department: "Marketing",
-      location: "Remote/Colombo",
+      title: "Geriatric Care Specialist",
+      department: "Clinical Operations",
+      location: "Colombo, Sri Lanka",
       type: "Full-time",
-      description: "Drive brand awareness and user acquisition through digital marketing campaigns, content creation, and community engagement.",
+      description: "Provide expert consultation on elderly care needs, develop care protocols, and support families with complex geriatric health conditions.",
       requirements: [
-        "3+ years in digital marketing",
-        "Experience with social media marketing and SEO",
-        "Content creation and copywriting skills",
-        "Analytics and data-driven marketing approach"
+        "Medical degree with specialization in Geriatrics or Internal Medicine",
+        "5+ years experience in elderly care",
+        "Knowledge of age-related conditions and treatments",
+        "Experience in telemedicine and remote consultation"
       ]
     }
   ];
@@ -236,9 +236,9 @@ export default function Careers() {
               </span>
             </h1>
             <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 mx-auto max-w-3xl leading-relaxed">
-              Help us revolutionize care services in Sri Lanka. Build meaningful technology, 
-              create lasting impact, and be part of a team that's transforming how families 
-              connect with trusted caregivers.
+              Help us transform elderly care in Sri Lanka. Build meaningful healthcare solutions, 
+              create lasting impact in seniors' lives, and be part of a team that's revolutionizing 
+              how families provide compassionate care for their aging loved ones.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#open-positions" className="group bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center">
@@ -270,18 +270,18 @@ export default function Careers() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center mb-16">
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                Make a Meaningful Impact
+                Make a Meaningful Impact in Elderly Care
               </h3>
               <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
-                  Every line of code you write, every design you create, and every customer you help 
-                  directly impacts families across Sri Lanka. You're not just building a product—you're 
-                  creating solutions that bring peace of mind to parents and opportunities to caregivers.
+                  Every assessment you conduct, every training program you develop, and every family you support 
+                  directly impacts the quality of life for elderly individuals across Sri Lanka. You're not just 
+                  building a business—you're creating a compassionate care ecosystem that honors our elders.
                 </p>
                 <p>
-                  Our platform has already connected over 5,000 families with trusted caregivers, 
-                  and we're just getting started. Be part of a team that's scaling trust, safety, 
-                  and quality care services throughout the region.
+                  Our platform has already connected over 5,000 families with qualified elderly care specialists, 
+                  ensuring dignity, comfort, and professional care for seniors in their own homes. Be part of a team 
+                  that's transforming how Sri Lankan society cares for its aging population.
                 </p>
               </div>
             </div>
@@ -289,20 +289,20 @@ export default function Careers() {
             <div className="mt-12 lg:mt-0">
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">1000+</div>
-                  <div className="text-gray-600 dark:text-gray-400">Verified Caregivers</div>
+                  <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">1200+</div>
+                  <div className="text-gray-600 dark:text-gray-400">Certified Elderly Care Specialists</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">5000+</div>
-                  <div className="text-gray-600 dark:text-gray-400">Happy Families</div>
+                  <div className="text-gray-600 dark:text-gray-400">Seniors Receiving Care</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-success-600 dark:text-success-400 mb-2">95%</div>
-                  <div className="text-gray-600 dark:text-gray-400">Satisfaction Rate</div>
+                  <div className="text-4xl font-bold text-success-600 dark:text-success-400 mb-2">98%</div>
+                  <div className="text-gray-600 dark:text-gray-400">Family Satisfaction Rate</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold text-warning-600 dark:text-warning-400 mb-2">24/7</div>
-                  <div className="text-gray-600 dark:text-gray-400">Support Available</div>
+                  <div className="text-gray-600 dark:text-gray-400">Emergency Care Support</div>
                 </div>
               </div>
             </div>
