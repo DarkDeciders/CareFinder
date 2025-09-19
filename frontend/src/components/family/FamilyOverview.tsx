@@ -82,9 +82,9 @@ export default function FamilyOverview() {
       case 'unread':
         return 'text-primary-600 bg-primary-50';
       case 'completed':
-        return 'text-gray-600 bg-gray-50';
+        return 'text-gray-600 bg-gray-50 dark:text-gray-300 dark:bg-gray-700';
       default:
-        return 'text-gray-600 bg-gray-50';
+        return 'text-gray-600 bg-gray-50 dark:text-gray-300 dark:bg-gray-700';
     }
   };
 
@@ -106,10 +106,10 @@ export default function FamilyOverview() {
   return (
     <div className="space-y-6">
       {/* Welcome Header */}
-      <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
-        <div className="flex items-center justify-between">
+      <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
               Good{' '}
               {new Date().getHours() < 12
                 ? 'Morning'
@@ -118,13 +118,13 @@ export default function FamilyOverview() {
                 : 'Evening'}
               , Sarah! 👋
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 mt-1">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-1">
               Here&apos;s what&apos;s happening with your care services today
             </p>
           </div>
-          <div className="text-right">
+          <div className="text-left sm:text-right">
             <p className="text-sm text-gray-600 dark:text-gray-300">Today</p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-white">
+            <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
               {new Date().toLocaleDateString('en-US', {
                 weekday: 'long',
                 month: 'short',
@@ -136,25 +136,25 @@ export default function FamilyOverview() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50"
+            className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50"
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+              <div className="flex-1">
+                <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">
                   {stat.label}
                 </p>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
+                <p className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white mt-1">
                   {stat.value}
                 </p>
               </div>
               <div
-                className={`w-12 h-12 bg-gradient-to-br ${getStatColor(
+                className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${getStatColor(
                   stat.color
-                )} rounded-xl flex items-center justify-center text-white text-xl`}
+                )} rounded-xl flex items-center justify-center text-white text-lg sm:text-xl self-end sm:self-auto`}
               >
                 {stat.icon}
               </div>
@@ -163,14 +163,14 @@ export default function FamilyOverview() {
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Upcoming Bookings */}
-        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
               Upcoming Bookings
             </h3>
-            <button className="text-primary-600 hover:text-primary-700 text-sm font-medium">
+            <button className="text-primary-600 hover:text-primary-700 text-xs sm:text-sm font-medium">
               View All
             </button>
           </div>
@@ -209,12 +209,12 @@ export default function FamilyOverview() {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
               Recent Activity
             </h3>
-            <button className="text-primary-600 hover:text-primary-700 text-sm font-medium">
+            <button className="text-primary-600 hover:text-primary-700 text-xs sm:text-sm font-medium">
               View All
             </button>
           </div>
@@ -256,32 +256,32 @@ export default function FamilyOverview() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+      <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4">
           Quick Actions
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <button className="p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-            <div className="text-2xl mb-2">🔍</div>
-            <div className="text-sm font-medium text-gray-900 dark:text-white">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <button className="p-3 sm:p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="text-xl sm:text-2xl mb-1 sm:mb-2">🔍</div>
+            <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
               Find Caregiver
             </div>
           </button>
-          <button className="p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-            <div className="text-2xl mb-2">📅</div>
-            <div className="text-sm font-medium text-gray-900 dark:text-white">
+          <button className="p-3 sm:p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="text-xl sm:text-2xl mb-1 sm:mb-2">📅</div>
+            <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
               Schedule Care
             </div>
           </button>
-          <button className="p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-            <div className="text-2xl mb-2">💬</div>
-            <div className="text-sm font-medium text-gray-900 dark:text-white">
+          <button className="p-3 sm:p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="text-xl sm:text-2xl mb-1 sm:mb-2">💬</div>
+            <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
               Message
             </div>
           </button>
-          <button className="p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-            <div className="text-2xl mb-2">⚙️</div>
-            <div className="text-sm font-medium text-gray-900 dark:text-white">
+          <button className="p-3 sm:p-4 text-center border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div className="text-xl sm:text-2xl mb-1 sm:mb-2">⚙️</div>
+            <div className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
               Settings
             </div>
           </button>

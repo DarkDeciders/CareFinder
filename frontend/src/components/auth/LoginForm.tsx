@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface LoginFormProps {
   userType: string;
@@ -19,11 +20,24 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 sm:px-0">
-      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-soft-lg dark:shadow-2xl p-6 sm:p-8 border border-gray-100/50 dark:border-gray-700/50">
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-soft-lg dark:shadow-2xl overflow-hidden border border-gray-100/50 dark:border-gray-700/50 flex max-h-[85vh]">
+        {/* Left side - Image */}
+        <div className="hidden lg:block lg:w-1/2 relative">
+          <Image
+            src="/auth.png"
+            alt="CareFinder Authentication"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Right side - Form Content */}
+        <div className="w-full lg:w-1/2 p-3 sm:p-4">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
+        <div className="text-center mb-3">
+          <div className="flex items-center justify-center space-x-2 mb-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
               <div className="w-5 h-5 bg-white rounded-sm"></div>
             </div>
@@ -31,25 +45,29 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
               CareFinder
             </div>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Welcome Back</h1>
+          <h1 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Welcome Back</h1>
           <p className="text-gray-600 dark:text-gray-300">Sign in to your account</p>
         </div>
 
         {/* User Type Selection */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+        <div className="mb-3">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             I am a...
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
             {[
               { key: 'family', label: 'Family' },
               { key: 'caregiver', label: 'Caregiver' },
+              { key: 'trainer', label: 'Trainer' },
+              { key: 'agent', label: 'Agent' },
               { key: 'admin', label: 'Admin' }
             ].map((type) => {
               const activeClasses: Record<string, string> = {
                 family: 'bg-primary-50 border-primary-200 text-primary-700 dark:bg-primary-900/20 dark:border-primary-700 dark:text-primary-400',
                 caregiver: 'bg-secondary-50 border-secondary-200 text-secondary-700 dark:bg-secondary-900/20 dark:border-secondary-700 dark:text-secondary-400',
-                admin: 'bg-warning-50 border-warning-200 text-warning-700 dark:bg-warning-900/20 dark:border-warning-700 dark:text-warning-400'
+                trainer: 'bg-warning-50 border-warning-200 text-warning-700 dark:bg-warning-900/20 dark:border-warning-700 dark:text-warning-400',
+                agent: 'bg-success-50 border-success-200 text-success-700 dark:bg-success-900/20 dark:border-success-700 dark:text-success-400',
+                admin: 'bg-red-50 border-red-200 text-red-700 dark:bg-red-900/20 dark:border-red-700 dark:text-red-400'
               };
 
               const inactive = 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 dark:bg-gray-700/50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600/50';
@@ -59,7 +77,7 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
                   key={type.key}
                   type="button"
                   onClick={() => onUserTypeChange(type.key)}
-                  className={`p-3 text-sm font-medium rounded-lg border transition-all ${userType === type.key ? activeClasses[type.key] : inactive}`}
+                  className={`p-2 text-xs font-medium rounded-md border transition-all ${userType === type.key ? activeClasses[type.key] : inactive}`}
                 >
                   {type.label}
                 </button>
@@ -69,30 +87,30 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-2">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Email
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               placeholder="Enter your email"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Password
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               placeholder="Enter your password"
               required
             />
@@ -117,38 +135,51 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
         </form>
 
         {/* Demo Accounts */}
-        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center mb-3">Quick Demo Access:</p>
-          <div className="space-y-2">
+        <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
+          <p className="text-xs text-gray-600 dark:text-gray-400 text-center mb-2">Quick Demo Access:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             <button
               onClick={() => onDemoLogin('family')}
-              className="w-full py-2 px-4 text-sm bg-primary-50 hover:bg-primary-100 text-primary-700 rounded-lg border border-primary-200 transition-colors"
+              className="py-2 px-3 text-xs bg-primary-50 hover:bg-primary-100 text-primary-700 rounded-lg border border-primary-200 transition-colors"
             >
-              Demo Family Account
+              Demo Family
             </button>
             <button
               onClick={() => onDemoLogin('caregiver')}
-              className="w-full py-2 px-4 text-sm bg-secondary-50 hover:bg-secondary-100 text-secondary-700 rounded-lg border border-secondary-200 transition-colors"
+              className="py-2 px-3 text-xs bg-secondary-50 hover:bg-secondary-100 text-secondary-700 rounded-lg border border-secondary-200 transition-colors"
             >
-              Demo Caregiver Account
+              Demo Caregiver
+            </button>
+            <button
+              onClick={() => onDemoLogin('trainer')}
+              className="py-2 px-3 text-xs bg-warning-50 hover:bg-warning-100 text-warning-700 rounded-lg border border-warning-200 transition-colors"
+            >
+              Demo Trainer
+            </button>
+            <button
+              onClick={() => onDemoLogin('agent')}
+              className="py-2 px-3 text-xs bg-success-50 hover:bg-success-100 text-success-700 rounded-lg border border-success-200 transition-colors"
+            >
+              Demo Agent
             </button>
             <button
               onClick={() => onDemoLogin('admin')}
-              className="w-full py-2 px-4 text-sm bg-warning-50 hover:bg-warning-100 text-warning-700 rounded-lg border border-warning-200 transition-colors"
+              className="py-2 px-3 text-xs bg-red-50 hover:bg-red-100 text-red-700 rounded-lg border border-red-200 transition-colors"
             >
-              Demo Admin Account
+              Demo Admin
             </button>
           </div>
         </div>
 
         {/* Register Link */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-3 text-center">
+          <p className="text-xs text-gray-600 dark:text-gray-400">
             Don&apos;t have an account?{' '}
             <a href="/register" className="text-primary-600 hover:text-primary-500 font-medium">
               Sign up here
             </a>
           </p>
+        </div>
         </div>
       </div>
     </div>

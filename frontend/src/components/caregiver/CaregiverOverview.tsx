@@ -1,7 +1,6 @@
- 'use client'
+'use client'
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 // Mock data for the overview
 const overviewData = {
@@ -24,22 +23,22 @@ const overviewData = {
 };
 
 const StatCard = ({ label, value, icon }: { label: string; value: string | number; icon: React.ReactNode }) => (
-  <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.28 }} className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-200/50 dark:border-gray-700/50 flex items-start space-x-4">
-    <div className="bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 p-3 rounded-lg">
+  <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-gray-200/50 dark:border-gray-700/50 flex items-start space-x-3 sm:space-x-4">
+    <div className="bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 p-2 sm:p-3 rounded-lg flex-shrink-0">
       {icon}
     </div>
-    <div>
-      <p className="text-sm text-gray-600 dark:text-gray-400">{label}</p>
-      <p className="text-2xl font-bold text-gray-900 dark:text-white">{value}</p>
+    <div className="min-w-0">
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{label}</p>
+      <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white break-words">{value}</p>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default function CaregiverOverview() {
   return (
     <div className="space-y-8">
       {/* Stat Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <StatCard 
           label="Total Earnings (LKR)" 
           value={overviewData.stats.totalEarnings.toLocaleString()}
@@ -62,19 +61,19 @@ export default function CaregiverOverview() {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Upcoming Jobs */}
-        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Upcoming Jobs</h3>
-          <ul className="space-y-4">
+          <ul className="space-y-3 sm:space-y-4">
             {overviewData.upcomingJobs.map(job => (
-              <li key={job.id} className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg flex justify-between items-center">
-                <div>
-                  <p className="font-semibold text-gray-800 dark:text-gray-200">{job.familyName}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{job.service}</p>
+              <li key={job.id} className="p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-2 sm:space-y-0">
+                <div className="min-w-0">
+                  <p className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base truncate">{job.familyName}</p>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{job.service}</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{job.date}</p>
+                <div className="text-left sm:text-right flex-shrink-0">
+                  <p className="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200">{job.date}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">{job.time}</p>
                 </div>
               </li>
@@ -83,19 +82,19 @@ export default function CaregiverOverview() {
         </div>
 
         {/* Recent Reviews */}
-        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+        <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Reviews</h3>
-          <ul className="space-y-4">
+          <ul className="space-y-3 sm:space-y-4">
             {overviewData.recentReviews.map(review => (
-              <li key={review.id} className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                  <p className="font-semibold text-gray-800 dark:text-gray-200">{review.familyName}</p>
+              <li key={review.id} className="p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 space-y-1 sm:space-y-0">
+                  <p className="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">{review.familyName}</p>
                   <div className="flex items-center">
-                    <span className="text-yellow-500">{'★'.repeat(review.rating)}</span>
-                    <span className="text-gray-300">{'★'.repeat(5 - review.rating)}</span>
+                    <span className="text-yellow-500 text-sm">{'★'.repeat(review.rating)}</span>
+                    <span className="text-gray-300 text-sm">{'★'.repeat(5 - review.rating)}</span>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 italic">&quot;{review.comment}&quot;</p>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 italic leading-relaxed">&quot;{review.comment}&quot;</p>
               </li>
             ))}
           </ul>
