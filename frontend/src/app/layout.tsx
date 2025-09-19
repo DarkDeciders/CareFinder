@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import FloatingChatbot from "@/components/chatbot/FloatingChatbot";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -58,6 +59,8 @@ export default function RootLayout({
           <div className="relative z-10">
             {children}
           </div>
+          {/* Global Floating Chatbot */}
+          <FloatingChatbot />
         </div>
       </body>
     </html>
