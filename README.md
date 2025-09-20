@@ -363,9 +363,9 @@ We welcome contributions from the community! Please read our [Contributing Guide
 ## 👥 Our Team
 
 - **Aditha Buwaneka** - Team Leader
-- **Nethmal Gunawardhana**
+- **Randitha Kulasekera**
 - **Ishan Hansaka**
-- **Pramudi Piyumika**
+- **Lahiruni Meegama**
 - **Sakna Rajapaksha**
 
 ## 📄 License
