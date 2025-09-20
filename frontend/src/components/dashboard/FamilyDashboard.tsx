@@ -6,6 +6,7 @@ import FamilyProfile from "../family/FamilyProfile";
 import FamilyOverview from "../family/FamilyOverview";
 import FamilyBookings from "../family/FamilyBookings";
 import FamilySearch from "../family/FamilySearch";
+import FamilyPostJob from "../family/FamilyPostJob";
 import FamilyMessages from "../family/FamilyMessages";
 import ThemeToggle from "../common/ThemeToggle";
 
@@ -18,6 +19,8 @@ export default function FamilyDashboard() {
         return <FamilyOverview />;
       case "search":
         return <FamilySearch />;
+      case "post":
+        return <FamilyPostJob />;
       case "bookings":
         return <FamilyBookings />;
       case "messages":
@@ -99,6 +102,7 @@ export default function FamilyDashboard() {
             {[
               { key: "overview", label: "Overview", icon: "📊" },
               { key: "search", label: "Find Caregivers", icon: "🔍" },
+              { key: "post", label: "Post Service Needs", icon: "📝" },
               { key: "bookings", label: "My Bookings", icon: "📅" },
               { key: "messages", label: "Messages", icon: "💬" },
               { key: "profile", label: "Profile", icon: "👤" },
