@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function TrainerManagement() {
   const [assignTraineeModal, setAssignTraineeModal] = useState(false);
@@ -9,86 +9,86 @@ export default function TrainerManagement() {
   const trainers = [
     {
       id: 1,
-      name: 'Dr. Jane Doe',
-      email: 'jane.doe@carefinder.lk',
-      phone: '+94 77 123 4567',
-      specializations: ['Child Care', 'Emergency Response'],
-      status: 'active',
+      name: "Dr. Jane Doe",
+      email: "jane.doe@carefinder.lk",
+      phone: "+94 77 123 4567",
+      specializations: ["Child Care", "Emergency Response"],
+      status: "active",
       currentTrainees: 12,
       maxCapacity: 15,
       successRate: 94,
       experience: 8,
-      location: 'Colombo'
+      location: "Colombo",
     },
     {
       id: 2,
-      name: 'Prof. Michael Silva',
-      email: 'michael.silva@carefinder.lk',
-      phone: '+94 71 234 5678',
-      specializations: ['Elderly Care', 'Medical Assistance'],
-      status: 'active',
+      name: "Prof. Michael Silva",
+      email: "michael.silva@carefinder.lk",
+      phone: "+94 71 234 5678",
+      specializations: ["Elderly Care", "Medical Assistance"],
+      status: "active",
       currentTrainees: 8,
       maxCapacity: 12,
       successRate: 98,
       experience: 12,
-      location: 'Kandy'
+      location: "Kandy",
     },
     {
       id: 3,
-      name: 'Dr. Sarah Fernando',
-      email: 'sarah.fernando@carefinder.lk',
-      phone: '+94 76 345 6789',
-      specializations: ['Child Development', 'Special Needs'],
-      status: 'on_leave',
+      name: "Dr. Sarah Fernando",
+      email: "sarah.fernando@carefinder.lk",
+      phone: "+94 76 345 6789",
+      specializations: ["Child Development", "Special Needs"],
+      status: "on_leave",
       currentTrainees: 0,
       maxCapacity: 10,
       successRate: 91,
       experience: 6,
-      location: 'Galle'
-    }
+      location: "Galle",
+    },
   ];
 
   const unqualifiedCaregivers = [
     {
       id: 1,
-      name: 'Amara Perera',
-      email: 'amara.p@email.com',
-      appliedFor: 'Child Care',
-      submissionDate: '2024-12-15',
-      status: 'pending_assignment',
-      experience: 'None - Career Change'
+      name: "Amara Perera",
+      email: "amara.p@email.com",
+      appliedFor: "Child Care",
+      submissionDate: "2024-12-15",
+      status: "pending_assignment",
+      experience: "None - Career Change",
     },
     {
       id: 2,
-      name: 'Saman Wickramasinghe',
-      email: 'saman.w@email.com',
-      appliedFor: 'Elderly Care',
-      submissionDate: '2024-12-14',
-      status: 'pending_assignment',
-      experience: 'Basic Home Care'
+      name: "Saman Wickramasinghe",
+      email: "saman.w@email.com",
+      appliedFor: "Elderly Care",
+      submissionDate: "2024-12-14",
+      status: "pending_assignment",
+      experience: "Basic Home Care",
     },
     {
       id: 3,
-      name: 'Nisha Rajapaksha',
-      email: 'nisha.r@email.com',
-      appliedFor: 'Child Care',
-      submissionDate: '2024-12-13',
-      status: 'training_assigned',
-      assignedTrainer: 'Dr. Jane Doe',
-      experience: 'Volunteer Work'
-    }
+      name: "Nisha Rajapaksha",
+      email: "nisha.r@email.com",
+      appliedFor: "Child Care",
+      submissionDate: "2024-12-13",
+      status: "training_assigned",
+      assignedTrainer: "Dr. Jane Doe",
+      experience: "Volunteer Work",
+    },
   ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active':
-        return 'bg-success-100 text-success-800 dark:bg-success-900/20 dark:text-success-400';
-      case 'on_leave':
-        return 'bg-warning-100 text-warning-800 dark:bg-warning-900/20 dark:text-warning-400';
-      case 'inactive':
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
+      case "active":
+        return "bg-success-100 text-success-800 dark:bg-success-900/20 dark:text-success-400";
+      case "on_leave":
+        return "bg-warning-100 text-warning-800 dark:bg-warning-900/20 dark:text-warning-400";
+      case "inactive":
+        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
       default:
-        return 'bg-primary-100 text-primary-800 dark:bg-primary-900/20 dark:text-primary-400';
+        return "bg-primary-100 text-primary-800 dark:bg-primary-900/20 dark:text-primary-400";
     }
   };
 
@@ -101,10 +101,13 @@ export default function TrainerManagement() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Trainer Management</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Trainer Management
+        </h1>
         <button
           onClick={() => setAddTrainerModal(true)}
-          className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+          className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+        >
           Add New Trainer
         </button>
       </div>
@@ -112,27 +115,45 @@ export default function TrainerManagement() {
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 text-center">
-          <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">3</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Total Trainers</div>
+          <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">
+            3
+          </div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            Total Trainers
+          </div>
         </div>
         <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 text-center">
-          <div className="text-3xl font-bold text-success-600 dark:text-success-400">2</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Active Trainers</div>
+          <div className="text-3xl font-bold text-success-600 dark:text-success-400">
+            2
+          </div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            Active Trainers
+          </div>
         </div>
         <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 text-center">
-          <div className="text-3xl font-bold text-warning-600 dark:text-warning-400">20</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Active Trainees</div>
+          <div className="text-3xl font-bold text-warning-600 dark:text-warning-400">
+            20
+          </div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            Active Trainees
+          </div>
         </div>
         <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 text-center">
-          <div className="text-3xl font-bold text-secondary-600 dark:text-secondary-400">95%</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Avg Success Rate</div>
+          <div className="text-3xl font-bold text-secondary-600 dark:text-secondary-400">
+            95%
+          </div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            Avg Success Rate
+          </div>
         </div>
       </div>
 
       {/* Trainers List */}
       <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
         <div className="p-6 border-b border-gray-200 dark:border-gray-600">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Current Trainers</h2>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Current Trainers
+          </h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -160,12 +181,18 @@ export default function TrainerManagement() {
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
               {trainers.map((trainer) => (
-                <tr key={trainer.id} className="hover:bg-gray-50/50 dark:hover:bg-gray-700/50">
+                <tr
+                  key={trainer.id}
+                  className="hover:bg-gray-50/50 dark:hover:bg-gray-700/50"
+                >
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
                         <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">
-                          {trainer.name.split(' ').map(n => n[0]).join('')}
+                          {trainer.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
                         </span>
                       </div>
                       <div className="ml-4">
@@ -200,12 +227,12 @@ export default function TrainerManagement() {
                     <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
                       <div
                         className={`h-2 rounded-full ${
-                          (trainer.currentTrainees / trainer.maxCapacity) >= 0.8
-                            ? 'bg-warning-500'
-                            : 'bg-success-500'
+                          trainer.currentTrainees / trainer.maxCapacity >= 0.8
+                            ? "bg-warning-500"
+                            : "bg-success-500"
                         }`}
                         style={{
-                          width: `${(trainer.currentTrainees / trainer.maxCapacity) * 100}%`
+                          width: `${(trainer.currentTrainees / trainer.maxCapacity) * 100}%`,
                         }}
                       ></div>
                     </div>
@@ -219,15 +246,20 @@ export default function TrainerManagement() {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(trainer.status)}`}>
-                      {trainer.status === 'active' ? 'Active' :
-                       trainer.status === 'on_leave' ? 'On Leave' : 'Inactive'}
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(trainer.status)}`}
+                    >
+                      {trainer.status === "active"
+                        ? "Active"
+                        : trainer.status === "on_leave"
+                          ? "On Leave"
+                          : "Inactive"}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
                       <button
-                        onClick={() => console.log('View trainer:', trainer.id)}
+                        onClick={() => console.log("View trainer:", trainer.id)}
                         className="text-primary-600 dark:text-primary-400 hover:text-primary-900 dark:hover:text-primary-300"
                       >
                         View
@@ -235,7 +267,10 @@ export default function TrainerManagement() {
                       <button
                         onClick={() => setAssignTraineeModal(true)}
                         className="text-success-600 dark:text-success-400 hover:text-success-900 dark:hover:text-success-300"
-                        disabled={trainer.status !== 'active' || trainer.currentTrainees >= trainer.maxCapacity}
+                        disabled={
+                          trainer.status !== "active" ||
+                          trainer.currentTrainees >= trainer.maxCapacity
+                        }
                       >
                         Assign
                       </button>
@@ -251,7 +286,9 @@ export default function TrainerManagement() {
       {/* Unqualified Caregivers Awaiting Assignment */}
       <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
         <div className="p-6 border-b border-gray-200 dark:border-gray-600">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Unqualified Caregivers Awaiting Training</h2>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Unqualified Caregivers Awaiting Training
+          </h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -279,12 +316,18 @@ export default function TrainerManagement() {
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
               {unqualifiedCaregivers.map((caregiver) => (
-                <tr key={caregiver.id} className="hover:bg-gray-50/50 dark:hover:bg-gray-700/50">
+                <tr
+                  key={caregiver.id}
+                  className="hover:bg-gray-50/50 dark:hover:bg-gray-700/50"
+                >
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-warning-100 dark:bg-warning-900/20 rounded-full flex items-center justify-center">
                         <span className="text-warning-600 dark:text-warning-400 font-medium text-sm">
-                          {caregiver.name.split(' ').map(n => n[0]).join('')}
+                          {caregiver.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
                         </span>
                       </div>
                       <div className="ml-4">
@@ -298,10 +341,14 @@ export default function TrainerManagement() {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="text-sm text-gray-900 dark:text-white">{caregiver.appliedFor}</span>
+                    <span className="text-sm text-gray-900 dark:text-white">
+                      {caregiver.appliedFor}
+                    </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">{caregiver.experience}</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                      {caregiver.experience}
+                    </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="text-sm text-gray-900 dark:text-white">
@@ -309,12 +356,16 @@ export default function TrainerManagement() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      caregiver.status === 'training_assigned'
-                        ? 'bg-success-100 text-success-800 dark:bg-success-900/20 dark:text-success-400'
-                        : 'bg-warning-100 text-warning-800 dark:bg-warning-900/20 dark:text-warning-400'
-                    }`}>
-                      {caregiver.status === 'training_assigned' ? 'Training Assigned' : 'Pending Assignment'}
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                        caregiver.status === "training_assigned"
+                          ? "bg-success-100 text-success-800 dark:bg-success-900/20 dark:text-success-400"
+                          : "bg-warning-100 text-warning-800 dark:bg-warning-900/20 dark:text-warning-400"
+                      }`}
+                    >
+                      {caregiver.status === "training_assigned"
+                        ? "Training Assigned"
+                        : "Pending Assignment"}
                     </span>
                     {caregiver.assignedTrainer && (
                       <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
@@ -327,7 +378,7 @@ export default function TrainerManagement() {
                       <button className="text-primary-600 dark:text-primary-400 hover:text-primary-900 dark:hover:text-primary-300">
                         View Profile
                       </button>
-                      {caregiver.status === 'pending_assignment' && (
+                      {caregiver.status === "pending_assignment" && (
                         <button
                           onClick={() => setAssignTraineeModal(true)}
                           className="text-success-600 dark:text-success-400 hover:text-success-900 dark:hover:text-success-300"
@@ -349,13 +400,25 @@ export default function TrainerManagement() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Assign Trainer</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Assign Trainer
+              </h3>
               <button
                 onClick={() => setAssignTraineeModal(false)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -368,8 +431,8 @@ export default function TrainerManagement() {
                 <select className="w-full bg-white/70 dark:bg-gray-800/70 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm">
                   <option>Select trainee...</option>
                   {unqualifiedCaregivers
-                    .filter(c => c.status === 'pending_assignment')
-                    .map(caregiver => (
+                    .filter((c) => c.status === "pending_assignment")
+                    .map((caregiver) => (
                       <option key={caregiver.id} value={caregiver.id}>
                         {caregiver.name} - {caregiver.appliedFor}
                       </option>
@@ -384,10 +447,15 @@ export default function TrainerManagement() {
                 <select className="w-full bg-white/70 dark:bg-gray-800/70 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm">
                   <option>Select trainer...</option>
                   {trainers
-                    .filter(t => t.status === 'active' && t.currentTrainees < t.maxCapacity)
-                    .map(trainer => (
+                    .filter(
+                      (t) =>
+                        t.status === "active" &&
+                        t.currentTrainees < t.maxCapacity,
+                    )
+                    .map((trainer) => (
                       <option key={trainer.id} value={trainer.id}>
-                        {trainer.name} - {trainer.specializations.join(', ')} ({trainer.currentTrainees}/{trainer.maxCapacity})
+                        {trainer.name} - {trainer.specializations.join(", ")} (
+                        {trainer.currentTrainees}/{trainer.maxCapacity})
                       </option>
                     ))}
                 </select>
@@ -421,7 +489,7 @@ export default function TrainerManagement() {
                   Cancel
                 </button>
                 <button
-                  onClick={() => assignTrainee('1', '1')}
+                  onClick={() => assignTrainee("1", "1")}
                   className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   Assign Trainer
@@ -437,13 +505,25 @@ export default function TrainerManagement() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Add New Trainer</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Add New Trainer
+              </h3>
               <button
                 onClick={() => setAddTrainerModal(false)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -491,23 +571,38 @@ export default function TrainerManagement() {
                 </label>
                 <div className="space-y-2">
                   <label className="flex items-center">
-                    <input type="checkbox" className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2" />
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2"
+                    />
                     <span className="text-sm">Child Care</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="checkbox" className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2" />
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2"
+                    />
                     <span className="text-sm">Elderly Care</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="checkbox" className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2" />
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2"
+                    />
                     <span className="text-sm">Emergency Response</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="checkbox" className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2" />
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2"
+                    />
                     <span className="text-sm">Medical Assistance</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="checkbox" className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2" />
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded mr-2"
+                    />
                     <span className="text-sm">Special Needs</span>
                   </label>
                 </div>

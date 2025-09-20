@@ -5,12 +5,14 @@ A React Native mobile application for CareFinder quality assurance agents to man
 ## Features
 
 ### 🏠 Overview Dashboard
+
 - Real-time assignment metrics and status
 - Today's schedule with next assignment priority
 - Performance statistics and activity feed
 - Quick action buttons for immediate tasks
 
 ### 📋 Assignment Management
+
 - Filter assignments by status (scheduled/in-progress/completed)
 - Detailed assignment information with family and caregiver details
 - GPS navigation integration with Google Maps
@@ -18,6 +20,7 @@ A React Native mobile application for CareFinder quality assurance agents to man
 - Real-time location tracking and arrival confirmation
 
 ### 🗺️ Navigation & GPS
+
 - Turn-by-turn navigation to assignment locations
 - Route optimization for multiple daily visits
 - GPS accuracy monitoring and location logging
@@ -25,18 +28,21 @@ A React Native mobile application for CareFinder quality assurance agents to man
 - Emergency contact integration
 
 ### 📸 Field Documentation
+
 - Camera integration for evidence capture
 - Photo attachments to assignment reports
 - Document verification photos
 - Quality assurance visual documentation
 
 ### 📝 Reporting System
+
 - Create verification reports on-site
 - Quality issue reporting with categorization
 - Incident reporting with photo evidence
 - Real-time report submission to admin dashboard
 
 ### 👤 Agent Profile
+
 - Professional information and credentials
 - Performance statistics and ratings
 - Emergency contact management
@@ -65,12 +71,14 @@ A React Native mobile application for CareFinder quality assurance agents to man
 ## Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd CareFinder/Agent_App
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
@@ -83,6 +91,7 @@ A React Native mobile application for CareFinder quality assurance agents to man
 ## Running the App
 
 ### Development Server
+
 ```bash
 npm start
 # or
@@ -90,6 +99,7 @@ npx expo start
 ```
 
 ### Platform-specific commands
+
 ```bash
 # iOS Simulator
 npm run ios
@@ -125,29 +135,34 @@ Agent_App/
 ## Key Features Implementation
 
 ### GPS Tracking
+
 - Real-time location monitoring during field visits
 - Arrival confirmation with GPS coordinates
 - Route optimization for daily assignments
 - Location accuracy settings (high/medium/low precision)
 
 ### Camera Integration
+
 - Evidence photo capture during verifications
 - Gallery photo selection
 - Photo attachment to assignment reports
 - Quality assurance documentation
 
 ### Navigation Integration
+
 - Google Maps integration for turn-by-turn navigation
 - Direct launching of external navigation apps
 - Route planning and optimization
 - Distance and time calculations
 
 ### Assignment Workflow
+
 1. **Scheduled** → View assignment details, navigate to location
 2. **In Progress** → GPS tracking active, photo documentation
 3. **Completed** → Submit reports, rate service quality
 
 ### Reporting System
+
 - **Verification Reports**: Standard quality checks
 - **Quality Issues**: Flag problems requiring attention
 - **Incident Reports**: Document emergencies or safety concerns
@@ -155,16 +170,19 @@ Agent_App/
 ## Mobile-Specific Features
 
 ### Offline Capability
+
 - Assignment data caching for offline access
 - Photo storage with sync when connected
 - GPS tracking continues offline
 
 ### Push Notifications
+
 - New assignment alerts
 - Route updates and traffic warnings
 - Emergency communication from admin
 
 ### Hardware Integration
+
 - Camera for documentation
 - GPS for precise location tracking
 - Phone integration for direct calling
@@ -173,6 +191,7 @@ Agent_App/
 ## Demo Credentials
 
 For testing purposes, use:
+
 - **Agent ID**: AGT001
 - **Password**: demo123
 
@@ -181,11 +200,13 @@ Or use the "Demo Login" button for instant access.
 ## Permissions Required
 
 ### iOS
+
 - Camera access for photo documentation
 - Location services for GPS tracking
 - Photo library access for evidence storage
 
 ### Android
+
 - CAMERA permission
 - ACCESS_FINE_LOCATION permission
 - WRITE_EXTERNAL_STORAGE permission
@@ -193,11 +214,13 @@ Or use the "Demo Login" button for instant access.
 ## Building for Production
 
 ### iOS
+
 ```bash
 npx eas build --platform ios
 ```
 
 ### Android
+
 ```bash
 npx eas build --platform android
 ```
@@ -217,6 +240,7 @@ The app follows the CareFinder workflow:
 ## Support
 
 For technical support or feature requests:
+
 - Contact: support@carefinder.lk
 - Emergency Line: +94 11 234 5678
 

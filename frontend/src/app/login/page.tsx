@@ -1,34 +1,42 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import LoginForm from '@/components/auth/LoginForm';
-import ThemeToggle from '@/components/common/ThemeToggle';
+import React, { useState } from "react";
+import Link from "next/link";
+import LoginForm from "@/components/auth/LoginForm";
+import ThemeToggle from "@/components/common/ThemeToggle";
 
 export default function Login() {
-  const [userType, setUserType] = useState('family');
+  const [userType, setUserType] = useState("family");
 
   const handleLogin = (email: string, password: string) => {
     // Login logic will be handled by backend team
-    console.log('Login attempt:', { userType, email, password });
+    console.log("Login attempt:", { userType, email, password });
     // After successful login, redirect to dashboard
-    window.location.href = '/dashboard';
+    window.location.href = "/dashboard";
   };
 
   const handleDemoLogin = (type: string) => {
     // Demo account login - simulate login and redirect to dashboard
-    console.log('Demo login for:', type);
+    console.log("Demo login for:", type);
 
     // Simulate setting user type (in real app, this would come from authentication)
-    localStorage.setItem('demoUserType', type);
-    localStorage.setItem('demoUser', JSON.stringify({
-      type: type,
-      name: type === 'family' ? 'Demo Family' : type === 'caregiver' ? 'Demo Caregiver' : 'Demo Admin',
-      email: `demo-${type}@carefinder.lk`
-    }));
+    localStorage.setItem("demoUserType", type);
+    localStorage.setItem(
+      "demoUser",
+      JSON.stringify({
+        type: type,
+        name:
+          type === "family"
+            ? "Demo Family"
+            : type === "caregiver"
+              ? "Demo Caregiver"
+              : "Demo Admin",
+        email: `demo-${type}@carefinder.lk`,
+      }),
+    );
 
     // Redirect to dashboard
-    window.location.href = '/dashboard';
+    window.location.href = "/dashboard";
   };
 
   return (
@@ -46,8 +54,18 @@ export default function Login() {
           href="/"
           className="flex items-center space-x-2 px-3 py-2 bg-white/80 dark:bg-gray-800/80 border border-gray-200/50 dark:border-gray-700/50 rounded-full shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
           </svg>
           <span>Home</span>
         </Link>

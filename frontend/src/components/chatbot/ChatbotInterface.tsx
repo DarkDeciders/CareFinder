@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import ThinkingAnimation from './ThinkingAnimation';
-import { useChatbot } from './useChatbot';
+import React, { useState, useRef, useEffect } from "react";
+import ThinkingAnimation from "./ThinkingAnimation";
+import { useChatbot } from "./useChatbot";
 
 interface ChatbotInterfaceProps {
   onClose: () => void;
 }
 
 export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -17,7 +17,7 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isThinking]);
 
   // Focus input when chatbot opens
@@ -30,7 +30,7 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
     if (!input.trim() || isThinking) return;
 
     const userMessage = input.trim();
-    setInput('');
+    setInput("");
     await sendMessage(userMessage);
   };
 
@@ -40,11 +40,11 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
   };
 
   const quickActions = [
-    'Find caregivers near me',
-    'What services do you offer?',
-    'How does pricing work?',
-    'How to book a caregiver?',
-    'Emergency care options'
+    "Find caregivers near me",
+    "What services do you offer?",
+    "How does pricing work?",
+    "How to book a caregiver?",
+    "Emergency care options",
   ];
 
   return (
@@ -53,17 +53,12 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
       <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              <circle cx="9" cy="9" r="1"/>
-              <circle cx="15" cy="9" r="1"/>
-              <path d="M8 13h8v1H8z"/>
-            </svg>
+            <span className="text-lg">🤖</span>
           </div>
           <div>
             <h3 className="font-semibold text-sm">CareFinder Assistant</h3>
             <p className="text-xs text-white/80">
-              {isThinking ? 'Thinking...' : 'Online • Ready to help'}
+              {isThinking ? "Thinking..." : "Online • Ready to help"}
             </p>
           </div>
         </div>
@@ -71,8 +66,18 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
           onClick={onClose}
           className="text-white/80 hover:text-white hover:bg-white/10 rounded-full p-1 transition-colors"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
@@ -82,15 +87,22 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
         <div className="flex-none p-4">
           <div className="text-center text-gray-500 dark:text-gray-400 py-4">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/20 dark:to-secondary-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-              <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                <circle cx="9" cy="9" r="1"/>
-                <circle cx="15" cy="9" r="1"/>
-                <path d="M8 13h8v1H8z"/>
+              <svg
+                className="w-5 h-5 text-primary-600 dark:text-primary-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                <circle cx="9" cy="9" r="1" />
+                <circle cx="15" cy="9" r="1" />
+                <path d="M8 13h8v1H8z" />
               </svg>
             </div>
             <p className="text-sm font-medium mb-1">Welcome to CareFinder!</p>
-            <p className="text-xs">I&apos;m here to help you find the perfect care services. Ask me anything!</p>
+            <p className="text-xs">
+              I&apos;m here to help you find the perfect care services. Ask me
+              anything!
+            </p>
           </div>
         </div>
       )}
@@ -101,13 +113,13 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
             >
               <div
                 className={`max-w-[80%] p-3 rounded-2xl ${
-                  message.role === 'user'
-                    ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-br-md'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-bl-md'
+                  message.role === "user"
+                    ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-br-md"
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-bl-md"
                 }`}
               >
                 <p className="text-sm whitespace-pre-wrap">{message.content}</p>
@@ -131,7 +143,9 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
       {/* Quick Actions */}
       {messages.length === 0 && !isThinking && (
         <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Quick actions:</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            Quick actions:
+          </p>
           <div className="flex flex-wrap gap-2">
             {quickActions.map((action, index) => (
               <button
@@ -166,8 +180,18 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
             {isThinking ? (
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
               </svg>
             )}
           </button>
