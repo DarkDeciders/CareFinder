@@ -1,25 +1,25 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from "expo-router";
+import React from "react";
+import { Platform } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#0891b2',
-        tabBarInactiveTintColor: '#6b7280',
+        tabBarActiveTintColor: "#0891b2",
+        tabBarInactiveTintColor: "#6b7280",
         tabBarStyle: {
-          backgroundColor: '#ffffff',
+          backgroundColor: "#ffffff",
           borderTopWidth: 1,
-          borderTopColor: '#e5e7eb',
-          height: Platform.OS === 'ios' ? 90 : 70,
-          paddingBottom: Platform.OS === 'ios' ? 25 : 10,
+          borderTopColor: "#e5e7eb",
+          height: Platform.OS === "ios" ? 90 : 70,
+          paddingBottom: Platform.OS === "ios" ? 25 : 10,
           paddingTop: 10,
         },
         tabBarLabelStyle: {
           fontSize: 12,
-          fontWeight: '600',
+          fontWeight: "600",
         },
         headerShown: false,
       }}
@@ -27,7 +27,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Overview',
+          title: "Overview",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home-outline" size={size} color={color} />
           ),
@@ -36,7 +36,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="assignments"
         options={{
-          title: 'Tasks',
+          title: "Tasks",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="clipboard-outline" size={size} color={color} />
           ),
@@ -45,7 +45,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="navigation"
         options={{
-          title: 'Navigate',
+          title: "Navigate",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="map-outline" size={size} color={color} />
           ),
@@ -54,7 +54,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="reports"
         options={{
-          title: 'Reports',
+          title: "Reports",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="document-text-outline" size={size} color={color} />
           ),
@@ -63,7 +63,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: "Profile",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-outline" size={size} color={color} />
           ),

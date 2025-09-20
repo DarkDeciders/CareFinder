@@ -4,7 +4,7 @@
 
 /* Global background image for entire application */
 .global-bg {
-  background-image: url('/carefinder.jpg');
+  background-image: url("/carefinder.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,7 +22,8 @@
 }
 
 /* Ensure body and html cover full height */
-html, body {
+html,
+body {
   min-height: 100vh;
 }
 

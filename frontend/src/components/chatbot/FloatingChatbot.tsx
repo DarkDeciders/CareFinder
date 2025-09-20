@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import ChatbotInterface from './ChatbotInterface';
+import React, { useState, useRef, useEffect } from "react";
+import ChatbotInterface from "./ChatbotInterface";
 
 export default function FloatingChatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,14 +11,18 @@ export default function FloatingChatbot() {
   // Close chatbot when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (chatbotRef.current && !chatbotRef.current.contains(event.target as Node)) {
+      if (
+        chatbotRef.current &&
+        !chatbotRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isOpen]);
 
@@ -45,10 +49,22 @@ export default function FloatingChatbot() {
         aria-label="Open CareFinder Assistant"
       >
         {/* Bot Icon */}
-        <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+        <div
+          className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        >
           {isOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           ) : (
             <span className="text-2xl">🤖</span>
@@ -68,7 +84,9 @@ export default function FloatingChatbot() {
       {!isOpen && (
         <div className="absolute bottom-16 right-0 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
           <div className="text-sm font-medium">CareFinder Assistant</div>
-          <div className="text-xs text-gray-500 dark:text-gray-400">Ask me anything about care services</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">
+            Ask me anything about care services
+          </div>
           <div className="absolute bottom-0 right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white dark:border-t-gray-800 translate-y-full"></div>
         </div>
       )}

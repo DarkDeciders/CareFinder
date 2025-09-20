@@ -1,21 +1,20 @@
+"use client";
 
-'use client'
-
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import FamilyDashboard from '@/components/dashboard/FamilyDashboard';
-import CaregiverDashboard from '@/components/dashboard/CaregiverDashboard';
-import AdminDashboard from '@/components/dashboard/AdminDashboard';
-import TrainerDashboard from '@/components/dashboard/TrainerDashboard';
-import AgentDashboard from '@/components/dashboard/AgentDashboard';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import FamilyDashboard from "@/components/dashboard/FamilyDashboard";
+import CaregiverDashboard from "@/components/dashboard/CaregiverDashboard";
+import AdminDashboard from "@/components/dashboard/AdminDashboard";
+import TrainerDashboard from "@/components/dashboard/TrainerDashboard";
+import AgentDashboard from "@/components/dashboard/AgentDashboard";
 
 export default function Dashboard() {
-  const [userType, setUserType] = useState('family');
+  const [userType, setUserType] = useState("family");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Check for demo user type or get from authentication
-    const demoUserType = localStorage.getItem('demoUserType');
+    const demoUserType = localStorage.getItem("demoUserType");
     if (demoUserType) {
       setUserType(demoUserType);
     }
@@ -25,15 +24,15 @@ export default function Dashboard() {
 
   const renderDashboard = () => {
     switch (userType) {
-      case 'family':
+      case "family":
         return <FamilyDashboard />;
-      case 'caregiver':
+      case "caregiver":
         return <CaregiverDashboard />;
-      case 'admin':
+      case "admin":
         return <AdminDashboard />;
-      case 'trainer':
+      case "trainer":
         return <TrainerDashboard />;
-      case 'agent':
+      case "agent":
         return <AgentDashboard />;
       default:
         return <FamilyDashboard />;
@@ -53,7 +52,9 @@ export default function Dashboard() {
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-gray-600 dark:text-gray-300">Loading dashboard...</p>
+          <p className="text-gray-600 dark:text-gray-300">
+            Loading dashboard...
+          </p>
         </div>
       </div>
     );

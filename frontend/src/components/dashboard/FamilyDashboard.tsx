@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import FamilyProfile from '../family/FamilyProfile';
-import FamilyOverview from '../family/FamilyOverview';
-import FamilyBookings from '../family/FamilyBookings';
-import FamilySearch from '../family/FamilySearch';
-import FamilyMessages from '../family/FamilyMessages';
-import ThemeToggle from '../common/ThemeToggle';
+import React, { useState } from "react";
+import Image from "next/image";
+import FamilyProfile from "../family/FamilyProfile";
+import FamilyOverview from "../family/FamilyOverview";
+import FamilyBookings from "../family/FamilyBookings";
+import FamilySearch from "../family/FamilySearch";
+import FamilyMessages from "../family/FamilyMessages";
+import ThemeToggle from "../common/ThemeToggle";
 
 export default function FamilyDashboard() {
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState("overview");
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'overview':
+      case "overview":
         return <FamilyOverview />;
-      case 'search':
+      case "search":
         return <FamilySearch />;
-      case 'bookings':
+      case "bookings":
         return <FamilyBookings />;
-      case 'messages':
+      case "messages":
         return <FamilyMessages />;
-      case 'profile':
+      case "profile":
         return <FamilyProfile />;
       default:
         return (
@@ -55,20 +55,20 @@ export default function FamilyDashboard() {
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="hidden sm:block text-sm text-gray-600 dark:text-gray-300">
-                Welcome,{' '}
+                Welcome,{" "}
                 <span className="font-semibold">
-                  {typeof window !== 'undefined' &&
-                  localStorage.getItem('demoUser')
-                    ? JSON.parse(localStorage.getItem('demoUser') || '{}').name
-                    : 'Family User'}
+                  {typeof window !== "undefined" &&
+                  localStorage.getItem("demoUser")
+                    ? JSON.parse(localStorage.getItem("demoUser") || "{}").name
+                    : "Family User"}
                 </span>
               </div>
               <ThemeToggle />
               <button
                 onClick={() => {
-                  localStorage.removeItem('demoUserType');
-                  localStorage.removeItem('demoUser');
-                  window.location.href = '/login';
+                  localStorage.removeItem("demoUserType");
+                  localStorage.removeItem("demoUser");
+                  window.location.href = "/login";
                 }}
                 className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Logout"
@@ -97,24 +97,26 @@ export default function FamilyDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex overflow-x-auto space-x-4 sm:space-x-8 scrollbar-hide">
             {[
-              { key: 'overview', label: 'Overview', icon: '📊' },
-              { key: 'search', label: 'Find Caregivers', icon: '🔍' },
-              { key: 'bookings', label: 'My Bookings', icon: '📅' },
-              { key: 'messages', label: 'Messages', icon: '💬' },
-              { key: 'profile', label: 'Profile', icon: '👤' },
+              { key: "overview", label: "Overview", icon: "📊" },
+              { key: "search", label: "Find Caregivers", icon: "🔍" },
+              { key: "bookings", label: "My Bookings", icon: "📅" },
+              { key: "messages", label: "Messages", icon: "💬" },
+              { key: "profile", label: "Profile", icon: "👤" },
             ].map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
                 className={`py-4 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm transition-colors whitespace-nowrap ${
                   activeTab === tab.key
-                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300'
+                    ? "border-primary-500 text-primary-600 dark:text-primary-400"
+                    : "border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300"
                 }`}
               >
                 <span className="mr-1 sm:mr-2">{tab.icon}</span>
                 <span className="hidden sm:inline">{tab.label}</span>
-                <span className="sm:hidden text-xs">{tab.label.split(' ')[0]}</span>
+                <span className="sm:hidden text-xs">
+                  {tab.label.split(" ")[0]}
+                </span>
               </button>
             ))}
           </nav>
@@ -124,9 +126,7 @@ export default function FamilyDashboard() {
       {/* Main Content - Scrollable */}
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-          <div className="w-full">
-            {renderContent()}
-          </div>
+          <div className="w-full">{renderContent()}</div>
         </div>
       </main>
     </div>

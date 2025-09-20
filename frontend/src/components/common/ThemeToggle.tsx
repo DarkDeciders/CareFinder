@@ -1,22 +1,30 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-export default function ThemeToggle({ className = '' }: { className?: string }) {
+export default function ThemeToggle({
+  className = "",
+}: {
+  className?: string;
+}) {
   // Initialize to a deterministic value to avoid SSR/CSR hydration mismatch.
   // We'll read the real preference on mount (inside useEffect).
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   // On mount, read saved preference or prefers-color-scheme and update state.
   useEffect(() => {
     try {
-      const saved = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
-      if (saved === 'dark' || saved === 'light') {
+      const saved =
+        typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+      if (saved === "dark" || saved === "light") {
         setTheme(saved);
         return;
       }
-      const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
+      const prefersDark =
+        typeof window !== "undefined" &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
     } catch {
       // ignore storage access errors
     }
@@ -25,13 +33,13 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
   // Apply theme class to root and persist preference whenever `theme` changes.
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
+    if (theme === "dark") {
+      root.classList.add("dark");
     } else {
-      root.classList.remove('dark');
+      root.classList.remove("dark");
     }
     try {
-      localStorage.setItem('theme', theme);
+      localStorage.setItem("theme", theme);
     } catch {
       // ignore
     }
@@ -39,15 +47,15 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
 
   return (
     <button
-      aria-pressed={theme === 'dark'}
-      onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
+      aria-pressed={theme === "dark"}
+      onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
       className={`relative p-3 rounded-full bg-white/80 dark:bg-gray-800/80 border border-gray-200/50 dark:border-gray-700/50 shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 ${className}`}
-      title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       {/* Sun Icon */}
       <svg
         className={`w-5 h-5 text-yellow-500 transition-all duration-300 ${
-          theme === 'dark' ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
+          theme === "dark" ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
         }`}
         fill="currentColor"
         viewBox="0 0 20 20"
@@ -63,7 +71,7 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
       {/* Moon Icon */}
       <svg
         className={`absolute top-3 left-3 w-5 h-5 text-blue-400 transition-all duration-300 ${
-          theme === 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
+          theme === "dark" ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"
         }`}
         fill="currentColor"
         viewBox="0 0 20 20"

@@ -13,18 +13,21 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 ## 🌟 Key Features
 
 ### 👨‍👩‍👧‍👦 For Families
+
 - **Caregiver Discovery**: Find verified caregivers by location, expertise, and availability
 - **Secure Booking System**: Schedule one-time or recurring care services
 - **Real-time Communication**: Direct messaging with caregivers
 - **Safety First**: Access verified background checks and reviews
 
 ### 👩‍⚕️ For Caregivers
+
 - **Professional Profiles**: Showcase experience, certifications, and specializations
 - **Flexible Scheduling**: Manage availability and service preferences
 - **Career Growth**: Build reputation through reviews and repeat bookings
 - **Fair Compensation**: Transparent pricing and secure payment processing
 
 ### 🛡️ For Administrators
+
 - **Hierarchical Management**: Multi-level admin system (Super, Regional, Department, Junior)
 - **AI-Assisted Verification**: Automated document processing with human oversight
 - **Quality Assurance**: Performance monitoring and compliance management
@@ -33,12 +36,14 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 ## 🤖 AI-Powered Features
 
 ### 📄 Document Verification System
+
 - **Optical Character Recognition**: Extract and validate information from ID cards, licenses, and certificates
 - **Fraud Detection**: Advanced algorithms to identify suspicious or tampered documents
 - **Confidence Scoring**: AI-generated reliability scores for automated decision-making
 - **Multi-format Support**: Process various document types with 95%+ accuracy
 
 ### 💬 RAG-Powered Chatbot
+
 - **Intelligent Assistance**: Context-aware responses using Retrieval-Augmented Generation
 - **Platform Knowledge**: Trained on CareFinder policies and procedures
 - **24/7 Availability**: Round-the-clock customer support and guidance
@@ -85,6 +90,7 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 ## 🚀 Tech Stack
 
 ### Frontend
+
 - **Framework**: Next.js 14+ (React)
 - **Styling**: Tailwind CSS
 - **State Management**: Redux Toolkit / Zustand
@@ -92,6 +98,7 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 - **Forms**: React Hook Form + Zod validation
 
 ### Backend
+
 - **Runtime**: Node.js 18+
 - **Framework**: Express.js
 - **Database**: MongoDB with Mongoose ODM
@@ -99,12 +106,14 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 - **File Upload**: Multer middleware
 
 ### AI & Machine Learning
+
 - **Document Verification**: Google Gemini Vision API
 - **Chatbot**: Custom FastAPI + LangChain + RAG
 - **Vector Database**: Pinecone / Chroma
 - **Language Model**: Google Gemini Pro API
 
 ### External Services
+
 - **Payments**: PayHere Gateway
 - **Email**: SendGrid
 - **File Storage**: Cloudinary
@@ -112,6 +121,7 @@ CareFinder is a comprehensive web platform that connects families seeking childc
 - **Real-time**: WebSocket
 
 ### Development Tools
+
 - **API Testing**: Postman
 - **Version Control**: Git
 - **Package Manager**: npm/yarn
@@ -129,6 +139,7 @@ Before you begin, ensure you have the following installed:
 ## ⚡ Quick Start
 
 ### 1. Project Setup
+
 ```bash
 # Create your project directory
 mkdir carefinder-platform
@@ -136,6 +147,7 @@ cd carefinder-platform
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 # Install backend dependencies
 npm init -y
@@ -149,6 +161,7 @@ pip install fastapi uvicorn langchain openai pinecone-client
 ```
 
 ### 3. Database Setup
+
 ```bash
 # Start MongoDB (if running locally)
 mongod
@@ -157,6 +170,7 @@ mongod
 ```
 
 ### 4. Start Development
+
 ```bash
 # Start your development servers
 # Backend: node server.js
@@ -165,6 +179,7 @@ mongod
 ```
 
 ### 5. Access the Application
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
 - **AI Services**: http://localhost:8001
@@ -200,6 +215,7 @@ carefinder-platform/
 ## 🔧 Development Scripts
 
 ### Backend Scripts
+
 ```bash
 npm run dev          # Start development server with hot reload
 npm run build        # Build production bundle
@@ -209,6 +225,7 @@ npm run lint         # Run ESLint
 ```
 
 ### Frontend Scripts
+
 ```bash
 npm run dev          # Start development server
 npm run build        # Build for production
@@ -220,6 +237,7 @@ npm run test         # Run Jest tests
 ## 🧪 Testing
 
 ### Unit Tests
+
 ```bash
 # Backend unit tests
 cd backend && npm test
@@ -229,6 +247,7 @@ cd frontend && npm test
 ```
 
 ### Integration Tests
+
 ```bash
 # API integration tests
 cd backend && npm run test:integration
@@ -238,6 +257,7 @@ cd frontend && npm run test:e2e
 ```
 
 ### AI Service Tests
+
 ```bash
 # AI service tests
 cd ai-services && python -m pytest
@@ -253,6 +273,7 @@ cd ai-services && python -m pytest
 4. **Build & Deploy**: Railway automatically builds and deploys
 
 ### Manual Deployment
+
 ```bash
 # Build applications
 npm run build
@@ -262,6 +283,7 @@ npm run start
 ```
 
 ### Docker Deployment
+
 ```bash
 # Build Docker images
 docker-compose build
@@ -275,22 +297,25 @@ docker-compose up -d
 You'll need to set up environment variables for various services:
 
 ### Backend Configuration
+
 - Database connection strings
 - JWT secrets
 - API keys for external services (Gemini, PayHere, SendGrid, Cloudinary)
 - Server configuration
 
 ### Frontend Configuration
+
 - API endpoint URLs
 - External service keys (Google Maps, etc.)
 
-*Note: Specific environment variable setup will be documented as features are implemented.*
+_Note: Specific environment variable setup will be documented as features are implemented._
 
 ## 🤝 Contributing
 
 We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ### Getting Started with Development
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
@@ -301,6 +326,7 @@ We welcome contributions from the community! Please read our [Contributing Guide
 8. Open a Pull Request
 
 ### Code Style Guidelines
+
 - Follow ESLint and Prettier configurations
 - Write clear, descriptive commit messages
 - Add tests for new features
@@ -309,12 +335,14 @@ We welcome contributions from the community! Please read our [Contributing Guide
 ## 📊 Performance & Monitoring
 
 ### Key Metrics
+
 - **Response Time**: < 200ms for API endpoints
 - **Uptime**: 99.9% availability target
 - **AI Accuracy**: 95%+ for document verification
 - **User Satisfaction**: Tracked through reviews and feedback
 
 ### Monitoring Tools
+
 - **Application Monitoring**: Railway built-in monitoring
 - **Error Tracking**: Integrated error logging
 - **Performance Metrics**: Custom analytics dashboard
@@ -323,6 +351,7 @@ We welcome contributions from the community! Please read our [Contributing Guide
 ## 🔒 Security
 
 ### Security Measures
+
 - **Data Encryption**: End-to-end encryption for sensitive data
 - **Authentication**: JWT-based secure authentication
 - **Input Validation**: Comprehensive input sanitization
@@ -330,6 +359,7 @@ We welcome contributions from the community! Please read our [Contributing Guide
 - **Security Headers**: Proper HTTP security headers
 
 ### Privacy Compliance
+
 - **GDPR Compliance**: Full European data protection compliance
 - **Data Minimization**: Collect only necessary information
 - **User Consent**: Clear consent mechanisms
@@ -338,6 +368,7 @@ We welcome contributions from the community! Please read our [Contributing Guide
 ## 📚 API Documentation
 
 ### REST API Endpoints
+
 - **Authentication**: `/api/auth/*`
 - **Users**: `/api/users/*`
 - **Caregivers**: `/api/caregivers/*`
@@ -346,15 +377,17 @@ We welcome contributions from the community! Please read our [Contributing Guide
 - **Chat**: `/api/chat/*`
 
 ### AI Service Endpoints
+
 - **Document Verification**: `/verify-document`
 - **Chatbot**: `/chat`
 - **Health Check**: `/health`
 
-*Full API documentation will be available at `/api-docs` when running the development server.*
+_Full API documentation will be available at `/api-docs` when running the development server._
 
 ## 🆘 Support & Help
 
 ### Getting Help
+
 - **Documentation**: Check our comprehensive docs
 - **Issues**: Open a GitHub issue for bugs or feature requests
 - **Discussions**: Use GitHub Discussions for questions

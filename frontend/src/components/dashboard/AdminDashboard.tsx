@@ -1,55 +1,57 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import Image from "next/image";
 
-import AdminOverview from '../admin/AdminOverview';
-import AdminSettings from '../admin/AdminSettings';
-import UserManagement from '../admin/UserManagement';
-import Verifications from '../admin/Verifications';
-import TrainerManagement from '../admin/TrainerManagement';
-import AgentControl from '../admin/AgentControl';
-import Bookings from '../admin/Bookings';
-import Reports from '../admin/Reports';
-import ThemeToggle from '../common/ThemeToggle';
+import AdminOverview from "../admin/AdminOverview";
+import AdminSettings from "../admin/AdminSettings";
+import UserManagement from "../admin/UserManagement";
+import Verifications from "../admin/Verifications";
+import TrainerManagement from "../admin/TrainerManagement";
+import AgentControl from "../admin/AgentControl";
+import Bookings from "../admin/Bookings";
+import Reports from "../admin/Reports";
+import ThemeToggle from "../common/ThemeToggle";
 
 export default function AdminDashboard() {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState("overview");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const sidebarItems = [
-    { key: 'overview', label: 'Overview', icon: '📊' },
-    { key: 'users', label: 'User Management', icon: '👥' },
-    { key: 'verifications', label: 'Verifications', icon: '✅' },
-    { key: 'trainers', label: 'Trainer Management', icon: '🎓' },
-    { key: 'agents', label: 'Agent Control', icon: '🚗' },
-    { key: 'bookings', label: 'Bookings', icon: '📅' },
-    { key: 'reports', label: 'Reports', icon: '📈' },
-    { key: 'settings', label: 'Settings', icon: '⚙️' }
+    { key: "overview", label: "Overview", icon: "📊" },
+    { key: "users", label: "User Management", icon: "👥" },
+    { key: "verifications", label: "Verifications", icon: "✅" },
+    { key: "trainers", label: "Trainer Management", icon: "🎓" },
+    { key: "agents", label: "Agent Control", icon: "🚗" },
+    { key: "bookings", label: "Bookings", icon: "📅" },
+    { key: "reports", label: "Reports", icon: "📈" },
+    { key: "settings", label: "Settings", icon: "⚙️" },
   ];
 
   const renderContent = () => {
     switch (activeSection) {
-      case 'overview':
+      case "overview":
         return <AdminOverview />;
-      case 'users':
-          return <UserManagement />;
-      case 'verifications':
-          return <Verifications />;
-      case 'trainers':
-          return <TrainerManagement />;
-      case 'agents':
-          return <AgentControl />;
-      case 'bookings':
-          return <Bookings />;
-      case 'reports':
-          return <Reports />;
-      case 'settings':
+      case "users":
+        return <UserManagement />;
+      case "verifications":
+        return <Verifications />;
+      case "trainers":
+        return <TrainerManagement />;
+      case "agents":
+        return <AgentControl />;
+      case "bookings":
+        return <Bookings />;
+      case "reports":
+        return <Reports />;
+      case "settings":
         return <AdminSettings />;
       default:
         return (
           <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Admin Overview</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Admin Overview
+            </h1>
             <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 min-h-[400px]">
               {/* Default dashboard content */}
             </div>
@@ -62,14 +64,19 @@ export default function AdminDashboard() {
     <div className="h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 flex overflow-hidden">
       {/* Mobile Sidebar Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={() => setMobileMenuOpen(false)}></div>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        ></div>
       )}
 
       {/* Sidebar */}
-      <div className={`
-        ${mobileMenuOpen ? 'fixed inset-y-0 left-0 z-50' : 'hidden'}
+      <div
+        className={`
+        ${mobileMenuOpen ? "fixed inset-y-0 left-0 z-50" : "hidden"}
         lg:block lg:relative w-64 flex-shrink-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-r border-gray-200 dark:border-gray-700 flex flex-col h-full
-      `}>
+      `}
+      >
         {/* Logo */}
         <div className="p-6 flex-shrink-0">
           <div className="flex items-center space-x-2">
@@ -100,8 +107,8 @@ export default function AdminDashboard() {
                   }}
                   className={`w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                     activeSection === item.key
-                      ? 'bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 border border-primary-200 dark:border-primary-700'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 hover:text-gray-900 dark:hover:text-white'
+                      ? "bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 border border-primary-200 dark:border-primary-700"
+                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -116,15 +123,20 @@ export default function AdminDashboard() {
         <div className="flex-shrink-0 p-4 border-t border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-primary-100 dark:bg-primary-900/20 rounded-full flex items-center justify-center">
-              <span className="text-primary-600 dark:text-primary-400 text-sm font-bold">A</span>
+              <span className="text-primary-600 dark:text-primary-400 text-sm font-bold">
+                A
+              </span>
             </div>
             <div>
               <div className="text-sm font-medium text-gray-900 dark:text-white">
-                {typeof window !== 'undefined' && localStorage.getItem('demoUser')
-                  ? JSON.parse(localStorage.getItem('demoUser') || '{}').name
-                  : 'Admin User'}
+                {typeof window !== "undefined" &&
+                localStorage.getItem("demoUser")
+                  ? JSON.parse(localStorage.getItem("demoUser") || "{}").name
+                  : "Admin User"}
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">Super Admin</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">
+                Super Admin
+              </div>
             </div>
           </div>
         </div>
@@ -142,8 +154,18 @@ export default function AdminDashboard() {
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="lg:hidden p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   </svg>
                 </button>
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -152,24 +174,37 @@ export default function AdminDashboard() {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="hidden sm:block text-sm text-gray-600 dark:text-gray-300">
-                  Welcome, <span className="font-semibold">{
-                    typeof window !== 'undefined' && localStorage.getItem('demoUser')
-                      ? JSON.parse(localStorage.getItem('demoUser') || '{}').name
-                      : 'Admin'
-                  }</span>
+                  Welcome,{" "}
+                  <span className="font-semibold">
+                    {typeof window !== "undefined" &&
+                    localStorage.getItem("demoUser")
+                      ? JSON.parse(localStorage.getItem("demoUser") || "{}")
+                          .name
+                      : "Admin"}
+                  </span>
                 </div>
                 <ThemeToggle />
                 <button
                   onClick={() => {
-                    localStorage.removeItem('demoUserType');
-                    localStorage.removeItem('demoUser');
-                    window.location.href = '/login';
+                    localStorage.removeItem("demoUserType");
+                    localStorage.removeItem("demoUser");
+                    window.location.href = "/login";
                   }}
                   className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                   title="Logout"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                    />
                   </svg>
                 </button>
               </div>
@@ -188,8 +223,8 @@ export default function AdminDashboard() {
                       }}
                       className={`flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                         activeSection === item.key
-                          ? 'bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400'
-                          : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
+                          ? "bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400"
+                          : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50"
                       }`}
                     >
                       <span className="mr-2">{item.icon}</span>
@@ -204,9 +239,7 @@ export default function AdminDashboard() {
 
         {/* Content - Scrollable */}
         <main className="flex-1 p-4 sm:p-6 overflow-y-auto">
-          <div className="max-w-none">
-            {renderContent()}
-          </div>
+          <div className="max-w-none">{renderContent()}</div>
         </main>
       </div>
     </div>

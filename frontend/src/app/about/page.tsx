@@ -435,10 +435,10 @@ export default function About() {
             {(() => {
               // Find the team leader and the rest of the members
               const teamLeader = teamMembers.find(
-                (member) => member.role === "Team Leader"
+                (member) => member.role === "Team Leader",
               );
               const otherMembers = teamMembers.filter(
-                (member) => member.role !== "Team Leader"
+                (member) => member.role !== "Team Leader",
               );
 
               return (

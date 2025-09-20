@@ -1,31 +1,46 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Modal, Alert, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+  Alert,
+  Image,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 interface CameraCaptureProps {
   onPhotoTaken?: (photoUri: string) => void;
   onCancel?: () => void;
 }
 
-export default function CameraCapture({ onPhotoTaken, onCancel }: CameraCaptureProps) {
+export default function CameraCapture({
+  onPhotoTaken,
+  onCancel,
+}: CameraCaptureProps) {
   const [showCameraModal, setShowCameraModal] = useState(false);
   const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
 
   const handleTakePhoto = () => {
     // In a real app, this would use expo-camera or expo-image-picker
     // For demo purposes, we'll simulate photo capture
-    const demoPhotoUri = 'https://via.placeholder.com/300x400/4F46E5/ffffff?text=Evidence+Photo';
+    const demoPhotoUri =
+      "https://via.placeholder.com/300x400/4F46E5/ffffff?text=Evidence+Photo";
     setCapturedPhoto(demoPhotoUri);
     onPhotoTaken?.(demoPhotoUri);
-    Alert.alert('Photo Captured', 'Evidence photo has been captured successfully.');
+    Alert.alert(
+      "Photo Captured",
+      "Evidence photo has been captured successfully.",
+    );
   };
 
   const handleChooseFromGallery = () => {
     // In a real app, this would use expo-image-picker
-    const demoPhotoUri = 'https://via.placeholder.com/300x400/059669/ffffff?text=Gallery+Photo';
+    const demoPhotoUri =
+      "https://via.placeholder.com/300x400/059669/ffffff?text=Gallery+Photo";
     setCapturedPhoto(demoPhotoUri);
     onPhotoTaken?.(demoPhotoUri);
-    Alert.alert('Photo Selected', 'Photo has been selected from gallery.');
+    Alert.alert("Photo Selected", "Photo has been selected from gallery.");
   };
 
   return (
@@ -48,12 +63,18 @@ export default function CameraCapture({ onPhotoTaken, onCancel }: CameraCaptureP
           {/* Camera Interface */}
           <View className="flex-1 bg-gray-900 items-center justify-center">
             {capturedPhoto ? (
-              <Image source={{ uri: capturedPhoto }} className="w-full h-full" resizeMode="cover" />
+              <Image
+                source={{ uri: capturedPhoto }}
+                className="w-full h-full"
+                resizeMode="cover"
+              />
             ) : (
               <View className="items-center">
                 <Ionicons name="camera-outline" size={80} color="#ffffff" />
                 <Text className="text-white text-lg mt-4">Camera Preview</Text>
-                <Text className="text-gray-300 text-sm mt-2">Tap capture button to take photo</Text>
+                <Text className="text-gray-300 text-sm mt-2">
+                  Tap capture button to take photo
+                </Text>
               </View>
             )}
           </View>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, Alert } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 interface LocationData {
   latitude: number;
@@ -14,10 +14,15 @@ interface LocationTrackerProps {
   autoTrack?: boolean;
 }
 
-export default function LocationTracker({ onLocationUpdate, autoTrack = false }: LocationTrackerProps) {
-  const [currentLocation, setCurrentLocation] = useState<LocationData | null>(null);
+export default function LocationTracker({
+  onLocationUpdate,
+  autoTrack = false,
+}: LocationTrackerProps) {
+  const [currentLocation, setCurrentLocation] = useState<LocationData | null>(
+    null,
+  );
   const [tracking, setTracking] = useState(autoTrack);
-  const [accuracy, setAccuracy] = useState<'high' | 'medium' | 'low'>('high');
+  const [accuracy, setAccuracy] = useState<"high" | "medium" | "low">("high");
 
   // Simulate GPS location tracking
   useEffect(() => {
@@ -30,7 +35,7 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
           latitude: 6.9271 + (Math.random() - 0.5) * 0.01, // Around Colombo
           longitude: 79.8612 + (Math.random() - 0.5) * 0.01,
           accuracy: Math.random() * 10 + 5, // 5-15 meters
-          timestamp: Date.now()
+          timestamp: Date.now(),
         };
 
         setCurrentLocation(location);
@@ -49,12 +54,12 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
   const toggleTracking = () => {
     if (!tracking) {
       Alert.alert(
-        'Location Permission',
-        'CareFinder Agent needs location access to track your field visits.',
+        "Location Permission",
+        "CareFinder Agent needs location access to track your field visits.",
         [
-          { text: 'Cancel', style: 'cancel' },
-          { text: 'Allow', onPress: () => setTracking(true) }
-        ]
+          { text: "Cancel", style: "cancel" },
+          { text: "Allow", onPress: () => setTracking(true) },
+        ],
       );
     } else {
       setTracking(false);
@@ -62,7 +67,7 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
   };
 
   const getCurrentLocation = () => {
-    Alert.alert('Getting Location', 'Acquiring precise GPS coordinates...');
+    Alert.alert("Getting Location", "Acquiring precise GPS coordinates...");
 
     // Simulate getting precise location
     setTimeout(() => {
@@ -70,29 +75,32 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
         latitude: 6.9271,
         longitude: 79.8612,
         accuracy: 3,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       };
 
       setCurrentLocation(location);
       onLocationUpdate?.(location);
-      Alert.alert('Location Acquired', `Lat: ${location.latitude.toFixed(6)}\nLng: ${location.longitude.toFixed(6)}`);
+      Alert.alert(
+        "Location Acquired",
+        `Lat: ${location.latitude.toFixed(6)}\nLng: ${location.longitude.toFixed(6)}`,
+      );
     }, 1500);
   };
 
   const getAccuracyColor = () => {
-    if (!currentLocation) return 'bg-gray-500';
+    if (!currentLocation) return "bg-gray-500";
 
-    if (currentLocation.accuracy < 5) return 'bg-green-500';
-    if (currentLocation.accuracy < 10) return 'bg-yellow-500';
-    return 'bg-red-500';
+    if (currentLocation.accuracy < 5) return "bg-green-500";
+    if (currentLocation.accuracy < 10) return "bg-yellow-500";
+    return "bg-red-500";
   };
 
   const getAccuracyText = () => {
-    if (!currentLocation) return 'No GPS';
+    if (!currentLocation) return "No GPS";
 
-    if (currentLocation.accuracy < 5) return 'High Precision';
-    if (currentLocation.accuracy < 10) return 'Medium Precision';
-    return 'Low Precision';
+    if (currentLocation.accuracy < 5) return "High Precision";
+    if (currentLocation.accuracy < 10) return "Medium Precision";
+    return "Low Precision";
   };
 
   return (
@@ -100,7 +108,9 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
       {/* Location Status */}
       <View className="flex-row items-center justify-between mb-4">
         <View className="flex-row items-center">
-          <View className={`w-3 h-3 rounded-full mr-2 ${getAccuracyColor()}`}></View>
+          <View
+            className={`w-3 h-3 rounded-full mr-2 ${getAccuracyColor()}`}
+          ></View>
           <Text className="text-gray-800 font-medium">GPS Status</Text>
         </View>
         <Text className="text-gray-600 text-sm">{getAccuracyText()}</Text>
@@ -111,15 +121,21 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
         <View className="bg-gray-50 rounded-lg p-3 mb-4">
           <View className="flex-row justify-between mb-2">
             <Text className="text-gray-600 text-sm">Latitude:</Text>
-            <Text className="text-gray-800 font-mono text-sm">{currentLocation.latitude.toFixed(6)}</Text>
+            <Text className="text-gray-800 font-mono text-sm">
+              {currentLocation.latitude.toFixed(6)}
+            </Text>
           </View>
           <View className="flex-row justify-between mb-2">
             <Text className="text-gray-600 text-sm">Longitude:</Text>
-            <Text className="text-gray-800 font-mono text-sm">{currentLocation.longitude.toFixed(6)}</Text>
+            <Text className="text-gray-800 font-mono text-sm">
+              {currentLocation.longitude.toFixed(6)}
+            </Text>
           </View>
           <View className="flex-row justify-between">
             <Text className="text-gray-600 text-sm">Accuracy:</Text>
-            <Text className="text-gray-800 text-sm">±{currentLocation.accuracy.toFixed(1)}m</Text>
+            <Text className="text-gray-800 text-sm">
+              ±{currentLocation.accuracy.toFixed(1)}m
+            </Text>
           </View>
         </View>
       )}
@@ -129,16 +145,16 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
         <TouchableOpacity
           onPress={toggleTracking}
           className={`flex-1 py-3 rounded-lg flex-row items-center justify-center ${
-            tracking ? 'bg-red-500' : 'bg-green-500'
+            tracking ? "bg-red-500" : "bg-green-500"
           }`}
         >
           <Ionicons
-            name={tracking ? 'stop-circle-outline' : 'play-circle-outline'}
+            name={tracking ? "stop-circle-outline" : "play-circle-outline"}
             size={20}
             color="#ffffff"
           />
           <Text className="text-white font-medium ml-2">
-            {tracking ? 'Stop Tracking' : 'Start Tracking'}
+            {tracking ? "Stop Tracking" : "Start Tracking"}
           </Text>
         </TouchableOpacity>
 
@@ -154,19 +170,21 @@ export default function LocationTracker({ onLocationUpdate, autoTrack = false }:
       <View className="mt-4 pt-4 border-t border-gray-200">
         <Text className="text-gray-700 font-medium mb-2">GPS Accuracy</Text>
         <View className="flex-row space-x-2">
-          {['high', 'medium', 'low'].map((acc) => (
+          {["high", "medium", "low"].map((acc) => (
             <TouchableOpacity
               key={acc}
               onPress={() => setAccuracy(acc as any)}
               className={`flex-1 py-2 rounded-lg border ${
                 accuracy === acc
-                  ? 'bg-blue-50 border-blue-300'
-                  : 'bg-gray-50 border-gray-300'
+                  ? "bg-blue-50 border-blue-300"
+                  : "bg-gray-50 border-gray-300"
               }`}
             >
-              <Text className={`text-center text-sm font-medium ${
-                accuracy === acc ? 'text-blue-700' : 'text-gray-600'
-              }`}>
+              <Text
+                className={`text-center text-sm font-medium ${
+                  accuracy === acc ? "text-blue-700" : "text-gray-600"
+                }`}
+              >
                 {acc.charAt(0).toUpperCase() + acc.slice(1)}
               </Text>
             </TouchableOpacity>

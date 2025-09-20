@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React from 'react';
-import ThemeToggle from './ThemeToggle';
+import React from "react";
+import ThemeToggle from "./ThemeToggle";
 
 interface DashboardNavProps {
   userType: string;
@@ -9,28 +9,32 @@ interface DashboardNavProps {
   onLogout: () => void;
 }
 
-export default function DashboardNav({ userType, userName, onLogout }: DashboardNavProps) {
+export default function DashboardNav({
+  userType,
+  userName,
+  onLogout,
+}: DashboardNavProps) {
   const getUserTypeLabel = (type: string) => {
     switch (type) {
-      case 'family':
-        return 'CareFinder Family';
-      case 'caregiver':
-        return 'CareFinder Caregiver';
-      case 'admin':
-        return 'CareFinder Admin';
-      case 'agent':
-        return 'CareFinder Agent';
-      case 'trainer':
-        return 'CareFinder Trainer';
+      case "family":
+        return "CareFinder Family";
+      case "caregiver":
+        return "CareFinder Caregiver";
+      case "admin":
+        return "CareFinder Admin";
+      case "agent":
+        return "CareFinder Agent";
+      case "trainer":
+        return "CareFinder Trainer";
       default:
-        return 'CareFinder';
+        return "CareFinder";
     }
   };
 
   const getDisplayName = () => {
     if (userName) return userName;
-    if (typeof window !== 'undefined' && localStorage.getItem('demoUser')) {
-      return JSON.parse(localStorage.getItem('demoUser') || '{}').name;
+    if (typeof window !== "undefined" && localStorage.getItem("demoUser")) {
+      return JSON.parse(localStorage.getItem("demoUser") || "{}").name;
     }
     return `${userType.charAt(0).toUpperCase() + userType.slice(1)} User`;
   };
@@ -49,10 +53,7 @@ export default function DashboardNav({ userType, userName, onLogout }: Dashboard
           </div>
           <div className="flex items-center space-x-4">
             <div className="text-sm text-gray-600 dark:text-gray-300">
-              Welcome,{' '}
-              <span className="font-semibold">
-                {getDisplayName()}
-              </span>
+              Welcome, <span className="font-semibold">{getDisplayName()}</span>
             </div>
             <ThemeToggle />
             <button

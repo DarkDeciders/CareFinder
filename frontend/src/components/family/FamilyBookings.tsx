@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function FamilyBookings() {
   const [activeTab, setActiveTab] = useState<
-    'upcoming' | 'ongoing' | 'completed' | 'cancelled'
-  >('upcoming');
+    "upcoming" | "ongoing" | "completed" | "cancelled"
+  >("upcoming");
   const [showBookingForm, setShowBookingForm] = useState(false);
 
   const bookings = {
@@ -13,188 +13,188 @@ export default function FamilyBookings() {
       {
         id: 1,
         caregiver: {
-          name: 'Maria Silva',
-          photo: 'MS',
+          name: "Maria Silva",
+          photo: "MS",
           rating: 4.9,
-          phone: '+94 77 123 4567',
+          phone: "+94 77 123 4567",
         },
-        type: 'Childcare',
-        date: 'Dec 20, 2024',
-        time: '9:00 AM - 5:00 PM',
-        duration: '8 hours',
-        location: 'Your Home',
-        children: ['Emma Johnson'],
-        totalCost: 'LKR 22,400',
-        status: 'confirmed',
+        type: "Childcare",
+        date: "Dec 20, 2024",
+        time: "9:00 AM - 5:00 PM",
+        duration: "8 hours",
+        location: "Your Home",
+        children: ["Emma Johnson"],
+        totalCost: "LKR 22,400",
+        status: "confirmed",
         specialInstructions:
-          'Emma has a mild peanut allergy. Please be careful with snacks.',
-        bookingDate: '2024-12-15',
+          "Emma has a mild peanut allergy. Please be careful with snacks.",
+        bookingDate: "2024-12-15",
       },
       {
         id: 2,
         caregiver: {
-          name: 'John Perera',
-          photo: 'JP',
+          name: "John Perera",
+          photo: "JP",
           rating: 4.7,
-          phone: '+94 77 234 5678',
+          phone: "+94 77 234 5678",
         },
-        type: 'Elderly Care',
-        date: 'Dec 22, 2024',
-        time: '2:00 PM - 6:00 PM',
-        duration: '4 hours',
-        location: 'Your Home',
-        elderly: ['Grandmother'],
-        totalCost: 'LKR 12,800',
-        status: 'confirmed',
-        specialInstructions: 'Medication reminder at 4:00 PM.',
-        bookingDate: '2024-12-16',
+        type: "Elderly Care",
+        date: "Dec 22, 2024",
+        time: "2:00 PM - 6:00 PM",
+        duration: "4 hours",
+        location: "Your Home",
+        elderly: ["Grandmother"],
+        totalCost: "LKR 12,800",
+        status: "confirmed",
+        specialInstructions: "Medication reminder at 4:00 PM.",
+        bookingDate: "2024-12-16",
       },
       {
         id: 3,
         caregiver: {
-          name: 'Priya Fernando',
-          photo: 'PF',
+          name: "Priya Fernando",
+          photo: "PF",
           rating: 4.8,
-          phone: '+94 77 345 6789',
+          phone: "+94 77 345 6789",
         },
-        type: 'Babysitting',
-        date: 'Dec 25, 2024',
-        time: '7:00 PM - 11:00 PM',
-        duration: '4 hours',
-        location: 'Your Home',
-        children: ['Emma Johnson', 'Liam Johnson'],
-        totalCost: 'LKR 10,000',
-        status: 'pending',
-        specialInstructions: 'Bedtime at 9:00 PM. Light dinner provided.',
-        bookingDate: '2024-12-18',
+        type: "Babysitting",
+        date: "Dec 25, 2024",
+        time: "7:00 PM - 11:00 PM",
+        duration: "4 hours",
+        location: "Your Home",
+        children: ["Emma Johnson", "Liam Johnson"],
+        totalCost: "LKR 10,000",
+        status: "pending",
+        specialInstructions: "Bedtime at 9:00 PM. Light dinner provided.",
+        bookingDate: "2024-12-18",
       },
     ],
     ongoing: [
       {
         id: 4,
         caregiver: {
-          name: 'Kumari Dissanayake',
-          photo: 'KD',
+          name: "Kumari Dissanayake",
+          photo: "KD",
           rating: 4.9,
-          phone: '+94 77 456 7890',
+          phone: "+94 77 456 7890",
         },
-        type: 'Childcare',
-        date: 'Today',
-        time: '8:00 AM - 4:00 PM',
-        duration: '8 hours',
-        location: 'Your Home',
-        children: ['Liam Johnson'],
-        totalCost: 'LKR 28,000',
-        status: 'active',
-        startedAt: '8:05 AM',
-        specialInstructions: 'Liam needs assistance with lunch.',
-        bookingDate: '2024-12-10',
+        type: "Childcare",
+        date: "Today",
+        time: "8:00 AM - 4:00 PM",
+        duration: "8 hours",
+        location: "Your Home",
+        children: ["Liam Johnson"],
+        totalCost: "LKR 28,000",
+        status: "active",
+        startedAt: "8:05 AM",
+        specialInstructions: "Liam needs assistance with lunch.",
+        bookingDate: "2024-12-10",
       },
     ],
     completed: [
       {
         id: 5,
         caregiver: {
-          name: 'Amara Wickramasinghe',
-          photo: 'AW',
+          name: "Amara Wickramasinghe",
+          photo: "AW",
           rating: 4.6,
-          phone: '+94 77 567 8901',
+          phone: "+94 77 567 8901",
         },
-        type: 'Elderly Care',
-        date: 'Dec 15, 2024',
-        time: '10:00 AM - 4:00 PM',
-        duration: '6 hours',
-        location: 'Your Home',
-        elderly: ['Grandmother'],
-        totalCost: 'LKR 17,400',
-        status: 'completed',
-        completedAt: '4:15 PM',
+        type: "Elderly Care",
+        date: "Dec 15, 2024",
+        time: "10:00 AM - 4:00 PM",
+        duration: "6 hours",
+        location: "Your Home",
+        elderly: ["Grandmother"],
+        totalCost: "LKR 17,400",
+        status: "completed",
+        completedAt: "4:15 PM",
         yourRating: 5,
         caregiverRating: 5,
-        specialInstructions: 'Accompany to doctor appointment.',
-        bookingDate: '2024-12-12',
+        specialInstructions: "Accompany to doctor appointment.",
+        bookingDate: "2024-12-12",
       },
       {
         id: 6,
         caregiver: {
-          name: 'Maria Silva',
-          photo: 'MS',
+          name: "Maria Silva",
+          photo: "MS",
           rating: 4.9,
-          phone: '+94 77 123 4567',
+          phone: "+94 77 123 4567",
         },
-        type: 'Childcare',
-        date: 'Dec 12, 2024',
-        time: '9:00 AM - 3:00 PM',
-        duration: '6 hours',
-        location: 'Your Home',
-        children: ['Emma Johnson'],
-        totalCost: 'LKR 16,800',
-        status: 'completed',
-        completedAt: '3:10 PM',
+        type: "Childcare",
+        date: "Dec 12, 2024",
+        time: "9:00 AM - 3:00 PM",
+        duration: "6 hours",
+        location: "Your Home",
+        children: ["Emma Johnson"],
+        totalCost: "LKR 16,800",
+        status: "completed",
+        completedAt: "3:10 PM",
         yourRating: 5,
         caregiverRating: 5,
-        specialInstructions: 'Pick up from school at 1:00 PM.',
-        bookingDate: '2024-12-08',
+        specialInstructions: "Pick up from school at 1:00 PM.",
+        bookingDate: "2024-12-08",
       },
     ],
     cancelled: [
       {
         id: 7,
         caregiver: {
-          name: 'Nimal Rajapaksha',
-          photo: 'NR',
+          name: "Nimal Rajapaksha",
+          photo: "NR",
           rating: 4.5,
-          phone: '+94 77 678 9012',
+          phone: "+94 77 678 9012",
         },
-        type: 'Childcare',
-        date: 'Dec 18, 2024',
-        time: '10:00 AM - 6:00 PM',
-        duration: '8 hours',
-        location: 'Your Home',
-        children: ['Emma Johnson', 'Liam Johnson'],
-        totalCost: 'LKR 19,200',
-        status: 'cancelled',
-        cancelledAt: '2024-12-17 2:30 PM',
-        cancelledBy: 'caregiver',
-        refundAmount: 'LKR 19,200',
-        reason: 'Family emergency',
-        specialInstructions: 'Both children need lunch.',
-        bookingDate: '2024-12-14',
+        type: "Childcare",
+        date: "Dec 18, 2024",
+        time: "10:00 AM - 6:00 PM",
+        duration: "8 hours",
+        location: "Your Home",
+        children: ["Emma Johnson", "Liam Johnson"],
+        totalCost: "LKR 19,200",
+        status: "cancelled",
+        cancelledAt: "2024-12-17 2:30 PM",
+        cancelledBy: "caregiver",
+        refundAmount: "LKR 19,200",
+        reason: "Family emergency",
+        specialInstructions: "Both children need lunch.",
+        bookingDate: "2024-12-14",
       },
     ],
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'confirmed':
-        return 'text-success-600 bg-success-50 border-success-200';
-      case 'pending':
-        return 'text-warning-600 bg-warning-50 border-warning-200';
-      case 'active':
-        return 'text-primary-600 bg-primary-50 border-primary-200';
-      case 'completed':
-        return 'text-gray-600 bg-gray-50 border-gray-200';
-      case 'cancelled':
-        return 'text-red-600 bg-red-50 border-red-200';
+      case "confirmed":
+        return "text-success-600 bg-success-50 border-success-200";
+      case "pending":
+        return "text-warning-600 bg-warning-50 border-warning-200";
+      case "active":
+        return "text-primary-600 bg-primary-50 border-primary-200";
+      case "completed":
+        return "text-gray-600 bg-gray-50 border-gray-200";
+      case "cancelled":
+        return "text-red-600 bg-red-50 border-red-200";
       default:
-        return 'text-gray-600 bg-gray-50 border-gray-200';
+        return "text-gray-600 bg-gray-50 border-gray-200";
     }
   };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'confirmed':
-        return '✅';
-      case 'pending':
-        return '⏳';
-      case 'active':
-        return '🟢';
-      case 'completed':
-        return '✨';
-      case 'cancelled':
-        return '❌';
+      case "confirmed":
+        return "✅";
+      case "pending":
+        return "⏳";
+      case "active":
+        return "🟢";
+      case "completed":
+        return "✨";
+      case "cancelled":
+        return "❌";
       default:
-        return '📅';
+        return "📅";
     }
   };
 
@@ -221,10 +221,10 @@ export default function FamilyBookings() {
         <div className="text-right">
           <div
             className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(
-              booking.status
+              booking.status,
             )}`}
           >
-            {getStatusIcon(booking.status)}{' '}
+            {getStatusIcon(booking.status)}{" "}
             {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
@@ -260,7 +260,7 @@ export default function FamilyBookings() {
             <div className="flex items-center text-sm">
               <span className="w-6">👶</span>
               <span className="text-gray-900 dark:text-white">
-                {booking.children.join(', ')}
+                {booking.children.join(", ")}
               </span>
             </div>
           )}
@@ -268,7 +268,7 @@ export default function FamilyBookings() {
             <div className="flex items-center text-sm">
               <span className="w-6">👵</span>
               <span className="text-gray-900 dark:text-white">
-                {booking.elderly.join(', ')}
+                {booking.elderly.join(", ")}
               </span>
             </div>
           )}
@@ -284,7 +284,7 @@ export default function FamilyBookings() {
             </span>
           </div>
 
-          {booking.status === 'active' && (
+          {booking.status === "active" && (
             <div className="flex items-center text-sm">
               <span className="w-6">🚀</span>
               <span className="text-success-600">
@@ -293,7 +293,7 @@ export default function FamilyBookings() {
             </div>
           )}
 
-          {booking.status === 'completed' && (
+          {booking.status === "completed" && (
             <div className="space-y-2">
               <div className="flex items-center text-sm">
                 <span className="w-6">✅</span>
@@ -311,8 +311,8 @@ export default function FamilyBookings() {
                       key={i}
                       className={
                         i < booking.yourRating
-                          ? 'text-warning-500'
-                          : 'text-gray-300'
+                          ? "text-warning-500"
+                          : "text-gray-300"
                       }
                     >
                       ⭐
@@ -323,7 +323,7 @@ export default function FamilyBookings() {
             </div>
           )}
 
-          {booking.status === 'cancelled' && (
+          {booking.status === "cancelled" && (
             <div className="space-y-2">
               <div className="flex items-center text-sm">
                 <span className="w-6">❌</span>
@@ -366,7 +366,7 @@ export default function FamilyBookings() {
           Booked on {booking.bookingDate}
         </div>
         <div className="flex space-x-2">
-          {booking.status === 'upcoming' && (
+          {booking.status === "upcoming" && (
             <>
               <button className="px-4 py-2 text-primary-600 border border-primary-600 rounded-lg text-sm font-medium hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
                 Modify
@@ -376,12 +376,12 @@ export default function FamilyBookings() {
               </button>
             </>
           )}
-          {booking.status === 'active' && (
+          {booking.status === "active" && (
             <button className="px-4 py-2 bg-success-600 text-white rounded-lg text-sm font-medium hover:bg-success-700 transition-colors">
               Track Live
             </button>
           )}
-          {booking.status === 'completed' && !booking.yourRating && (
+          {booking.status === "completed" && !booking.yourRating && (
             <button className="px-4 py-2 bg-warning-600 text-white rounded-lg text-sm font-medium hover:bg-warning-700 transition-colors">
               Rate Service
             </button>
@@ -400,27 +400,27 @@ export default function FamilyBookings() {
   const EmptyState = ({ type }: { type: string }) => (
     <div className="text-center py-12">
       <div className="text-6xl mb-4">
-        {type === 'upcoming'
-          ? '📅'
-          : type === 'ongoing'
-          ? '🟢'
-          : type === 'completed'
-          ? '✨'
-          : '❌'}
+        {type === "upcoming"
+          ? "📅"
+          : type === "ongoing"
+            ? "🟢"
+            : type === "completed"
+              ? "✨"
+              : "❌"}
       </div>
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
         No {type} bookings
       </h3>
       <p className="text-gray-600 dark:text-gray-300 mb-4">
-        {type === 'upcoming'
+        {type === "upcoming"
           ? "You don't have any upcoming bookings."
-          : type === 'ongoing'
-          ? 'No ongoing care services at the moment.'
-          : type === 'completed'
-          ? 'No completed bookings yet.'
-          : 'No cancelled bookings.'}
+          : type === "ongoing"
+            ? "No ongoing care services at the moment."
+            : type === "completed"
+              ? "No completed bookings yet."
+              : "No cancelled bookings."}
       </p>
-      {type === 'upcoming' && (
+      {type === "upcoming" && (
         <button
           onClick={() => setShowBookingForm(true)}
           className="px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors"
@@ -494,23 +494,23 @@ export default function FamilyBookings() {
         <nav className="flex overflow-x-auto">
           {[
             {
-              key: 'upcoming',
-              label: 'Upcoming',
+              key: "upcoming",
+              label: "Upcoming",
               count: bookings.upcoming.length,
             },
             {
-              key: 'ongoing',
-              label: 'Ongoing',
+              key: "ongoing",
+              label: "Ongoing",
               count: bookings.ongoing.length,
             },
             {
-              key: 'completed',
-              label: 'Completed',
+              key: "completed",
+              label: "Completed",
               count: bookings.completed.length,
             },
             {
-              key: 'cancelled',
-              label: 'Cancelled',
+              key: "cancelled",
+              label: "Cancelled",
               count: bookings.cancelled.length,
             },
           ].map((tab) => (
@@ -520,8 +520,8 @@ export default function FamilyBookings() {
               onClick={() => setActiveTab(tab.key as any)}
               className={`flex-1 py-4 px-6 font-medium text-sm transition-colors border-b-2 whitespace-nowrap ${
                 activeTab === tab.key
-                  ? 'border-primary-500 text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                  ? "border-primary-500 text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20"
+                  : "border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
               }`}
             >
               {tab.label} ({tab.count})
@@ -559,8 +559,8 @@ export default function FamilyBookings() {
               </button>
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              To create a new booking, please go to the &quot;Find Caregivers&quot;
-              section to browse and book verified caregivers.
+              To create a new booking, please go to the &quot;Find
+              Caregivers&quot; section to browse and book verified caregivers.
             </p>
             <div className="flex space-x-3">
               <button

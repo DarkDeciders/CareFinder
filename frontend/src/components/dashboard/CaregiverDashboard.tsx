@@ -9,18 +9,18 @@
  * The component is a client-side component ("use client") and uses local
  * storage to display a demo user's name when available.
  */
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import CaregiverProfile from '../caregiver/CaregiverProfile';
-import CaregiverOverview from '../caregiver/CaregiverOverview';
-import CaregiverJobs from '../caregiver/CaregiverJobs';
-import CaregiverSchedule from '../caregiver/CaregiverSchedule';
-import CaregiverTraining from '../caregiver/CaregiverTraining';
-import CaregiverVerification from '../caregiver/CaregiverVerification';
-import CaregiverMessages from '../caregiver/CaregiverMessages';
-import ThemeToggle from '../common/ThemeToggle';
+import React, { useState } from "react";
+import Image from "next/image";
+import CaregiverProfile from "../caregiver/CaregiverProfile";
+import CaregiverOverview from "../caregiver/CaregiverOverview";
+import CaregiverJobs from "../caregiver/CaregiverJobs";
+import CaregiverSchedule from "../caregiver/CaregiverSchedule";
+import CaregiverTraining from "../caregiver/CaregiverTraining";
+import CaregiverVerification from "../caregiver/CaregiverVerification";
+import CaregiverMessages from "../caregiver/CaregiverMessages";
+import ThemeToggle from "../common/ThemeToggle";
 
 /**
  * CaregiverDashboard component
@@ -44,7 +44,7 @@ export default function CaregiverDashboard() {
    * - current active tab key. Used to determine which dashboard section to
    *   render. Default is 'overview'.
    */
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState("overview");
 
   /**
    * renderContent
@@ -57,19 +57,19 @@ export default function CaregiverDashboard() {
    */
   const renderContent = () => {
     switch (activeTab) {
-      case 'overview':
+      case "overview":
         return <CaregiverOverview />;
-      case 'jobs':
+      case "jobs":
         return <CaregiverJobs />;
-      case 'calendar':
+      case "calendar":
         return <CaregiverSchedule />;
-      case 'training':
+      case "training":
         return <CaregiverTraining />;
-      case 'verification':
+      case "verification":
         return <CaregiverVerification />;
-      case 'messages':
+      case "messages":
         return <CaregiverMessages />;
-      case 'profile':
+      case "profile":
         return <CaregiverProfile />;
       default:
         // Unknown tab -> fallback to overview
@@ -99,31 +99,45 @@ export default function CaregiverDashboard() {
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="hidden md:block text-sm text-gray-600 dark:text-gray-300">
-                Welcome, <span className="font-semibold">{
-                  typeof window !== 'undefined' && localStorage.getItem('demoUser')
-                    ? JSON.parse(localStorage.getItem('demoUser') || '{}').name
-                    : 'Caregiver'
-                }</span>
+                Welcome,{" "}
+                <span className="font-semibold">
+                  {typeof window !== "undefined" &&
+                  localStorage.getItem("demoUser")
+                    ? JSON.parse(localStorage.getItem("demoUser") || "{}").name
+                    : "Caregiver"}
+                </span>
               </div>
               <div className="flex items-center space-x-1 sm:space-x-2 bg-success-100 dark:bg-success-900/20 px-2 sm:px-3 py-1 rounded-full">
                 <div className="w-2 h-2 bg-success-500 rounded-full animate-pulse"></div>
-                <span className="text-xs text-success-700 dark:text-success-400 font-medium">Available</span>
+                <span className="text-xs text-success-700 dark:text-success-400 font-medium">
+                  Available
+                </span>
               </div>
               <ThemeToggle />
               <button
                 onClick={() => {
-                  if (typeof window !== 'undefined') {
+                  if (typeof window !== "undefined") {
                     // Remove demo user markers and redirect to login
-                    localStorage.removeItem('demoUserType');
-                    localStorage.removeItem('demoUser');
-                    window.location.href = '/login';
+                    localStorage.removeItem("demoUserType");
+                    localStorage.removeItem("demoUser");
+                    window.location.href = "/login";
                   }
                 }}
                 className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Logout"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
                 </svg>
               </button>
             </div>
@@ -136,26 +150,30 @@ export default function CaregiverDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex overflow-x-auto space-x-4 sm:space-x-8 -mb-px scrollbar-hide">
             {[
-              { key: 'overview', label: 'Overview', icon: '📊' },
-              { key: 'jobs', label: 'Available Jobs', icon: '💼' },
-              { key: 'calendar', label: 'My Schedule', icon: '📅' },
-              { key: 'training', label: 'Training Status', icon: '🎓' },
-              { key: 'verification', label: 'Agent Visits', icon: '✅' },
-              { key: 'messages', label: 'Messages', icon: '💬' },
-              { key: 'profile', label: 'Profile', icon: '👤' }
+              { key: "overview", label: "Overview", icon: "📊" },
+              { key: "jobs", label: "Available Jobs", icon: "💼" },
+              { key: "calendar", label: "My Schedule", icon: "📅" },
+              { key: "training", label: "Training Status", icon: "🎓" },
+              { key: "verification", label: "Agent Visits", icon: "✅" },
+              { key: "messages", label: "Messages", icon: "💬" },
+              { key: "profile", label: "Profile", icon: "👤" },
             ].map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
                 className={`py-3 sm:py-4 px-1 sm:px-2 border-b-2 font-medium text-xs sm:text-sm transition-colors whitespace-nowrap ${
                   activeTab === tab.key
-                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-500'
+                    ? "border-primary-500 text-primary-600 dark:text-primary-400"
+                    : "border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-500"
                 }`}
               >
                 <span className="mr-1 sm:mr-2">{tab.icon}</span>
-                <span className="hidden sm:inline text-xs sm:text-sm">{tab.label}</span>
-                <span className="sm:hidden text-xs">{tab.label.split(' ')[0]}</span>
+                <span className="hidden sm:inline text-xs sm:text-sm">
+                  {tab.label}
+                </span>
+                <span className="sm:hidden text-xs">
+                  {tab.label.split(" ")[0]}
+                </span>
               </button>
             ))}
           </nav>
