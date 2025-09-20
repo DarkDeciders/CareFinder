@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
@@ -20,9 +20,11 @@ export default function SplashScreen() {
       {/* Logo Container */}
       <View className="items-center mb-8">
         <View className="w-24 h-24 bg-white rounded-2xl shadow-lg items-center justify-center mb-6">
-          <View className="w-12 h-12 bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl items-center justify-center">
-            <View className="w-6 h-6 bg-white rounded-sm"></View>
-          </View>
+          <Image
+            source={require('../assets/images/logo.png')}
+            className="w-16 h-16"
+            resizeMode="contain"
+          />
         </View>
 
         <Text className="text-3xl font-bold text-white mb-2">CareFinder</Text>

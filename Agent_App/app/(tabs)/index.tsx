@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -11,9 +11,16 @@ export default function OverviewScreen() {
       {/* Header */}
       <View className="bg-white pt-12 pb-6 px-4 border-b border-gray-200">
         <View className="flex-row items-center justify-between mb-4">
-          <View>
-            <Text className="text-2xl font-bold text-gray-800">Good Morning</Text>
-            <Text className="text-gray-600">Agent John Doe</Text>
+          <View className="flex-row items-center">
+            <Image
+              source={require('../../assets/images/logo.png')}
+              className="w-8 h-8 mr-3"
+              resizeMode="contain"
+            />
+            <View>
+              <Text className="text-2xl font-bold text-gray-800">Good Morning</Text>
+              <Text className="text-gray-600">Agent John Doe</Text>
+            </View>
           </View>
           <View className="items-end">
             <View className="bg-green-100 px-3 py-1 rounded-full mb-1">

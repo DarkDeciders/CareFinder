@@ -53,12 +53,7 @@ export default function ChatbotInterface({ onClose }: ChatbotInterfaceProps) {
       <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              <circle cx="9" cy="9" r="1"/>
-              <circle cx="15" cy="9" r="1"/>
-              <path d="M8 13h8v1H8z"/>
-            </svg>
+            <span className="text-lg">🤖</span>
           </div>
           <div>
             <h3 className="font-semibold text-sm">CareFinder Assistant</h3>

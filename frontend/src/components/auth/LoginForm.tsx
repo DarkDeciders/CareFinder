@@ -38,8 +38,14 @@ export default function LoginForm({ userType, onUserTypeChange, onLogin, onDemoL
         {/* Logo */}
         <div className="text-center mb-3">
           <div className="flex items-center justify-center space-x-2 mb-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            <div className="w-10 h-10 rounded-lg overflow-hidden">
+              <Image
+                src="/logo.png"
+                alt="CareFinder Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="text-2xl font-display font-bold text-gray-900 dark:text-white">
               CareFinder
