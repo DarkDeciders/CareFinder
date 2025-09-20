@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 import AdminOverview from '../admin/AdminOverview';
 import AdminSettings from '../admin/AdminSettings';
@@ -72,8 +73,14 @@ export default function AdminDashboard() {
         {/* Logo */}
         <div className="p-6 flex-shrink-0">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 rounded-lg overflow-hidden">
+              <Image
+                src="/logo.png"
+                alt="CareFinder Logo"
+                width={32}
+                height={32}
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="text-xl font-display font-bold text-gray-900 dark:text-white">
               Admin Panel

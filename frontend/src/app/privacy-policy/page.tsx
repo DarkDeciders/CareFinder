@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PrivacyPolicy() {
   const [darkMode, setDarkMode] = useState(false);
@@ -160,8 +161,14 @@ export default function PrivacyPolicy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm"></div>
+              <div className="w-8 h-8 rounded-lg overflow-hidden">
+                <Image
+                  src="/logo.png"
+                  alt="CareFinder Logo"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="text-2xl font-display font-bold text-gray-900 dark:text-white">
                 CareFinder
@@ -341,8 +348,14 @@ export default function PrivacyPolicy() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rounded-sm"></div>
+                <div className="w-8 h-8 rounded-lg overflow-hidden">
+                  <Image
+                    src="/logo.png"
+                    alt="CareFinder Logo"
+                    width={32}
+                    height={32}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div className="text-2xl font-display font-bold">CareFinder</div>
               </div>

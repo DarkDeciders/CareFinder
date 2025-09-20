@@ -2,6 +2,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import FamilyDashboard from '@/components/dashboard/FamilyDashboard';
 import CaregiverDashboard from '@/components/dashboard/CaregiverDashboard';
 import AdminDashboard from '@/components/dashboard/AdminDashboard';
@@ -43,7 +44,15 @@ export default function Dashboard() {
     return (
       <div className="h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 flex items-center justify-center overflow-hidden">
         <div className="text-center">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg mx-auto mb-4"></div>
+          <div className="w-8 h-8 rounded-lg mx-auto mb-4 overflow-hidden">
+            <Image
+              src="/logo.png"
+              alt="CareFinder Logo"
+              width={32}
+              height={32}
+              className="w-full h-full object-contain"
+            />
+          </div>
           <p className="text-gray-600 dark:text-gray-300">Loading dashboard...</p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import AgentOverview from '../agent/AgentOverview';
 import AgentAssignments from '../agent/AgentAssignments';
 import AgentSchedule from '../agent/AgentSchedule';
@@ -38,8 +39,14 @@ export default function AgentDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-secondary-500 to-success-500 rounded-lg flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm"></div>
+              <div className="w-8 h-8 rounded-lg overflow-hidden">
+                <Image
+                  src="/logo.png"
+                  alt="CareFinder Logo"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="text-lg sm:text-xl font-display font-bold text-gray-900 dark:text-white">
                 <span className="hidden sm:inline">CareFinder </span>Agent
