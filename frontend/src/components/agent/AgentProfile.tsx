@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { getCurrentYear } from "../../lib/getCurrentYear";
 
 export default function AgentProfile() {
   const [isEditing, setIsEditing] = useState(false);
@@ -119,7 +120,7 @@ export default function AgentProfile() {
                 />
               </svg>
               <span className="text-gray-600 dark:text-gray-400">
-                Joined March 2024
+                {`Joined March ${getCurrentYear()}`}
               </span>
             </div>
           </div>

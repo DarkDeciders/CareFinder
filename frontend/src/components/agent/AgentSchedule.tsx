@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { getCurrentYear } from "../../lib/getCurrentYear";
 
 interface Assignment {
   id: number;
@@ -15,6 +16,8 @@ interface Assignment {
 
 export default function AgentSchedule() {
   const [viewType, setViewType] = useState<"week" | "day">("week");
+
+  const year = getCurrentYear();
 
   const assignments = [
     {
@@ -94,13 +97,13 @@ export default function AgentSchedule() {
     "Sunday",
   ];
   const weekDates = [
-    "Dec 16",
-    "Dec 17",
-    "Dec 18",
-    "Dec 19",
-    "Dec 20",
-    "Dec 21",
-    "Dec 22",
+    `Dec 16, ${year}`,
+    `Dec 17, ${year}`,
+    `Dec 18, ${year}`,
+    `Dec 19, ${year}`,
+    `Dec 20, ${year}`,
+    `Dec 21, ${year}`,
+    `Dec 22, ${year}`,
   ];
 
   const getTotalWorkingHours = () => {
@@ -116,7 +119,7 @@ export default function AgentSchedule() {
     dayIndex: number,
     time: string,
   ): Assignment | undefined => {
-    const dateStr = `2024-12-${16 + dayIndex}`;
+    const dateStr = `${year}-12-${String(16 + dayIndex).padStart(2, "0")}`;
     return assignments.find((a) => a.date === dateStr && a.time === time);
   };
 
@@ -213,7 +216,7 @@ export default function AgentSchedule() {
             </svg>
           </button>
           <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white text-center">
-            December 16 - 22, 2024
+            {`December 16 - 22, ${year}`}
           </h2>
           <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
             <svg
@@ -298,7 +301,7 @@ export default function AgentSchedule() {
                 {days.map((day, dayIndex) => {
                   const dayAssignments = assignments.filter((a) => {
                     const assignmentDate = new Date(a.date);
-                    const currentDate = new Date(`2024-12-${16 + dayIndex}`);
+                    const currentDate = new Date(`${year}-12-${String(16 + dayIndex).padStart(2, "0")}`);
                     return assignmentDate.getTime() === currentDate.getTime();
                   });
 
@@ -350,11 +353,11 @@ export default function AgentSchedule() {
           <div className="space-y-3 sm:space-y-4">
             <div className="text-center mb-4">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
-                Today - December 20, 2024
+                {`Today - December 20, ${year}`}
               </h3>
             </div>
             {assignments
-              .filter((a) => a.date === "2024-12-20")
+              .filter((a) => a.date === `${year}-12-20`)
               .sort((a, b) => a.time.localeCompare(b.time))
               .map((assignment) => (
                 <div

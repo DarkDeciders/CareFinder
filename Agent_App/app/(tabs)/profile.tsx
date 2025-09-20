@@ -227,7 +227,7 @@ export default function ProfileScreen() {
             </View>
             <View className="flex-row items-center">
               <Ionicons name="calendar-outline" size={20} color="#6b7280" />
-              <Text className="text-gray-600 ml-3">Joined March 2024</Text>
+              <Text className="text-gray-600 ml-3">{`Joined March ${new Date().getFullYear()}`}</Text>
             </View>
           </View>
         </View>

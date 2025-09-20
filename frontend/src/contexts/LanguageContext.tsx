@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { getCurrentYear } from "../lib/getCurrentYear";
 
 export type Language = "en" | "si" | "ta";
 
@@ -78,7 +79,7 @@ const translations = {
     "footer.legal": "Legal",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
-    "footer.copyright": "© 2024 CareFinder. All rights reserved.",
+  "footer.copyright": "© {year} CareFinder. All rights reserved.",
 
     // Trust indicators
     "trust.verified": "Verified",
@@ -199,7 +200,7 @@ const translations = {
     "footer.legal": "නීතිමය",
     "footer.privacy": "පෞද්ගලිකත්ව ප්‍රතිපත්තිය",
     "footer.terms": "සේවා කොන්දේසි",
-    "footer.copyright": "© 2024 CareFinder. සියලුම හිමිකම් ගෙවා ඇත.",
+  "footer.copyright": "© {year} CareFinder. සියලුම හිමිකම් ගෙවා ඇත.",
 
     // Trust indicators
     "trust.verified": "සත්‍යාපිත",
@@ -322,8 +323,8 @@ const translations = {
     "footer.legal": "சட்டப்பூர்வ",
     "footer.privacy": "தனியுரிமைக் கொள்கை",
     "footer.terms": "சேவை விதிமுறைகள்",
-    "footer.copyright":
-      "© 2024 CareFinder. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+  "footer.copyright":
+  "© {year} CareFinder. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
 
     // Trust indicators
     "trust.verified": "சரிபார்க்கப்பட்டது",
@@ -413,9 +414,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   };
 
   const t = (key: string): string => {
-    return (
-      translations[language][key as keyof (typeof translations)["en"]] || key
-    );
+    const raw = translations[language][key as keyof (typeof translations)["en"]] || key;
+    const year = String(getCurrentYear());
+    return String(raw).replace(/\{year\}/g, year);
   };
 
   return (
