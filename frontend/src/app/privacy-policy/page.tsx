@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { getCurrentYear } from "../../lib/getCurrentYear";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -261,7 +262,7 @@ export default function PrivacyPolicy() {
           <div className="inline-flex items-center space-x-2 bg-white/70 dark:bg-gray-800/70 rounded-full px-6 py-3 shadow-soft">
             <div className="w-3 h-3 bg-success-500 rounded-full"></div>
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Last updated: September 2024
+              {`Last updated: September ${getCurrentYear()}`}
             </span>
           </div>
         </div>
@@ -570,8 +571,8 @@ export default function PrivacyPolicy() {
 
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              &copy; 2024 CareFinder. All rights reserved. | Built with care for
-              Sri Lankan families.
+              {`© ${getCurrentYear()} CareFinder. All rights reserved. | Built with care for
+              Sri Lankan families.`}
             </p>
           </div>
         </div>

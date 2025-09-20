@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { getCurrentYear } from "../../lib/getCurrentYear";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -36,36 +37,22 @@ export default function About() {
     {
       name: "Aditha Buwaneka",
       role: "Team Leader",
-      description:
-        "Visionary leader driving CareFinder&apos;s mission to connect families with trusted caregivers.",
       image: "/team/aditha.jpg", // Placeholder - replace with actual image
     },
     {
-      name: "Nethmal Gunawardhana",
-      role: "Tech Lead",
-      description:
-        "Expert developer ensuring CareFinder delivers cutting-edge technology solutions.",
-      image: "/team/nethmal.jpg", // Placeholder - replace with actual image
+      name: "Randitha Kulasekera",
+      image: "/team/randitha.jpg", // Placeholder - replace with actual image
     },
     {
       name: "Ishan Hansaka",
-      role: "Backend Developer",
-      description:
-        "Backend specialist building robust and secure infrastructure for our platform.",
       image: "/team/ishan.jpg", // Placeholder - replace with actual image
     },
     {
-      name: "Pramudi Piyumika",
-      role: "UI/UX Designer",
-      description:
-        "Creative designer crafting intuitive and beautiful user experiences.",
-      image: "/team/pramudi.jpg", // Placeholder - replace with actual image
+      name: "Lahiruni Meegama",
+      image: "/team/lahiruni.jpg", // Placeholder - replace with actual image
     },
     {
       name: "Sakna Rajapaksha",
-      role: "Frontend Developer",
-      description:
-        "Frontend expert bringing designs to life with modern web technologies.",
       image: "/team/sakna.jpg", // Placeholder - replace with actual image
     },
   ];
@@ -658,8 +645,8 @@ export default function About() {
 
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              &copy; 2024 CareFinder. All rights reserved. | Built with care for
-              Sri Lankan families.
+              {`© ${getCurrentYear()} CareFinder. All rights reserved. | Built with care for
+              Sri Lankan families.`}
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { getCurrentYear } from "../../lib/getCurrentYear";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -835,8 +836,8 @@ export default function Contact() {
 
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              &copy; 2024 CareFinder. All rights reserved. | Built with care for
-              Sri Lankan families.
+              {`© ${getCurrentYear()} CareFinder. All rights reserved. | Built with care for
+              Sri Lankan families.`}
             </p>
           </div>
         </div>
