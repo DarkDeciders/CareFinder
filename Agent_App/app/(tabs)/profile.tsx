@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Modal, TextInput, Alert } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Modal, TextInput, Alert, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -94,7 +94,14 @@ export default function ProfileScreen() {
       {/* Header */}
       <View className="bg-white pt-12 pb-4 px-4 border-b border-gray-200">
         <View className="flex-row items-center justify-between">
-          <Text className="text-2xl font-bold text-gray-800">Agent Profile</Text>
+          <View className="flex-row items-center">
+            <Image
+              source={require('../../assets/images/logo.png')}
+              className="w-8 h-8 mr-3"
+              resizeMode="contain"
+            />
+            <Text className="text-2xl font-bold text-gray-800">Agent Profile</Text>
+          </View>
           <TouchableOpacity
             onPress={isEditing ? handleSaveProfile : () => setIsEditing(true)}
             className={`px-4 py-2 rounded-lg ${isEditing ? 'bg-green-500' : 'bg-blue-500'}`}

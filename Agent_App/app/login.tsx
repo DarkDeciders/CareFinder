@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView, Platform, ScrollView, Image } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
@@ -44,10 +44,12 @@ export default function LoginScreen() {
         {/* Header */}
         <View className="pt-16 pb-8 px-6">
           <View className="items-center mb-8">
-            <View className="w-20 h-20 bg-blue-500 rounded-2xl items-center justify-center mb-4 shadow-lg">
-              <View className="w-10 h-10 bg-white rounded-xl items-center justify-center">
-                <Ionicons name="shield-checkmark" size={24} color="#0891b2" />
-              </View>
+            <View className="w-20 h-20 bg-white rounded-2xl items-center justify-center mb-4 shadow-lg border border-gray-100">
+              <Image
+                source={require('../assets/images/logo.png')}
+                className="w-12 h-12"
+                resizeMode="contain"
+              />
             </View>
 
             <Text className="text-2xl font-bold text-gray-800 mb-1">Agent Login</Text>
