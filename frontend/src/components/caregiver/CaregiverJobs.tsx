@@ -11,11 +11,36 @@ type Job = {
   time: string;
   rate: number;
   distance: string;
+  isDirectPost?: boolean; // Added to identify family-posted jobs
 };
 
 const availableJobs: Job[] = [
+  // Family Posted Jobs (from FamilyPostJob component)
   {
     id: 1,
+    familyName: "The Perera Family",
+    location: "Colombo 03",
+    services: ["Childcare", "Tutoring"],
+    date: "2025-09-25",
+    time: "3:00 PM - 7:00 PM",
+    rate: 1200,
+    distance: "2.5 km away",
+    isDirectPost: true,
+  },
+  {
+    id: 2,
+    familyName: "Dr. Silva Family",
+    location: "Dehiwala",
+    services: ["Elder Care", "Companion Care"],
+    date: "2025-09-22",
+    time: "9:00 AM - 5:00 PM",
+    rate: 1100,
+    distance: "6 km away",
+    isDirectPost: true,
+  },
+  // Regular Job Openings
+  {
+    id: 3,
     familyName: "The Jayasuriya Family",
     location: "Colombo 05",
     services: ["Childcare", "Tutoring"],
@@ -25,7 +50,7 @@ const availableJobs: Job[] = [
     distance: "3 km away",
   },
   {
-    id: 2,
+    id: 4,
     familyName: "Mr. Bandara",
     location: "Dehiwala",
     services: ["Elder Care"],
@@ -35,7 +60,7 @@ const availableJobs: Job[] = [
     distance: "8 km away",
   },
   {
-    id: 3,
+    id: 5,
     familyName: "The Khan Family",
     location: "Wellawatte",
     services: ["Companion Care"],
@@ -45,7 +70,7 @@ const availableJobs: Job[] = [
     distance: "5 km away",
   },
   {
-    id: 4,
+    id: 6,
     familyName: "Dr. Fernando",
     location: "Colombo 07",
     services: ["Special Needs Care"],
@@ -55,7 +80,7 @@ const availableJobs: Job[] = [
     distance: "2 km away",
   },
   {
-    id: 5,
+    id: 7,
     familyName: "The Alwis Family",
     location: "Nugegoda",
     services: ["Childcare", "Light Housekeeping"],
@@ -63,6 +88,26 @@ const availableJobs: Job[] = [
     time: "Full Day",
     rate: 1000,
     distance: "6 km away",
+  },
+  {
+    id: 8,
+    familyName: "Sunrise Care Center",
+    location: "Colombo 06",
+    services: ["Elder Care", "Companion Care"],
+    date: "Flexible Schedule",
+    time: "Part-time",
+    rate: 850,
+    distance: "4.5 km away",
+  },
+  {
+    id: 9,
+    familyName: "The Rodrigo Family",
+    location: "Mount Lavinia",
+    services: ["Special Needs Care"],
+    date: "Mon-Fri",
+    time: "10:00 AM - 2:00 PM",
+    rate: 1600,
+    distance: "7 km away",
   },
 ];
 
@@ -110,9 +155,16 @@ export default function CaregiverJobs() {
 
   return (
     <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
-      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-        Available Jobs
-      </h2>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-0">
+          Job Openings
+        </h2>
+        <div className="text-sm text-gray-600 dark:text-gray-400">
+          <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full font-medium">
+            Apply to CareFinder Posts
+          </span>
+        </div>
+      </div>
 
       {/* Filters */}
       <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
@@ -179,19 +231,35 @@ export default function CaregiverJobs() {
                 </p>
               </div>
             </div>
-            <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row gap-2">
-              <button
-                onClick={() => setToast(`Applied to ${job.familyName}`)}
-                className="w-full bg-primary-600 hover:bg-primary-700 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm"
-              >
-                Apply Now
-              </button>
-              <button
-                onClick={() => setModalJob(job)}
-                className="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm"
-              >
-                View Details
-              </button>
+            <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex items-center justify-between mb-2">
+                {job.isDirectPost ? (
+                  <span className="text-xs text-green-600 dark:text-green-400 font-medium bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded-full">
+                    💚 Family Direct Post
+                  </span>
+                ) : (
+                  <span className="text-xs text-blue-600 dark:text-blue-400 font-medium bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-full">
+                    📋 Public Job Post
+                  </span>
+                )}
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Apply to be considered
+                </span>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <button
+                  onClick={() => setToast(`Applied to ${job.familyName}`)}
+                  className="w-full bg-primary-600 hover:bg-primary-700 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm"
+                >
+                  📝 Apply Now
+                </button>
+                <button
+                  onClick={() => setModalJob(job)}
+                  className="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm"
+                >
+                  View Details
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -263,7 +331,7 @@ export default function CaregiverJobs() {
                 }}
                 className="px-4 py-2 rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors"
               >
-                Apply
+                📝 Apply
               </button>
             </div>
           </div>

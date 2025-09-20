@@ -20,6 +20,7 @@ import CaregiverSchedule from "../caregiver/CaregiverSchedule";
 import CaregiverTraining from "../caregiver/CaregiverTraining";
 import CaregiverVerification from "../caregiver/CaregiverVerification";
 import CaregiverMessages from "../caregiver/CaregiverMessages";
+import CaregiverRequests from "../caregiver/CaregiverRequests";
 import ThemeToggle from "../common/ThemeToggle";
 
 /**
@@ -59,6 +60,8 @@ export default function CaregiverDashboard() {
     switch (activeTab) {
       case "overview":
         return <CaregiverOverview />;
+      case "requests":
+        return <CaregiverRequests />;
       case "jobs":
         return <CaregiverJobs />;
       case "calendar":
@@ -151,6 +154,7 @@ export default function CaregiverDashboard() {
           <nav className="flex overflow-x-auto space-x-4 sm:space-x-8 -mb-px scrollbar-hide">
             {[
               { key: "overview", label: "Overview", icon: "📊" },
+              { key: "requests", label: "Requests", icon: "📥" },
               { key: "jobs", label: "Available Jobs", icon: "💼" },
               { key: "calendar", label: "My Schedule", icon: "📅" },
               { key: "training", label: "Training Status", icon: "🎓" },
