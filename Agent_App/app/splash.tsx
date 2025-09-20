@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { LinearGradient } from "expo-linear-gradient";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withRepeat,
+  Easing,
+} from "react-native-reanimated";
 
 export default function SplashScreen() {
   useEffect(() => {
@@ -14,7 +22,13 @@ export default function SplashScreen() {
   }, []);
 
   return (
-    <View className="flex-1 bg-gradient-to-br from-blue-500 to-teal-500 justify-center items-center">
+    <LinearGradient
+      // blue-500 -> secondary 500 (teal-like) to match tailwind classes used before
+      colors={["#3b82f6", "#14b8a6"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
       <StatusBar style="light" />
 
       {/* Logo Container */}
@@ -38,21 +52,59 @@ export default function SplashScreen() {
 
       {/* Loading Indicator */}
       <View className="flex-row items-center mt-8">
-        <View className="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></View>
-        <View
-          className="w-2 h-2 bg-white/70 rounded-full mr-1 animate-pulse"
-          style={{ animationDelay: "200ms" }}
-        ></View>
-        <View
-          className="w-2 h-2 bg-white/50 rounded-full animate-pulse"
-          style={{ animationDelay: "400ms" }}
-        ></View>
+        {/* Reanimated pulsing dots */}
+        <AnimatedDot delayMs={0} />
+        <AnimatedDot delayMs={200} />
+        <AnimatedDot delayMs={400} />
       </View>
 
       {/* Version */}
       <View className="absolute bottom-8">
         <Text className="text-blue-200 text-xs">Version 1.0.0</Text>
       </View>
-    </View>
+    </LinearGradient>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+
+function AnimatedDot({ delayMs = 0 }: { delayMs?: number }) {
+  const progress = useSharedValue(0);
+
+  useEffect(() => {
+    // animate between 0 and 1 indefinitely
+    const start = () => {
+      progress.value = withRepeat(
+        withTiming(1, { duration: 600, easing: Easing.inOut(Easing.ease) }),
+        -1,
+        true
+      );
+    };
+
+    // start after the given delay
+    const timer = setTimeout(start, delayMs);
+    return () => clearTimeout(timer);
+  }, [delayMs, progress]);
+
+  const style = useAnimatedStyle(() => {
+    return {
+      opacity: 0.4 + 0.6 * progress.value,
+      transform: [{ scale: 0.75 + 0.5 * progress.value }],
+    };
+  });
+
+  return (
+    <Animated.View
+      style={[
+        { width: 8, height: 8, borderRadius: 8, backgroundColor: "white", marginRight: 6 },
+        style,
+      ]}
+    />
   );
 }
