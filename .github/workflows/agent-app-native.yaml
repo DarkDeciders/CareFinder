@@ -11,7 +11,7 @@ on:
 
   pull_request:
     branches:
-      - "**"
+      - "main"
     # This workflow will only run on pull requests where files in these paths have changed.
     paths:
       - 'Agent_App/**'
