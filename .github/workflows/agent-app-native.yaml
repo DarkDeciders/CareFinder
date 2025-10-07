@@ -33,8 +33,18 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # --- NEW STEP ADDED HERE ---
-      # This action downloads the Android SDK and sets the ANDROID_HOME variable.
+      # --- NEW CACHING STEP ADDED HERE ---
+      # This step caches the Gradle wrapper and all the downloaded Android dependencies.
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
