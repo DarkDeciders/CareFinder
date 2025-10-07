@@ -19,7 +19,11 @@ on:
 
 jobs:
   Build-Android-Native:
-    runs-on: ubuntu-latest
+    # This condition checks that the job is running in your main repository,
+    # not in a fork. This prevents PRs from outside contributors from
+    # running on your personal machine.
+    if: github.repository == 'DarkDeciders/CareFinder'
+    runs-on: self-hosted
 
     defaults:
       run:
