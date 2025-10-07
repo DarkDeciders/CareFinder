@@ -3,10 +3,19 @@ name: Build and Test CareFinder Agent App (Native)
 on:
   push:
     branches:
-      - "**"
+      - "main" # Best to run this only on your main branch, or specific release branches
+    # This workflow will only run on pushes where files in these paths have changed.
+    paths:
+      - 'Agent_App/**'
+      - '.github/workflows/agent-app-native.yaml'
+
   pull_request:
     branches:
       - "**"
+    # This workflow will only run on pull requests where files in these paths have changed.
+    paths:
+      - 'Agent_App/**'
+      - '.github/workflows/agent-app-native.yaml'
 
 jobs:
   Build-Android-Native:
@@ -33,15 +42,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # --- NEW CACHING STEP ADDED HERE ---
-      # This step caches the Gradle wrapper and all the downloaded Android dependencies.
       - name: Cache Gradle packages
         uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/build.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
@@ -58,3 +65,10 @@ jobs:
         run: cd android && ./gradlew assembleRelease
         env:
           NODE_ENV: production
+
+      # --- NEW STEP TO UPLOAD THE APK ---
+      - name: Upload APK as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: carefinder-agent-app-apk
+          path: Agent_App/android/app/build/outputs/apk/release/app-release.apk
