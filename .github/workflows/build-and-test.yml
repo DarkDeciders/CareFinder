@@ -3,16 +3,12 @@ name: Build and Test CareFinder Frontend
 on:
   # Run on pushes to any branch
   push:
-    branches:
-      - "**"
     paths:
       - 'frontend/**'
       - '.github/workflows/build-and-test.yml'
 
   # Run on pull requests targeting any branch, but only when frontend files or this workflow change
   pull_request:
-    branches:
-      - "**"
     paths:
       - 'frontend/**'
       - '.github/workflows/build-and-test.yml'
