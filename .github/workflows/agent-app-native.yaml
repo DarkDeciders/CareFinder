@@ -1,17 +1,9 @@
 name: Build and Test CareFinder Agent App (Native)
 
 on:
-  push:
-    branches:
-      - "main" # Best to run this only on your main branch, or specific release branches
-    # This workflow will only run on pushes where files in these paths have changed.
-    paths:
-      - 'Agent_App/**'
-      - '.github/workflows/agent-app-native.yaml'
-
   pull_request:
     branches:
-      - "**"
+      - "main"
     # This workflow will only run on pull requests where files in these paths have changed.
     paths:
       - 'Agent_App/**'
