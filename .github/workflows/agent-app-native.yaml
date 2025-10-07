@@ -3,7 +3,7 @@ name: Build and Test CareFinder Agent App (Native)
 on:
   push:
     branches:
-      - main
+      - "**"
   pull_request:
     branches:
       - "**"
